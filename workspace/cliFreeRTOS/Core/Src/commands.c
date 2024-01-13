@@ -242,27 +242,23 @@ static BaseType_t prvCommandGpioWrite(char *pcWriteBuffer, size_t xWriteBufferLe
 
 static BaseType_t prvCommandGpioRead( char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
-    // uint8_t ucPinState;
-    // BaseType_t xParamLen;
-    // uint8_t ucParamGpioPinNum;
-    // uint8_t ucParamGpioInstanceNum;
-    // GPIO_TypeDef *xGpioInstance = NULL;
+    BaseType_t xParamLen;
+    char * pcParam;
+    char cGpioPort; 
+    GPIO_TypeDef *xGpioInstance;
+    GPIO_PinState xPinState;
+    uint16_t uPinNumber;
 
-    // /* Get GPIO instance and pin number specified by the user */
-    // ucParamGpioInstanceNum = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
-    // ucParamGpioPinNum = FreeRTOS_CLIGetParameter(pcCommandString, 2, &xParamLen);
+    /* Get GPIO instance, pin number and new pin state specified by the user */
+    pcParam = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
+    cGpioPort = *pcParam;
+    xGpioInstance = xMapGpioInstances(*pcParam);
+    /* Get pin number */
+    pcParam = FreeRTOS_CLIGetParameter(pcCommandString, 2, &xParamLen);
+    uPinNumber = uMapGpioNumber(atoi(pcParam));
 
-    // /* Validate user parameters */
-    // if (xParamLen != 1)
-    // {
-    //     strcpy(pcWriteBuffer, "Parameter 1 should have length of 1");
-    // }
-
-    // xGpioInstance = xGPIOMapInstances[ucParamGpioInstanceNum];
-    // ucPinState = HAL_GPIO_ReadPin(xGpioInstance, ucParamGpioPinNum);
-
-    // /* Send pin state to the user */
-    // (ucPinState == GPIO_PIN_SET) ? strcpy(xWriteBufferLen, "HIGH"):strcpy(xWriteBufferLen, "LOW");
+    xPinState = HAL_GPIO_ReadPin(xGpioInstance, uPinNumber);
+    snprintf(pcWriteBuffer, xWriteBufferLen, "Pin state: %d\n", xPinState); 
 
     return pdFALSE;
 }
