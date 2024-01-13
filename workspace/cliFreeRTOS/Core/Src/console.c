@@ -113,6 +113,7 @@ void vTaskConsole(void *pvParams)
             /* Reset input buffer for next command */
             cInputIndex = 0;
             memset(pcInputString, 0x00, MAX_IN_STR_LEN);
+            memset(pcOutputString, 0x00, MAX_OUT_STR_LEN);
             vConsoleWrite("\nCommand: ", strlen("\nCommand: "));
         }
         else
