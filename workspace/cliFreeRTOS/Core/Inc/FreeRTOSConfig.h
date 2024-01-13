@@ -69,6 +69,7 @@
 #define configGENERATE_RUN_TIME_STATS 0
 #define configUSE_TASK_NOTIFICATIONS 1
 #define configTASK_NOTIFICATION_ARRAY_ENTRIES 2
+#define configCOMMAND_INT_MAX_OUTPUT_SIZE 500
 
 /* Co-routine definitions. */
 #define configUSE_CO_ROUTINES 0
