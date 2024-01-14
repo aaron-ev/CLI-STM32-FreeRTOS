@@ -1,34 +1,43 @@
 # CLI-console-FreeRTOS
-![helpCommand](/img/helpCommand.png)
+
+![welcomeMsg](/img/welcomeMsg.png)
 
 # Available commands 
 
-* GPIO read operation
-```
-gpio-r [GPIO PORT] [GPIO pin number]
+* help Command
+
+*help* command will list all available commands.
+
+![helpCommand](/img/helpCommand.png)
+
+* GPIO read command
 
 Example: Read GPIO port A pin number 2
 
-gpio-r A 2 
-```
+![gpioReadCommand](/img/gpioReadCommand.png)
 
-* GPIO write operation
-```
-gpio-w [GPIO PORT] [GPIO pin number] [New pin state]
+* GPIO write command
 
 Example: Write 1 to GPIO port C pin number 12
 
-gpio-w C 12 1 
-```
+![gpioWriteCommand](/img/gpioWriteCommand.png)
 
-* Task information 
+* Task statistics command
 
 Shows a list with relevant information of each task such as task name, 
 state, priority, stack remaining, CPU usage and runtime.
 
-```
-task-stats 
-```
 ![task-stats](/img/taskStatsCommand.png)
 
+* heap command
 
+*heap* command will display the heap size, remaining memory in the heap and 
+the minimum heap size ever existed since power on. 
+
+![heap command](/img/heapCommand.png)
+
+* clock command
+
+*clk* command will display STM32 clock information.
+
+![clk command](/img/clkCommand.png)
