@@ -27,5 +27,6 @@
 #define CONSOLE_GPIO_PORT                   GPIOB
 #define CONSOLE_BAUDRATE                    9600
 #define CONSOLE_TASK_PRIORITY               1 
+#define CONSOLE_STACK_SIZE                  3000
 
 #endif

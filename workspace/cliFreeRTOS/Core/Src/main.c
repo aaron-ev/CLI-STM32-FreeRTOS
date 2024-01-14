@@ -40,7 +40,7 @@ int main(void)
         goto main_out;
     }
 
-    retVal = xConsoleInit(3000, CONSOLE_TASK_PRIORITY);
+    retVal = xConsoleInit(CONSOLE_STACK_SIZE, CONSOLE_TASK_PRIORITY);
     if (retVal != pdTRUE)
     {
         goto main_out;
