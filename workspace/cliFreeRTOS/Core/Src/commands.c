@@ -103,60 +103,56 @@ static const uint16_t uMapGpioNumber(uint16_t uGpioNumber)
     }
 }
 
-static const CLI_Command_Definition_t xCommandTaskStats =
+static const CLI_Command_Definition_t xCommands[] = 
 {
-    "task-stats",
-    "\r\ntask-stats:\r\n Displays a table with the state of each FreeRTOS task\r\n",
-    prvCommandTaskStats,
-    0 /* 0 parameters expected */
-};
-
-static const CLI_Command_Definition_t xCommandGpioWrite =
-{
-    "gpio-w",
-    "\r\ngpio-w [gpio port] [pin number] [logical value]: Write a digital value to a port pin, example: gpio-w a 2 0 --> write logical zero to pin number 2 of GPIO port a\r\n",
-    prvCommandGpioWrite,
-    3, /* Parameters: [GPIO PORT] [GPIO pin number] [Logical value (1, 0)] */
-};
-
-static const CLI_Command_Definition_t xCommandGpioRead =
-{
-    "gpio-r",
-    "\r\ngpio-r [gpio port] [pin number] : Read logical level of a GPIO pin, example: gpio-r a 2 --> read GPIOA pin number 2\r\n",
-    prvCommandGpioRead,
-    2,
-};
-
-static const CLI_Command_Definition_t xCommandEcho =
-{
-    "echo",
-    "\r\n echo [string to echo]\r\n",
-    prvCommandEcho,
-    1,
-};
-
-static const CLI_Command_Definition_t xCommandPwmSetFreq =
-{
-    "pwm-f",
-    "\r\npwm-f [pwmChannel] [new frequency]: Update PWM frequency of a giving channel \r\n",
-    prvCommandPwmSetFreq,
-    2,
-};
-
-static const CLI_Command_Definition_t xCommandPwmSetDuty =
-{
-    "pwmSetDuty",
-    "\r\npwmSetDuty [pwmChannel] [new duty cycle]: Update PWM duty cycle of a giving channel \r\n",
-    prvCommandPwmSetDuty,
-    2,
-};
-
-static const CLI_Command_Definition_t xCommandUartListen =
-{
-    "uart-listen",
-    "\r\nuart-listen [uart instance]: Listen teh RX hardware buffer \r\n",
-    prvCommandUartListen,
-    2,
+    {
+        "task-stats",
+        "\r\ntask-stats:\r\n Displays a table with the state of each FreeRTOS task\r\n",
+        prvCommandTaskStats,
+        0 /* 0 parameters expected */
+    },
+    {
+        "gpio-w",
+        "\r\ngpio-w [gpio port] [pin number] [logical value]: Write a digital value to a port pin, example: gpio-w a 2 0 --> write logical zero to pin number 2 of GPIO port a\r\n",
+        prvCommandGpioWrite,
+        3 /* Parameters: [GPIO PORT] [GPIO pin number] [Logical value (1, 0)] */
+    },
+    {
+        "gpio-r",
+        "\r\ngpio-r [gpio port] [pin number] : Read logical level of a GPIO pin, example: gpio-r a 2 --> read GPIOA pin number 2\r\n",
+        prvCommandGpioRead,
+        2
+    },
+    {
+       "echo",
+       "\r\n echo [string to echo]\r\n",
+       prvCommandEcho,
+       1
+    },
+    {
+        "pwm-f",
+        "\r\npwm-f [pwmChannel] [new frequency]: Update PWM frequency of a giving channel \r\n",
+        prvCommandPwmSetFreq,
+        2
+    },
+    {
+        "pwmSetDuty",
+        "\r\npwmSetDuty [pwmChannel] [new duty cycle]: Update PWM duty cycle of a giving channel \r\n",
+        prvCommandPwmSetDuty,
+        2
+    },
+    {
+        "uart-listen",
+        "\r\nuart-listen [uart instance]: Listen teh RX hardware buffer \r\n",
+        prvCommandUartListen,
+        2
+    },
+    {
+        NULL, 
+        NULL,
+        NULL,
+        0
+    }
 };
 
 static BaseType_t prvCommandTaskStats( char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
@@ -346,11 +342,9 @@ static BaseType_t prvCommandUartListen(char *pcWriteBuffer, size_t xWriteBufferL
 
 void vConsoleRegisterCommands(void)
 {
-    FreeRTOS_CLIRegisterCommand(&xCommandEcho);
-    FreeRTOS_CLIRegisterCommand(&xCommandGpioRead);
-    FreeRTOS_CLIRegisterCommand(&xCommandGpioWrite);
-    FreeRTOS_CLIRegisterCommand(&xCommandPwmSetDuty);
-    FreeRTOS_CLIRegisterCommand(&xCommandPwmSetFreq);
-    FreeRTOS_CLIRegisterCommand(&xCommandTaskStats);
-    FreeRTOS_CLIRegisterCommand(&xCommandUartListen);
+    const CLI_Command_Definition_t *pCommand; 
+    for (pCommand = xCommands; pCommand->pcCommand != NULL; pCommand++)
+    {
+        FreeRTOS_CLIRegisterCommand(pCommand);
+    }
 }
