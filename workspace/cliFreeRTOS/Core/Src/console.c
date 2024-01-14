@@ -34,7 +34,6 @@ static const char *prvpcTaskListHeader = "Task states: BL = Blocked RE = Ready D
 /* Private available commands */
 static BaseType_t prvCommandPwmSetFreq(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandPwmSetDuty(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
-static BaseType_t prvCommandUartListen(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandGpioWrite(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandGpioRead( char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandEcho( char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
@@ -153,12 +152,6 @@ static const CLI_Command_Definition_t xCommands[] =
         "pwm-d",
         "\r\npwmSetDuty [pwmChannel] [new duty cycle]: Update PWM duty cycle of a giving channel \r\n",
         prvCommandPwmSetDuty,
-        2
-    },
-    {
-        "uart-l",
-        "\r\nuart-l [uart instance]: Listen teh RX hardware buffer \r\n",
-        prvCommandUartListen,
         2
     },
     {
@@ -334,34 +327,6 @@ static BaseType_t prvCommandPwmSetDuty(char *pcWriteBuffer, size_t xWriteBufferL
 	return pdFALSE;
 }
 
-static BaseType_t prvCommandUartListen(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
-{
-    // char cReadChar;
-    // BaseType_t xParamLen;
-    // TickType_t xTimeToListen;
-    // TickType_t xStartListening;
-
-    // xTimeToListen = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
-    // xTimeToListen = pdMS_TO_TICKS(xTimeToListen);
-
-    // if (xSemaphoreTake(xUartRxMutex, pdMS_TO_TICKS(100)) != pdTRUE)
-    // {
-    //     strcpy(pcWriteBuffer, "Error: Could not listen UART device");
-    // }
-    // else
-    // {
-    //     /* Read RX characters until time specified by ther user */
-    //     xStartListening = xTaskGetTickCount();
-    //     while (xTaskGetTickCount() - xStartListening < xTimeToListen)
-    //     {
-    //         QueueReceive(xQueueInputHandle, cReadChar, 1);
-    //         pcWriteBuffer[0] = cReadChar;
-    //         return pdTRUE;
-    //     }
-    //      strcpy(pcWriteBuffer, "CONSOLE: Time for listening completed\n");
-    // }
-     return pdFALSE;
-}
 static BaseType_t prvCommandHeap(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
 
