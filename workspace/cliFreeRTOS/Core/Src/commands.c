@@ -24,7 +24,7 @@ static BaseType_t prvCommandGpioRead( char *pcWriteBuffer, size_t xWriteBufferLe
 static BaseType_t prvCommandEcho( char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandTaskStats( char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 
-static const char *prvpcTaskListHeader = "Task states: BL = Blocked Re = Ready DE = Deleted  SU = Suspended\n\n"\
+static const char *prvpcTaskListHeader = "Task states: BL = Blocked RE = Ready DE = Deleted  SU = Suspended\n\n"\
                                          "Task name                         State  Priority  Stack remaining  %%CPU usage  Runtime\n"\
                                          "================================  =====  ========  ===============  ===========  =======\n";
 
@@ -75,7 +75,7 @@ static const GPIO_TypeDef *xMapGpioInstances(const char pcGpioInstance)
     }
     else 
     {
-        /* Ddo nothing*/
+        return NULL;
     }
 }
 
@@ -99,7 +99,7 @@ static const uint16_t uMapGpioNumber(uint16_t uGpioNumber)
         case 13: return GPIO_PIN_13;
         case 14: return GPIO_PIN_14;
         case 15: return GPIO_PIN_15;
-        default: break; /* Do nothing */
+        default: return 0; /* Invalid GPIO pin number */
     }
 }
 
@@ -113,16 +113,16 @@ static const CLI_Command_Definition_t xCommandTaskStats =
 
 static const CLI_Command_Definition_t xCommandGpioWrite =
 {
-    "gpio-write",
-    "\r\ngpio-write [gpio port] [pin number] [logical value]: Write a digital value to a port pin, example: gpio-write a 2 0 --> write logical zero to pin number 2 of GPIO port a\r\n",
+    "gpio-w",
+    "\r\ngpio-w [gpio port] [pin number] [logical value]: Write a digital value to a port pin, example: gpio-w a 2 0 --> write logical zero to pin number 2 of GPIO port a\r\n",
     prvCommandGpioWrite,
     3, /* Parameters: [GPIO PORT] [GPIO pin number] [Logical value (1, 0)] */
 };
 
 static const CLI_Command_Definition_t xCommandGpioRead =
 {
-    "gpio-read",
-    "\r\ngpio-read [gpio port] [pin number] : Read logical level of a GPIO pin, example: gpio-read a 2 --> read GPIOA pin number 2\r\n",
+    "gpio-r",
+    "\r\ngpio-r [gpio port] [pin number] : Read logical level of a GPIO pin, example: gpio-r a 2 --> read GPIOA pin number 2\r\n",
     prvCommandGpioRead,
     2,
 };
@@ -189,7 +189,6 @@ static BaseType_t prvCommandTaskStats( char *pcWriteBuffer, size_t xWriteBufferL
             uTotalRunTime = 1;
 
         pxTmpTaskStatus = &pxTaskStatus[uTaskIndex];
-
         snprintf(pcWriteBuffer, xWriteBufferLen, 
                 "%-32s  %5s  %8lu  %15u  %11u  %7u\n",
                 pxTmpTaskStatus->pcTaskName, 
@@ -216,7 +215,8 @@ out_cmd_task_stats :
     }
 }
 
-static BaseType_t prvCommandGpioWrite(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
+static BaseType_t prvCommandGpioWrite(char *pcWriteBuffer, size_t xWriteBufferLen,\
+                                      const char *pcCommandString)
 {
     BaseType_t xParamLen;
     char * pcParam;
@@ -228,19 +228,40 @@ static BaseType_t prvCommandGpioWrite(char *pcWriteBuffer, size_t xWriteBufferLe
     /* Get GPIO instance, pin number and new pin state specified by the user */
     pcParam = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
     cGpioPort = *pcParam;
-    xGpioInstance = xMapGpioInstances(*pcParam);
+    xGpioInstance = xMapGpioInstances(cGpioPort);
+    if (xGpioInstance == NULL)
+    {
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: invalid GPIO port\n"); 
+        goto out_cmd_gpio_write;
+    }
+
     /* Get pin number */
     pcParam = FreeRTOS_CLIGetParameter(pcCommandString, 2, &xParamLen);
     uPinNumber = uMapGpioNumber(atoi(pcParam));
+    if (uPinNumber < GPIO_PIN_0 || uPinNumber > GPIO_PIN_15)
+    {
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: invalid pin number\n"); 
+        goto out_cmd_gpio_write;
+    }
+
     /* Get new pin state */
     pcParam = FreeRTOS_CLIGetParameter(pcCommandString, 3, &xParamLen);
     xNewPinState = atoi(pcParam);
-    HAL_GPIO_WritePin(xGpioInstance, uPinNumber, xNewPinState);
+    if (xNewPinState != GPIO_PIN_SET && xNewPinState != GPIO_PIN_RESET)
+    {
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: invalid pin state\n"); 
+        goto out_cmd_gpio_write;
+    }
 
+    HAL_GPIO_WritePin(xGpioInstance, uPinNumber, xNewPinState);
+    snprintf(pcWriteBuffer, xWriteBufferLen, "Pin set to %d\n", xNewPinState);
+
+out_cmd_gpio_write:
     return pdFALSE;
 }
 
-static BaseType_t prvCommandGpioRead( char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
+static BaseType_t prvCommandGpioRead(char *pcWriteBuffer, size_t xWriteBufferLen\
+                                     , const char *pcCommandString)
 {
     BaseType_t xParamLen;
     char * pcParam;
@@ -253,13 +274,25 @@ static BaseType_t prvCommandGpioRead( char *pcWriteBuffer, size_t xWriteBufferLe
     pcParam = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
     cGpioPort = *pcParam;
     xGpioInstance = xMapGpioInstances(*pcParam);
+    if (xGpioInstance == NULL)
+    {
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: invalid GPIO port\n"); 
+        goto out_cmd_gpio_read;
+    }
+
     /* Get pin number */
     pcParam = FreeRTOS_CLIGetParameter(pcCommandString, 2, &xParamLen);
     uPinNumber = uMapGpioNumber(atoi(pcParam));
+    if (uPinNumber < GPIO_PIN_0 || uPinNumber > GPIO_PIN_15)
+    {
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: invalid pin number\n"); 
+        goto out_cmd_gpio_read;
+    }
 
     xPinState = HAL_GPIO_ReadPin(xGpioInstance, uPinNumber);
     snprintf(pcWriteBuffer, xWriteBufferLen, "Pin state: %d\n", xPinState); 
 
+out_cmd_gpio_read:
     return pdFALSE;
 }
 
