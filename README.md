@@ -1,45 +1,47 @@
 
+Table of contents:
+- [CLI based on FreeRTOS and STM32](#cli-based-on-freertos-and-stm32)
+- [Help command](#help-command)
+- [GPIO read command](#gpio-read-command)
+- [GPIO write command](#gpio-write-command)
+- [Task statistics command](#task-statistics-command)
+- [Heap command](#heap-command)
+- [Clock command](#clock-command)
+
 # CLI based on FreeRTOS and STM32
 ![welcomeMsg](/img/welcomeMsg.png)
 
-Index:
-- [CLI based on FreeRTOS and STM32](#cli-based-on-freertos-and-stm32)
-  - [Help command](#help-command)
-  - [GPIO read command](#gpio-read-command)
-  - [GPIO write command](#gpio-write-command)
-  - [Task statistics command](#task-statistics-command)
-  - [Heap command](#heap-command)
-  - [Clock command](#clock-command)
 
-## Help command
+
+# Help command
 
 *help* command will list all available commands.
 
 ![helpCommand](/img/helpCommand.png)
 
-## GPIO read command
+# GPIO read command
 
 Example: Read GPIO port A pin number 2
 
 ![gpioReadCommand](/img/gpioReadCommand.png)
-## GPIO write command
+# GPIO write command
 
 Example: Write 1 to GPIO port C pin number 12
 
 ![gpioWriteCommand](/img/gpioWriteCommand.png)
 
-## Task statistics command
+# Task statistics command
 Shows a list with relevant information of each task such as task name, 
 state, priority, stack remaining, CPU usage and runtime.
 
 ![task-stats](/img/taskStatsCommand.png)
 
-## Heap command
+# Heap command
 
 *heap* command will display the heap size, remaining memory in the heap and 
 the minimum heap size ever existed since power on. 
 
-## Clock command
+# Clock command
 
 *clk* command will display STM32 clock information.
 
