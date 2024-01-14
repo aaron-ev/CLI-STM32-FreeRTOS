@@ -16,6 +16,7 @@
 #include "console.h"
 
 TaskHandle_t xTaskHeartBeatHandler; 
+extern UART_HandleTypeDef consoleHandle;
 
 /*
 * Task to indicate the freeRTOS app is alive.
@@ -40,7 +41,8 @@ int main(void)
         goto main_out;
     }
 
-    retVal = xConsoleInit(CONSOLE_STACK_SIZE, CONSOLE_TASK_PRIORITY);
+    retVal = xConsoleInit(CONSOLE_STACK_SIZE, CONSOLE_TASK_PRIORITY, 
+                          &consoleHandle);
     if (retVal != pdTRUE)
     {
         goto main_out;

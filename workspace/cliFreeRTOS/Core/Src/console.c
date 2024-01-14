@@ -22,7 +22,7 @@
 #define MAX_OUT_STR_LEN                         300
 #define MAX_RX_QUEUE_LEN                        300
 
-extern UART_HandleTypeDef consoleHandle;
+UART_HandleTypeDef *pxUartDevHandle;
 
 char cRxData;
 QueueHandle_t xQueueRxHandle;
@@ -414,7 +414,11 @@ static HAL_StatusTypeDef vConsoleWrite(const char *buff, size_t len)
 	HAL_StatusTypeDef status;
 
     /* No preprocessing needed, write directly to the hardware */
-    status = HAL_UART_Transmit(&consoleHandle, (uint8_t *)buff, len, portMAX_DELAY);
+    if (pxUartDevHandle == NULL)
+    {
+        return HAL_ERROR;
+    }
+    status = HAL_UART_Transmit(pxUartDevHandle, (uint8_t *)buff, len, portMAX_DELAY);
     if ( status != HAL_OK)
     {
     	return HAL_ERROR;
@@ -425,7 +429,11 @@ static HAL_StatusTypeDef vConsoleWrite(const char *buff, size_t len)
 
 void vConsoleEnableRxInterrupt(void)
 {
-	HAL_UART_Receive_IT(&consoleHandle,(uint8_t*)&cRxData, 1);
+    if (pxUartDevHandle == NULL)
+    {
+        return;
+    }
+    HAL_UART_Receive_IT(pxUartDevHandle,(uint8_t*)&cRxData, 1);
 }
 
 void vTaskConsole(void *pvParams)
@@ -526,9 +534,16 @@ out_task_console:
     vTaskDelete(NULL);
 }
 
-BaseType_t xConsoleInit(uint16_t usStackSize, UBaseType_t uxPriority)
+BaseType_t xConsoleInit(uint16_t usStackSize, UBaseType_t uxPriority, UART_HandleTypeDef *pxUartHandle)
 {
     const CLI_Command_Definition_t *pCommand; 
+    
+    if (pxUartHandle == NULL)
+    {
+        return pdFALSE;
+    }
+    pxUartDevHandle =  pxUartHandle;
+
     /* Register all commands that can be accessed by the user */
     for (pCommand = xCommands; pCommand->pcCommand != NULL; pCommand++)
     {
