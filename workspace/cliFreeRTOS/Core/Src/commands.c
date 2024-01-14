@@ -304,7 +304,7 @@ static BaseType_t prvCommandEcho( char *pcWriteBuffer, size_t xWriteBufferLen, c
     char *pcStrToOutput;
     BaseType_t xParamLen;
     pcStrToOutput = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
-    strcpy(pcWriteBuffer, pcStrToOutput);
+    snprintf(pcWriteBuffer, xWriteBufferLen, pcStrToOutput); 
     return pdFALSE;
 }
 
