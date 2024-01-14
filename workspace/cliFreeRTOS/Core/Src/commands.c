@@ -7,14 +7,11 @@
 #include "stm32f4xx_hal.h"
 
 /*
-* TODO_LIST:   * GPIO: Check GPIO instance numbers in GPIO functions.
+* TODO_LIST:   * GPIO: Check GPIO instance numbers in GPIO functions. -- completed
                * UART: Figure out how to listen a UART channel with just one queue or multiple.
                * UART: prvCommandUartListen: Check how to write correctly to the FreeRTOS output buffer.
                * PWM: NONE
 */
-
-//extern xSemaphoreHandle xUartRxMutex;
-//extern QueueHandle_t xQueueInputHandle;
 
 static BaseType_t prvCommandPwmSetFreq(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandPwmSetDuty(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
@@ -24,6 +21,7 @@ static BaseType_t prvCommandGpioRead( char *pcWriteBuffer, size_t xWriteBufferLe
 static BaseType_t prvCommandEcho( char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandTaskStats( char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandHeap(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
+static BaseType_t prvCommandClk(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 
 static const char *prvpcTaskListHeader = "Task states: BL = Blocked RE = Ready DE = Deleted  SU = Suspended\n\n"\
                                          "Task name                         State  Priority  Stack remaining  %%CPU usage  Runtime\n"\
@@ -150,8 +148,14 @@ static const CLI_Command_Definition_t xCommands[] =
     },
     {
         "heap",
-        "\r\nmem: Display free heap memory\r\n",
+        "\r\nheap: Display free heap memory\r\n",
         prvCommandHeap,
+        0
+    },
+    {
+        "clk",
+        "\r\nclk: Display clock information\r\n",
+        prvCommandClk,
         0
     },
     {
@@ -361,6 +365,14 @@ static BaseType_t prvCommandHeap(char *pcWriteBuffer, size_t xWriteBufferLen, co
     return pdFALSE;
 }
 
+static BaseType_t prvCommandClk(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
+{
+    uint32_t uSysClock;
+    SystemCoreClockUpdate();
+    uSysClock = HAL_RCC_GetHCLKFreq();
+    snprintf(pcWriteBuffer, xWriteBufferLen, "System clock: %u Hz (%3u kHz) (%3u MHz)\n", uSysClock, uSysClock / 1000, uSysClock / 1000000);
+    return pdFALSE;
+}
 
 
 void vConsoleRegisterCommands(void)
