@@ -99,6 +99,12 @@ void vTaskConsole(void *pvParams)
         /* New line character received, command received correctly */
         if (cReadCh == '\n')
         {
+              if (cInputIndex == 0)
+              {
+                  /* User only typed enter*/
+                  vConsoleWrite("Command: ", strlen("Command: "));
+                  continue;
+              }
             do
             {
                 xMoreDataToProcess = FreeRTOS_CLIProcessCommand
@@ -129,6 +135,10 @@ void vTaskConsole(void *pvParams)
                 {
                     cInputIndex--;
                     pcInputString[cInputIndex] = '\0';
+                }
+                else
+                {
+                    vConsoleWrite(" ", strlen(" "));
                 }
             }
             else
