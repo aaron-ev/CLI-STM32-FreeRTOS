@@ -11,8 +11,6 @@ Table of contents:
 # CLI based on FreeRTOS and STM32
 ![welcomeMsg](/img/welcomeMsg.png)
 
-
-
 # Help command
 
 *help* command will list all available commands.
@@ -40,6 +38,8 @@ state, priority, stack remaining, CPU usage and runtime.
 
 *heap* command will display the heap size, remaining memory in the heap and 
 the minimum heap size ever existed since power on. 
+
+![heap command](/img/heapCommand.png)
 
 # Clock command
 
