@@ -40,6 +40,7 @@ static BaseType_t prvCommandEcho( char *pcWriteBuffer, size_t xWriteBufferLen, c
 static BaseType_t prvCommandTaskStats( char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandHeap(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandClk(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
+static BaseType_t prvCommandTicks(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 
 static const char *prvpcMapTaskState(eTaskState eState)
 {
@@ -164,6 +165,12 @@ static const CLI_Command_Definition_t xCommands[] =
         "clk",
         "\r\nclk: Display clock information\r\n",
         prvCommandClk,
+        0
+    },
+    {
+        "ticks",
+        "\r\nticks: Display OS tick count and run time in seconds\r\n",
+        prvCommandTicks,
         0
     },
     {
@@ -380,6 +387,22 @@ static BaseType_t prvCommandClk(char *pcWriteBuffer, size_t xWriteBufferLen, con
              uPCLK2, uPCLK2 / 1000, uPCLK2 / 1000000,
              APB1TimerClocks, APB1TimerClocks / 1000, APB1TimerClocks / 1000000,
              APB2TimerClocks, APB2TimerClocks / 1000, APB2TimerClocks / 1000000);
+
+    return pdFALSE;
+}
+
+static BaseType_t prvCommandTicks(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
+{
+    uint32_t uSec; 
+    uint32_t uMs;
+    TickType_t xTickCount = xTaskGetTickCount();
+
+    uSec = xTickCount / configTICK_RATE_HZ;
+    uMs = xTickCount % configTICK_RATE_HZ;
+
+    snprintf(pcWriteBuffer, xWriteBufferLen,
+             "\nTick rate: %u Hz\nTicks: %u\nRun time: %u.%.3u seconds\n",
+              configTICK_RATE_HZ, xTickCount, uSec, uMs);
 
     return pdFALSE;
 }
