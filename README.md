@@ -7,6 +7,7 @@ Table of contents:
 - [Task statistics command](#task-statistics-command)
 - [Heap command](#heap-command)
 - [Clock command](#clock-command)
+- [ticks command](#ticks-command)
 
 # CLI based on FreeRTOS and STM32
 ![welcomeMsg](/img/welcomeMsg.png)
@@ -46,3 +47,16 @@ the minimum heap size ever existed since power on.
 *clk* command will display STM32 clock information.
 
 ![clk command](/img/clkCommand.png)
+
+# ticks command
+
+*ticks* command will display FreeRTOS tick count in ticks and run time in
+seconds.
+
+```
+Command: ticks
+
+Tick rate: 1000 Hz
+Ticks: 2852
+Run time: 2.852 seconds
+```
