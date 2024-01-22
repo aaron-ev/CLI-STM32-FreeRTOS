@@ -1,3 +1,4 @@
+IMPORTANT: This repo is under development and first release will be posted by end of February 2024.
 
 Table of contents:
 - [CLI based on FreeRTOS and STM32](#cli-based-on-freertos-and-stm32)
