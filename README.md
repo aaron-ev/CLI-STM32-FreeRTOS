@@ -9,6 +9,7 @@ Table of contents:
 - [Heap command](#heap-command)
 - [Clock command](#clock-command)
 - [Ticks command](#ticks-command)
+- [Pwm set frequency and set duty command](#pwm-set-frequency-and-set-duty-command)
 
 # CLI based on FreeRTOS and STM32
 
@@ -132,3 +133,11 @@ Tick rate: 1000 Hz
 Ticks: 2852
 Run time: 2.852 seconds
 ```
+
+# Pwm set frequency and set duty command
+
+*pwm-f* set a new frequency in Hz.
+
+*pwm-d* set a new duty of a giving timer and channel. Duty cycle must be between 1% and 100%.
+
+![pwm-f command](/img/pwmCommand.png)

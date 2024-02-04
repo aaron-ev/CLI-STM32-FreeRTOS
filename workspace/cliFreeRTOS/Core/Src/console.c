@@ -17,6 +17,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
+#include "bspPwm.h"
 
 #define MAX_IN_STR_LEN                          300
 #define MAX_OUT_STR_LEN                         600
@@ -145,13 +146,13 @@ static const CLI_Command_Definition_t xCommands[] =
     },
     {
         "pwm-f",
-        "\r\npwm-f [pwmChannel] [new frequency]: Update PWM frequency of a giving channel \r\n",
+        "\r\npwm-f [Frequency]: Set a new frequency \r\n",
         prvCommandPwmSetFreq,
-        2
+        1
     },
     {
         "pwm-d",
-        "\r\npwmSetDuty [pwmChannel] [new duty cycle]: Update PWM duty cycle of a giving channel \r\n",
+        "\r\npwm-d [Duty cycle] [Channel]: Set a new PWM duty cycle of a giving channel \r\n",
         prvCommandPwmSetDuty,
         2
     },
@@ -327,11 +328,29 @@ static BaseType_t prvCommandEcho( char *pcWriteBuffer, size_t xWriteBufferLen, c
 
 static BaseType_t prvCommandPwmSetFreq(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
-	return pdFALSE;
+    const char * pcFreq;
+    BaseType_t xParamLen;
+
+    pcFreq = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
+    bspPwmSetFreq(atoi(pcFreq));
+    snprintf(pcWriteBuffer, xWriteBufferLen, "Frequency set to %dHz\n", atoi(pcFreq));
+
+    return pdFALSE;
 }
 static BaseType_t prvCommandPwmSetDuty(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
-	return pdFALSE;
+    const char * pcDutyCycle;
+    const char * pcChannel;
+    BaseType_t xParamLen;
+
+    pcDutyCycle = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
+    pcChannel = FreeRTOS_CLIGetParameter(pcCommandString, 2, &xParamLen);
+
+    /* Index starts at index 0, so 1 is subtracted from channel */
+    bspPwmSetDuty(atoi(pcDutyCycle), atoi(pcChannel) - 1);
+    snprintf(pcWriteBuffer, xWriteBufferLen, "Channel %d set to %d%% duty cycle \n", atoi(pcChannel), atoi(pcDutyCycle));
+
+    return pdFALSE;
 }
 
 static BaseType_t prvCommandHeap(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)

@@ -59,7 +59,10 @@ int main(void)
     {
         goto main_out;
     }
-
+    bspPwmStart(PWM_CH_1);
+    bspPwmStart(PWM_CH_2);
+    bspPwmStart(PWM_CH_3);
+    bspPwmStart(PWM_CH_4);
     vTaskStartScheduler();
 
 main_out:

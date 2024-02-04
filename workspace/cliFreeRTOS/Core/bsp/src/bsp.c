@@ -35,7 +35,8 @@ static HAL_StatusTypeDef clkInit(void)
         return HAL_ERROR;
     }
 
-    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK 
+                                  | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
     RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
     RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
     RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
@@ -112,6 +113,12 @@ HAL_StatusTypeDef bspInit(void)
 
     /* Initialize heart beat led */
     heartBeatInit();
+
+    halStatus = bspPwmInit();
+    if (halStatus != HAL_OK)
+    {
+        return HAL_ERROR;
+    }
 
     return halStatus;
 }

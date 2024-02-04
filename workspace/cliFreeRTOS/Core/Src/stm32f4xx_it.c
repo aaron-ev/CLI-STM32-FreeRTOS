@@ -1,5 +1,7 @@
 #include "main.h"
 #include "stm32f4xx_it.h"
+#include "stdint.h"
+#include "bspPwm.h"
 
 extern TIM_HandleTypeDef htim9;
 extern UART_HandleTypeDef consoleHandle;
@@ -86,4 +88,25 @@ void TIM1_BRK_TIM9_IRQHandler(void)
 void USART1_IRQHandler(void)
 {
     HAL_UART_IRQHandler(&consoleHandle);
+}
+
+
+/*
+  Handler for PWM signal
+*/
+void TIM2_IRQHandler(void)
+{
+    TIM_HandleTypeDef* pwmTimHandler = bspPwmGetHandler();  
+    if (pwmTimHandler)
+    {
+        HAL_TIM_IRQHandler(pwmTimHandler);
+    }
+}
+
+/*
+	Callback for pwm signal
+*/
+void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *timerHandler)
+{
+    return;
 }

@@ -13,9 +13,13 @@ void HAL_MspInit(void)
     __HAL_RCC_GPIOA_CLK_ENABLE();
     __HAL_RCC_GPIOB_CLK_ENABLE();
     __HAL_RCC_GPIOC_CLK_ENABLE();
+    __HAL_RCC_TIM2_CLK_ENABLE();
 
     /* Enable clock for the console */
     __HAL_RCC_USART1_CLK_ENABLE();
+
+    HAL_NVIC_SetPriority(TIM2_IRQn, 14, 0);
+    HAL_NVIC_EnableIRQ(TIM2_IRQn);
 }
 
 void HAL_UART_MspInit(UART_HandleTypeDef* uartHandler)
@@ -39,3 +43,16 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandler)
     }
 }
 
+
+void HAL_TIM_OC_MspInit(TIM_HandleTypeDef *timerHandler)
+{
+    GPIO_InitTypeDef pwmGpioInit = {0};
+
+    /* BUZZER: GPIO settings */
+    pwmGpioInit.Pin = PWM_GPIO_PINX;
+    pwmGpioInit.Mode = GPIO_MODE_AF_PP;
+    pwmGpioInit.Pull = GPIO_NOPULL;
+    pwmGpioInit.Speed = GPIO_SPEED_FREQ_LOW;
+    pwmGpioInit.Alternate = PWM_GPIO_ALTERNATE;
+    HAL_GPIO_Init(PWM_GPIO_INSTANCE, &pwmGpioInit);
+}
