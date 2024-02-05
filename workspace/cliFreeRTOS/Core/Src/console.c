@@ -23,6 +23,16 @@
 #define MAX_OUT_STR_LEN                         600
 #define MAX_RX_QUEUE_LEN                        300
 
+                                          /* ASCII codes          */
+#define ASCII_TAB                   '\t'  /* Tabulate             */
+#define ASCII_CR                    '\r'  /* Carriage return      */
+#define ASCII_LF                    '\n'  /* Line feed            */
+#define ASCII_BACKSPACE             '\b'  /* Back space           */
+#define ASCII_FORM_FEED             '\f'  /* Form feed            */
+#define ASCII_DEL                   127   /* Delete               */
+#define ASCII_CTRL_PLUS_C             3   /* CTRL + C             */ 
+#define ASCII_NACK                   21   /* Negative acknowledge */
+
 UART_HandleTypeDef *pxUartDevHandle;
 
 char cRxData;
@@ -32,6 +42,8 @@ static const char *pcWelcomeMsg = "Welcome to the console. Enter 'help' to view 
 static const char *prvpcTaskListHeader = "Task states: BL = Blocked RE = Ready DE = Deleted  SU = Suspended\n\n"\
                                          "Task name                         State  Priority  Stack remaining  %%CPU usage  Runtime\n"\
                                          "================================  =====  ========  ===============  ===========  =======\n";
+static const char *prvpcPrompt = "#cmd: ";
+
 /* Private available commands */
 static BaseType_t prvCommandPwmSetFreq(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandPwmSetDuty(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
@@ -448,12 +460,13 @@ static BaseType_t xConsoleRead(uint8_t *cReadChar, size_t xLen)
 /*
     Description: Write to TX device. 
 */
-static HAL_StatusTypeDef vConsoleWrite(const char *buff, size_t len)
+static HAL_StatusTypeDef vConsoleWrite(const char *buff)
 {
-	HAL_StatusTypeDef status;
+    HAL_StatusTypeDef status;
+    size_t len = strlen(buff); 
 
     /* No preprocessing needed, write directly to the hardware */
-    if (pxUartDevHandle == NULL)
+    if (pxUartDevHandle == NULL || *buff == '\0')
     {
         return HAL_ERROR;
     }
@@ -464,7 +477,6 @@ static HAL_StatusTypeDef vConsoleWrite(const char *buff, size_t len)
     }
     return status;
 }
-
 
 void vConsoleEnableRxInterrupt(void)
 {
@@ -477,10 +489,11 @@ void vConsoleEnableRxInterrupt(void)
 
 void vTaskConsole(void *pvParams)
 {
-    uint8_t cReadCh;
+    char cReadCh = '\0';
     uint8_t uInputIndex = 0;
     BaseType_t xMoreDataToProcess;
     char pcInputString[MAX_IN_STR_LEN];
+    char pcPrevInputString[MAX_IN_STR_LEN];
     char pcOutputString[MAX_OUT_STR_LEN];
 
     memset(pcInputString, 0x00, MAX_IN_STR_LEN);
@@ -495,10 +508,9 @@ void vTaskConsole(void *pvParams)
 
 
     /* Send a welcome message to the user */
-    vConsoleWrite(pcWelcomeMsg, strlen(pcWelcomeMsg));
-
+    vConsoleWrite(pcWelcomeMsg);
     vConsoleEnableRxInterrupt();
-    vConsoleWrite("\nCommand: ", strlen("\nCommand: "));
+    vConsoleWrite(prvpcPrompt);
 
     while(1)
     {
@@ -506,63 +518,75 @@ void vTaskConsole(void *pvParams)
         /* Block until there is a new character in RX buffer */
         xConsoleRead(&cReadCh, sizeof(cReadCh));
 
-        /* Echo any user character */
-        vConsoleWrite(&cRxData, 1);
-
-        /* New line character received, command received correctly */
-        if (cReadCh == '\n')
+        switch (cReadCh)
         {
-              if (uInputIndex == 0)
-              {
-                  /* User only typed enter*/
-                  vConsoleWrite("Command: ", strlen("Command: "));
-                  continue;
-              }
-            do
-            {
-                xMoreDataToProcess = FreeRTOS_CLIProcessCommand
-                                     (
-                                        pcInputString,    /* Command string*/
-                                        pcOutputString,   /* Output buffer */
-                                        MAX_OUT_STR_LEN   /* Output buffer size */
-                                     );
-                vConsoleWrite(pcOutputString, sizeof(pcOutputString));
-            } while(xMoreDataToProcess != pdFALSE);
-
-            /* Reset input buffer for next command */
-            uInputIndex = 0;
-            memset(pcInputString, 0x00, MAX_IN_STR_LEN);
-            memset(pcOutputString, 0x00, MAX_OUT_STR_LEN);
-            vConsoleWrite("\nCommand: ", strlen("\nCommand: "));
-        }
-        else
-        {
-            if (cReadCh == '\r')
-            {
-                /* Ignore carriage returns, do nothing */
-            }
-            else if (cReadCh == '\b') /* Backspace case */
-            {
-                /* Erase last character in the input buffer */
+            case ASCII_CR: 
+            case ASCII_LF: 
+                if (uInputIndex != 0)
+                {
+                    vConsoleWrite("\n");
+                    strncpy(pcPrevInputString, pcInputString, MAX_IN_STR_LEN);
+                    do
+                    {
+                        xMoreDataToProcess = FreeRTOS_CLIProcessCommand
+                                            (
+                                                pcInputString,    /* Command string*/
+                                                pcOutputString,   /* Output buffer */
+                                                MAX_OUT_STR_LEN   /* Output buffer size */
+                                            );
+                        vConsoleWrite(pcOutputString);
+                    } while(xMoreDataToProcess != pdFALSE);
+                }
+                else 
+                {
+                    vConsoleWrite("\n");
+                }
+                uInputIndex = 0;
+                memset(pcInputString, 0x00, MAX_IN_STR_LEN);
+                memset(pcOutputString, 0x00, MAX_OUT_STR_LEN);
+                vConsoleWrite(prvpcPrompt);
+                break;
+            case ASCII_FORM_FEED:
+                vConsoleWrite("\x1b[2J\x1b[0;0H");
+                vConsoleWrite("\n");
+                vConsoleWrite(prvpcPrompt);
+                break;
+            case ASCII_CTRL_PLUS_C:
+                uInputIndex = 0;
+                memset(pcInputString, 0x00, MAX_IN_STR_LEN);
+                vConsoleWrite("\n");
+                vConsoleWrite(prvpcPrompt);
+                break;
+            case ASCII_DEL:
+            case ASCII_NACK:
+            case ASCII_BACKSPACE:
                 if (uInputIndex > 0)
                 {
                     uInputIndex--;
                     pcInputString[uInputIndex] = '\0';
+                    vConsoleWrite("\b \b");
                 }
-                else
+                break;
+            case ASCII_TAB:
+                while (uInputIndex)
                 {
-                    vConsoleWrite(" ", strlen(" "));
+                    uInputIndex--;
+                    vConsoleWrite("\b \b");
                 }
-            }
-            else
-            {
-                if (uInputIndex < MAX_IN_STR_LEN)
+                strncpy(pcInputString, pcPrevInputString, MAX_IN_STR_LEN);
+                uInputIndex = (unsigned char)strlen(pcInputString);
+                vConsoleWrite(pcInputString);
+                break;
+            default:
+                /* Check if read character is between [Space] and [~] in ASCII table */
+                if (uInputIndex < (MAX_IN_STR_LEN - 1 ) && (cReadCh >= 32 && cReadCh <= 126))
                 {
                     pcInputString[uInputIndex] = cReadCh;
-                    uInputIndex++;
+                    vConsoleWrite(pcInputString + uInputIndex);
+                    uInputIndex++; 
                 }
-            }
-        }
+                break;
+        }   
     }
 
 out_task_console:
