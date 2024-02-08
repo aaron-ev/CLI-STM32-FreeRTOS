@@ -14,75 +14,72 @@ Table of contents:
 # CLI based on FreeRTOS and STM32
 
 ```
-Welcome to the console. Enter 'help' to view a list of available commands.
-
-Command:
+#cmd: Welcome to the console. Enter 'help' to view a list of available commands.
+#cmd:
 
 ```
 
 # Help command
 
-*help* command will list all available commands.
+*help* lists all available commands.
 
 ```
-Command: help
+#cmd: help
 
 help:
  Lists all the registered commands
 
-
 task-stats:
- Displays a table with the state of each FreeRTOS task
+ Displays a table with the state of each FreeRTOS task.
 
-gpio-w [gpio port] [pin number] [logical value]: Write a digital value to a port pin, example: gpio-w a 2 0 --> write logical zero to pin number 2 of GPIO port a
+gpio-w [gpio port] [pin number] [logical value]: Write a digital value to a GPIO pin.
 
-gpio-r [gpio port] [pin number] : Read logical level of a GPIO pin, example: gpio-r a 2 --> read GPIOA pin number 2
+gpio-r [gpio port] [pin number] : Read a GPIO pin.
 
 echo [string to echo]
 
-pwm-f [pwmChannel] [new frequency]: Update PWM frequency of a giving channel 
+pwm-f [Frequency]: Set a new frequency.
 
-pwmSetDuty [pwmChannel] [new duty cycle]: Update PWM duty cycle of a giving channel 
+pwm-d [Duty cycle] [Channel]: Set a new PWM duty cycle of a giving channel.
 
-heap: Display free heap memory
+heap: Display free heap memory.
 
-clk: Display clock information
+clk: Display clock information.
 
-ticks: Display OS tick count and run time in seconds
+ticks: Display OS tick count and run time in seconds.
 ```
-
 
 # GPIO read command
 
-*gpio-r* command will read a GPIOx pin
+*gpio-r* reads a GPIO pin state
 
 Example: Read GPIO port A pin number 2
 
 ```
-Command: gpio-r  12
+#cmd: gpio-r a 2
 
 Pin state: 0
 ```
 
 # GPIO write command
 
-*gpio-w* command will write to GPIOx pin
+*gpio-w* writes to a GPIO pin
 
 Example: Write 1 to GPIO port C pin number 12
 
 ```
-Command: gpi-w c 12 1
+#cmd: gpi-w c 12 1
 
 Pin set to 1
 ```
 
 # Task statistics command
 
-*task-stats* command shows a list with relevant information of each task such as task name, 
+*task-stats* shows a list with relevant information of each task such as task name,
 state, priority, stack remaining, CPU usage and runtime.
 
 ```
-Command: task-stats
+#cmd: task-stats
 
 Task states: BL = Blocked RE = Ready DE = Deleted  SU = Suspended
 
@@ -96,11 +93,11 @@ Tmr Svc
 
 # Heap command
 
-*heap* command will display the heap size, remaining memory in the heap and 
-the minimum heap size ever existed since power on. 
+*heap* Shows heap size, remaining memory in the heap and
+the minimum heap size ever existed since power on. Note: See FreeRTOS documentation for more information.
 
 ```
-Command: heap
+#cmd: heap
 Heap size            : 39300 bytes ( 38 KiB)
 Remaining            : 24016 bytes ( 23 KiB)
 Minimum ever existed : 23864 bytes ( 23 KiB)
@@ -108,10 +105,10 @@ Minimum ever existed : 23864 bytes ( 23 KiB)
 
 # Clock command
 
-*clk* command will display STM32 clock information.
+*clk* Shows STM32 clock information.
 
 ```
-Command: clk
+#cmd: clk
 Clock name           Hz       kHz       MHz
 ===========       ========  ========  ========
 System clock      80000000     80000        80
@@ -123,11 +120,11 @@ APB2 timers       80000000     80000        80
 
 # Ticks command
 
-*ticks* command will display FreeRTOS tick count in ticks and run time in
+*ticks* Shows FreeRTOS tick count in ticks and run time in
 seconds.
 
 ```
-Command: ticks
+#cmd: ticks
 
 Tick rate: 1000 Hz
 Ticks: 2852
@@ -136,8 +133,8 @@ Run time: 2.852 seconds
 
 # Pwm set frequency and set duty command
 
-*pwm-f* set a new frequency in Hz.
+*pwm-f* sets a new frequency in Hz.
 
-*pwm-d* set a new duty of a giving timer and channel. Duty cycle must be between 1% and 100%.
+*pwm-d* sets a new duty of a giving timer and channel. Duty cycle must be between 1% and 100%.
 
 ![pwm-f command](/img/pwmCommand.png)
