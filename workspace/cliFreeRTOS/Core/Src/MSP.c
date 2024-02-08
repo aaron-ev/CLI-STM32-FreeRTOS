@@ -28,7 +28,6 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandler)
 
     if (uartHandler->Instance == CONSOLE_INSTANCE)
     {
-
         /* Configure pins to work as a UART device */
         uartGpioInit.Pin = CONSOLE_TX_PIN | CONSOLE_RX_PIN;
         uartGpioInit.Mode = GPIO_MODE_AF_PP;
@@ -43,12 +42,10 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandler)
     }
 }
 
-
 void HAL_TIM_OC_MspInit(TIM_HandleTypeDef *timerHandler)
 {
     GPIO_InitTypeDef pwmGpioInit = {0};
 
-    /* BUZZER: GPIO settings */
     pwmGpioInit.Pin = PWM_GPIO_PINX;
     pwmGpioInit.Mode = GPIO_MODE_AF_PP;
     pwmGpioInit.Pull = GPIO_NOPULL;

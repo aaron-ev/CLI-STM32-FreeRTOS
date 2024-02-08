@@ -2,7 +2,7 @@
  ******************************************************************************
  * @file    bsp.c
  * @author  Aaron Escoboza
- * @brief   source file to implement initialization functions
+ * @brief   source file to implement low level initializations.
  ******************************************************************************
  */
 
@@ -10,10 +10,12 @@
 
 UART_HandleTypeDef consoleHandle;
 
-/*
- *  Initialize the system clocks and clocks derived.
- */
-static HAL_StatusTypeDef clkInit(void)
+/**
+* @brief Initialize system clocks, PLL and Clock dividers.
+* @param void
+* @retval BspError_e
+*/
+static BspError_e clkInit(void)
 {
     RCC_OscInitTypeDef RCC_OscInitStruct = {0};
     RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
@@ -32,10 +34,10 @@ static HAL_StatusTypeDef clkInit(void)
     RCC_OscInitStruct.PLL.PLLQ = 4;
     if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
     {
-        return HAL_ERROR;
+        return BSP_ERROR_EIO;
     }
 
-    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK 
+    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK
                                   | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
     RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
     RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
@@ -43,15 +45,17 @@ static HAL_StatusTypeDef clkInit(void)
     RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
     if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
     {
-        return HAL_ERROR;
+        return BSP_ERROR_EIO;
     }
 
-    return HAL_OK;
+    return BSP_NO_ERROR;
 }
 
-/*
- * Function to initialize the heart beat low level settings.
- */
+/**
+* @brief Initialize GPIO pin for heart beat functionality.
+* @param void
+* @retval void
+*/
 static void heartBeatInit(void)
 {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -64,10 +68,12 @@ static void heartBeatInit(void)
     HAL_GPIO_Init(HEART_BEAT_LED_PORT, &GPIO_InitStruct);
 }
 
-/*
- * Function to initialize the console
- */
-HAL_StatusTypeDef consoleInit(void)
+/**
+* @brief Initialize UART frame.
+* @param void
+* @retval BSP error
+*/
+BspError_e consoleInit(void)
 {
     /* GPIO initializations */
     consoleHandle.Instance = CONSOLE_INSTANCE;
@@ -80,13 +86,18 @@ HAL_StatusTypeDef consoleInit(void)
     consoleHandle.Init.OverSampling = UART_OVERSAMPLING_16;
     if (HAL_UART_Init(&consoleHandle) != HAL_OK)
     {
-        return HAL_ERROR;
+        return BSP_ERROR_EIO;
     }
 
-    return HAL_OK;
+    return BSP_NO_ERROR;
 }
 
-HAL_StatusTypeDef bspInit(void)
+/**
+* @brief Calls all BSP init functions.
+* @param void
+* @retval BspError_e
+*/
+BspError_e bspInit(void)
 {
     HAL_StatusTypeDef halStatus;
 
@@ -94,31 +105,28 @@ HAL_StatusTypeDef bspInit(void)
     halStatus = HAL_Init();
     if (halStatus != HAL_OK)
     {
-        return HAL_ERROR;
+        return BSP_ERROR_EIO;
     }
 
-    /* Configure the system clock */
     halStatus = clkInit();
     if (halStatus != HAL_OK)
     {
-        return HAL_ERROR;
+        return BSP_ERROR_EIO;
     }
 
-    /* Initialize CLI console */
     halStatus = consoleInit();
     if (halStatus != HAL_OK)
     {
-        return HAL_ERROR;
+        return BSP_ERROR_EIO;
     }
 
-    /* Initialize heart beat led */
     heartBeatInit();
 
     halStatus = bspPwmInit();
     if (halStatus != HAL_OK)
     {
-        return HAL_ERROR;
+        return BSP_ERROR_EIO;
     }
 
-    return halStatus;
+    return BSP_NO_ERROR;
 }

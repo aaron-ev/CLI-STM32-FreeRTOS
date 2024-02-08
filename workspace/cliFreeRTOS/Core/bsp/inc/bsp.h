@@ -14,7 +14,16 @@
 #include "stm32f4xx.h"
 #include "stm32f4xx_hal.h"
 #include "bspPwm.h"
+#include "bspGpio.h"
+#include "bspClk.h"
+#include "errno.h"
 
-HAL_StatusTypeDef bspInit(void);
+typedef enum
+{
+    BSP_NO_ERROR,
+    BSP_ERROR_EIO = EIO,
+} BspError_e;
+
+BspError_e bspInit(void);
 
 #endif

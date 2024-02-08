@@ -17,26 +17,25 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
-#include "bspPwm.h"
+#include "bsp.h"
 
 #define MAX_IN_STR_LEN                          300
 #define MAX_OUT_STR_LEN                         600
 #define MAX_RX_QUEUE_LEN                        300
 
-                                          /* ASCII codes          */
-#define ASCII_TAB                   '\t'  /* Tabulate             */
-#define ASCII_CR                    '\r'  /* Carriage return      */
-#define ASCII_LF                    '\n'  /* Line feed            */
-#define ASCII_BACKSPACE             '\b'  /* Back space           */
-#define ASCII_FORM_FEED             '\f'  /* Form feed            */
-#define ASCII_DEL                   127   /* Delete               */
-#define ASCII_CTRL_PLUS_C             3   /* CTRL + C             */ 
-#define ASCII_NACK                   21   /* Negative acknowledge */
-
-UART_HandleTypeDef *pxUartDevHandle;
+                                                      /* ASCII codes          */
+#define ASCII_TAB                               '\t'  /* Tabulate             */
+#define ASCII_CR                                '\r'  /* Carriage return      */
+#define ASCII_LF                                '\n'  /* Line feed            */
+#define ASCII_BACKSPACE                         '\b'  /* Back space           */
+#define ASCII_FORM_FEED                         '\f'  /* Form feed            */
+#define ASCII_DEL                               127   /* Delete               */
+#define ASCII_CTRL_PLUS_C                         3   /* CTRL + C             */
+#define ASCII_NACK                               21   /* Negative acknowledge */
 
 char cRxData;
 QueueHandle_t xQueueRxHandle;
+UART_HandleTypeDef *pxUartDevHandle;
 static const char *pcWelcomeMsg = "Welcome to the console. Enter 'help' to view a list of available commands.\n";
 
 static const char *prvpcTaskListHeader = "Task states: BL = Blocked RE = Ready DE = Deleted  SU = Suspended\n\n"\
@@ -44,7 +43,6 @@ static const char *prvpcTaskListHeader = "Task states: BL = Blocked RE = Ready D
                                          "================================  =====  ========  ===============  ===========  =======\n";
 static const char *prvpcPrompt = "#cmd: ";
 
-/* Private available commands */
 static BaseType_t prvCommandPwmSetFreq(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandPwmSetDuty(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandGpioWrite(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
@@ -55,98 +53,40 @@ static BaseType_t prvCommandHeap(char *pcWriteBuffer, size_t xWriteBufferLen, co
 static BaseType_t prvCommandClk(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandTicks(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 
+/**
+*   @brief  This function is executed in case of error occurrence.
+*   @retval None
+*/
 static const char *prvpcMapTaskState(eTaskState eState)
 {
     switch (eState)
     {
-        case eReady:
-            return "RU";
-        case eRunning:
-            return "RE";
-        case eDeleted:
-            return "DE";
-        case eSuspended:
-            return "SU";
-        case eBlocked:
-            return "Bl";
-        default:
-            return "??";
+        case     eReady: return "RU";
+        case   eRunning: return "RE";
+        case   eDeleted: return "DE";
+        case   eBlocked: return "Bl";
+        case eSuspended: return "SU";
+        default: return "??";
     }
 }
 
-static GPIO_TypeDef *xMapGpioInstances(const char pcGpioInstance)
-{
-    if (pcGpioInstance == 'a' || pcGpioInstance == 'A')
-    {
-        return GPIOA;
-    }
-    else if (pcGpioInstance == 'b' || pcGpioInstance == 'B')
-    {
-        return GPIOB;
-    }
-    else if (pcGpioInstance == 'c' || pcGpioInstance == 'C')
-    {
-        return GPIOC;
-    }
-    else if (pcGpioInstance == 'd' || pcGpioInstance == 'D')
-    {
-        return GPIOD;
-    }
-    else if (pcGpioInstance == 'e' || pcGpioInstance == 'E')
-    {
-        return GPIOE;
-    }
-    else if (pcGpioInstance == 'h' || pcGpioInstance == 'H')
-    {
-        return GPIOH;
-    }
-    else 
-    {
-        return NULL;
-    }
-}
-
-static const uint16_t uMapGpioNumber(uint16_t uGpioNumber)
-{
-    switch (uGpioNumber)
-    {
-        case 0: return GPIO_PIN_0;
-        case 1: return GPIO_PIN_1;
-        case 2: return GPIO_PIN_2;
-        case 3: return GPIO_PIN_3;
-        case 4: return GPIO_PIN_4;
-        case 5: return GPIO_PIN_5;
-        case 6: return GPIO_PIN_6;
-        case 7: return GPIO_PIN_7;
-        case 8: return GPIO_PIN_8;
-        case 9: return GPIO_PIN_9;
-        case 10: return GPIO_PIN_10;
-        case 11: return GPIO_PIN_11;
-        case 12: return GPIO_PIN_12;
-        case 13: return GPIO_PIN_13;
-        case 14: return GPIO_PIN_14;
-        case 15: return GPIO_PIN_15;
-        default: return 0; /* Invalid GPIO pin number */
-    }
-}
-
-static const CLI_Command_Definition_t xCommands[] = 
+static const CLI_Command_Definition_t xCommands[] =
 {
     {
         "task-stats",
-        "\r\ntask-stats:\r\n Displays a table with the state of each FreeRTOS task\r\n",
+        "\r\ntask-stats:\r\n Displays a table with the state of each FreeRTOS task.\r\n",
         prvCommandTaskStats,
-        0 /* 0 parameters expected */
+        0
     },
     {
         "gpio-w",
-        "\r\ngpio-w [gpio port] [pin number] [logical value]: Write a digital value to a port pin, example: gpio-w a 2 0 --> write logical zero to pin number 2 of GPIO port a\r\n",
+        "\r\ngpio-w [gpio port] [pin number] [logical value]: Write a digital value to GPIOx pin.\r\n",
         prvCommandGpioWrite,
-        3 /* Parameters: [GPIO PORT] [GPIO pin number] [Logical value (1, 0)] */
+        3
     },
     {
         "gpio-r",
-        "\r\ngpio-r [gpio port] [pin number] : Read logical level of a GPIO pin, example: gpio-r a 2 --> read GPIOA pin number 2\r\n",
+        "\r\ngpio-r [gpio port] [pin number] : Read a GPIO pin.\r\n",
         prvCommandGpioRead,
         2
     },
@@ -158,49 +98,56 @@ static const CLI_Command_Definition_t xCommands[] =
     },
     {
         "pwm-f",
-        "\r\npwm-f [Frequency]: Set a new frequency \r\n",
+        "\r\npwm-f [Frequency]: Set a new frequency.\r\n",
         prvCommandPwmSetFreq,
         1
     },
     {
         "pwm-d",
-        "\r\npwm-d [Duty cycle] [Channel]: Set a new PWM duty cycle of a giving channel \r\n",
+        "\r\npwm-d [Duty cycle] [Channel]: Set a new PWM duty cycle of a giving channel.\r\n",
         prvCommandPwmSetDuty,
         2
     },
     {
         "heap",
-        "\r\nheap: Display free heap memory\r\n",
+        "\r\nheap: Display free heap memory.\r\n",
         prvCommandHeap,
         0
     },
     {
         "clk",
-        "\r\nclk: Display clock information\r\n",
+        "\r\nclk: Display clock information.\r\n",
         prvCommandClk,
         0
     },
     {
         "ticks",
-        "\r\nticks: Display OS tick count and run time in seconds\r\n",
+        "\r\nticks: Display OS tick count and run time in seconds.\r\n",
         prvCommandTicks,
         0
     },
     {
-        NULL, 
+        NULL,
         NULL,
         NULL,
         0
     }
 };
 
+/**
+* @brief Command that gets task statistics.
+* @param *pcWriteBuffer FreeRTOS CLI write buffer.
+* @param xWriteBufferLen Length of write buffer.
+* @param *pcCommandString pointer to the command name.
+* @retval HAL status
+*/
 static BaseType_t prvCommandTaskStats( char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
     static uint32_t uTaskIndex = 0;
     static uint32_t uTotalOfTasks = 0;
     static uint32_t uTotalRunTime = 1;
-    static TaskStatus_t *pxTaskStatus = NULL; 
     TaskStatus_t *pxTmpTaskStatus = NULL;
+    static TaskStatus_t *pxTaskStatus = NULL;
 
     if (pxTaskStatus == NULL)
     {
@@ -208,7 +155,7 @@ static BaseType_t prvCommandTaskStats( char *pcWriteBuffer, size_t xWriteBufferL
         pxTaskStatus = pvPortMalloc(uTotalOfTasks * sizeof(TaskStatus_t));
         if (pxTaskStatus == NULL)
         {
-           snprintf(pcWriteBuffer, xWriteBufferLen, "Error: Not enough memory for task allocation"); 
+           snprintf(pcWriteBuffer, xWriteBufferLen, "Error: Not enough memory for task allocation");
            goto out_cmd_task_stats;
         }
         uTotalOfTasks = uxTaskGetSystemState(pxTaskStatus, uTotalOfTasks, &uTotalRunTime);
@@ -224,9 +171,9 @@ static BaseType_t prvCommandTaskStats( char *pcWriteBuffer, size_t xWriteBufferL
             uTotalRunTime = 1;
 
         pxTmpTaskStatus = &pxTaskStatus[uTaskIndex];
-        snprintf(pcWriteBuffer, xWriteBufferLen, 
+        snprintf(pcWriteBuffer, xWriteBufferLen,
                 "%-32s  %5s  %8lu  %15d  %11lu  %7lu\n",
-                pxTmpTaskStatus->pcTaskName, 
+                pxTmpTaskStatus->pcTaskName,
                 prvpcMapTaskState(pxTmpTaskStatus->eCurrentState),
                 pxTmpTaskStatus->uxCurrentPriority,
                 pxTmpTaskStatus->usStackHighWaterMark,
@@ -238,7 +185,7 @@ static BaseType_t prvCommandTaskStats( char *pcWriteBuffer, size_t xWriteBufferL
     /* Check if there is more tasks to be process */
     if (uTaskIndex < uTotalOfTasks)
        return pdTRUE;
-    else 
+    else
     {
 out_cmd_task_stats :
         if (pxTaskStatus != NULL)
@@ -250,94 +197,127 @@ out_cmd_task_stats :
     }
 }
 
+/**
+* @brief Command that writes to a GPIOx pin.
+* @param *pcWriteBuffer FreeRTOS CLI write buffer.
+* @param xWriteBufferLen Length of write buffer.
+* @param *pcCommandString pointer to the command name.
+* @retval HAL status
+*/
 static BaseType_t prvCommandGpioWrite(char *pcWriteBuffer, size_t xWriteBufferLen,\
                                       const char *pcCommandString)
 {
     BaseType_t xParamLen;
-    const char * pcParam;
-    char cGpioPort; 
-    GPIO_TypeDef *xGpioInstance;
-    GPIO_PinState xNewPinState;
-    uint16_t uPinNumber;
+    BspPinNum_e bspPinNum;
+    const char * pcGpioPinNum;
+    const char * pcGpioInstance;
+    const char * pcGpioPinSate;
+    BspGpioPinState_e bspPinState;
+    BspGpioInstance_e bspGpioInstance;
 
     /* Get GPIO instance, pin number and new pin state specified by the user */
-    pcParam = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
-    cGpioPort = *pcParam;
-    xGpioInstance = xMapGpioInstances(cGpioPort);
-    if (xGpioInstance == NULL)
+    pcGpioInstance = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
+    bspGpioInstance = bspGpioMapInstance(*pcGpioInstance);
+    if (bspGpioInstance >= BSP_MAX_GPIO_INSTANCE)
     {
-        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: invalid GPIO port\n"); 
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: invalid GPIO port\n");
         goto out_cmd_gpio_write;
     }
 
     /* Get pin number */
-    pcParam = FreeRTOS_CLIGetParameter(pcCommandString, 2, &xParamLen);
-    uPinNumber = uMapGpioNumber(atoi(pcParam));
-    if (uPinNumber < GPIO_PIN_0 || uPinNumber > GPIO_PIN_15)
+    pcGpioPinNum = FreeRTOS_CLIGetParameter(pcCommandString, 2, &xParamLen);
+    bspPinNum = atoi(pcGpioPinNum);
+    if (bspPinNum < BSP_GPIO_PIN_0 || bspPinNum > BSP_GPIO_PIN_15)
     {
-        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: invalid pin number\n"); 
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: invalid pin number\n");
         goto out_cmd_gpio_write;
     }
 
     /* Get new pin state */
-    pcParam = FreeRTOS_CLIGetParameter(pcCommandString, 3, &xParamLen);
-    xNewPinState = atoi(pcParam);
-    if (xNewPinState != GPIO_PIN_SET && xNewPinState != GPIO_PIN_RESET)
+    pcGpioPinSate = FreeRTOS_CLIGetParameter(pcCommandString, 3, &xParamLen);
+    bspPinState = atoi(pcGpioPinSate);
+    if (bspPinState > BSP_GPIO_PIN_HIGH)
     {
-        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: invalid pin state\n"); 
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: invalid pin state\n");
         goto out_cmd_gpio_write;
     }
 
-    HAL_GPIO_WritePin(xGpioInstance, uPinNumber, xNewPinState);
-    snprintf(pcWriteBuffer, xWriteBufferLen, "Pin set to %d\n", xNewPinState);
+    bspGpioWrite(bspGpioInstance, bspPinNum, bspPinState);
+    snprintf(pcWriteBuffer, xWriteBufferLen, "GPIO: %c, Pin: %c set to %d\n",
+             *pcGpioInstance, *pcGpioPinNum, bspPinState);
 
 out_cmd_gpio_write:
     return pdFALSE;
 }
 
+/**
+* @brief Command that reads from GPIOx Pin
+* @param *pcWriteBuffer FreeRTOS CLI write buffer.
+* @param xWriteBufferLen Length of write buffer.
+* @param *pcCommandString pointer to the command name.
+* @retval HAL status
+*/
 static BaseType_t prvCommandGpioRead(char *pcWriteBuffer, size_t xWriteBufferLen\
                                      , const char *pcCommandString)
 {
     BaseType_t xParamLen;
-    const char * pcParam;
-    GPIO_TypeDef *xGpioInstance;
-    GPIO_PinState xPinState;
-    uint16_t uPinNumber;
+    const char * pcGpioPinNum;
+    const char * pcGpioInstance;
+    BspPinNum_e bspPinNum;
+    BspGpioPinState_e xPinState;
+    BspGpioInstance_e bspGpioInstance;
 
     /* Get GPIO instance, pin number and new pin state specified by the user */
-    pcParam = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
-    xGpioInstance = xMapGpioInstances(*pcParam);
-    if (xGpioInstance == NULL)
+    pcGpioInstance = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
+    bspGpioInstance = bspGpioMapInstance(*pcGpioInstance);
+    if (bspGpioInstance >= BSP_MAX_GPIO_INSTANCE)
     {
-        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: invalid GPIO port\n"); 
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: invalid GPIO port\n");
         goto out_cmd_gpio_read;
     }
 
     /* Get pin number */
-    pcParam = FreeRTOS_CLIGetParameter(pcCommandString, 2, &xParamLen);
-    uPinNumber = uMapGpioNumber(atoi(pcParam));
-    if (uPinNumber < GPIO_PIN_0 || uPinNumber > GPIO_PIN_15)
+    pcGpioPinNum = FreeRTOS_CLIGetParameter(pcCommandString, 2, &xParamLen);
+    bspPinNum = atoi(pcGpioPinNum);
+    if (bspPinNum < BSP_GPIO_PIN_0 || bspPinNum > BSP_GPIO_PIN_15)
     {
-        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: invalid pin number\n"); 
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: invalid pin number\n");
         goto out_cmd_gpio_read;
     }
 
-    xPinState = HAL_GPIO_ReadPin(xGpioInstance, uPinNumber);
-    snprintf(pcWriteBuffer, xWriteBufferLen, "Pin state: %d\n", xPinState); 
+    xPinState = bspGpioRead(bspGpioInstance, bspPinNum);
+    snprintf(pcWriteBuffer, xWriteBufferLen, "GPIO: %c Pin: %c state: %d\n",
+            *pcGpioInstance, *pcGpioPinNum, xPinState);
 
 out_cmd_gpio_read:
     return pdFALSE;
 }
 
+/**
+* @brief Echo command line in UNIX systems.
+* @param *pcWriteBuffer FreeRTOS CLI write buffer.
+* @param xWriteBufferLen Length of write buffer.
+* @param *pcCommandString pointer to the command name.
+* @retval HAL status
+*/
 static BaseType_t prvCommandEcho( char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
     const char *pcStrToOutput;
     BaseType_t xParamLen;
+
     pcStrToOutput = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
-    snprintf(pcWriteBuffer, xWriteBufferLen, pcStrToOutput); 
+    snprintf(pcWriteBuffer, xWriteBufferLen, pcStrToOutput);
+
     return pdFALSE;
 }
 
+/**
+* @brief Command that sets a new pwm frequency.
+* @param *pcWriteBuffer FreeRTOS CLI write buffer.
+* @param xWriteBufferLen Length of write buffer.
+* @param *pcCommandString pointer to the command name.
+* @retval HAL status
+*/
 static BaseType_t prvCommandPwmSetFreq(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
     const char * pcFreq;
@@ -349,6 +329,14 @@ static BaseType_t prvCommandPwmSetFreq(char *pcWriteBuffer, size_t xWriteBufferL
 
     return pdFALSE;
 }
+
+/**
+* @brief Command that sets a new pwm duty cycle.
+* @param *pcWriteBuffer FreeRTOS CLI write buffer.
+* @param xWriteBufferLen Length of write buffer.
+* @param *pcCommandString pointer to the command name.
+* @retval HAL status
+*/
 static BaseType_t prvCommandPwmSetDuty(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
     const char * pcDutyCycle;
@@ -365,72 +353,56 @@ static BaseType_t prvCommandPwmSetDuty(char *pcWriteBuffer, size_t xWriteBufferL
     return pdFALSE;
 }
 
+/**
+* @brief Command that gets heap information
+* @param *pcWriteBuffer FreeRTOS CLI write buffer.
+* @param xWriteBufferLen Length of write buffer.
+* @param *pcCommandString pointer to the command name.
+* @retval HAL status
+*/
 static BaseType_t prvCommandHeap(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
 
     size_t xHeapFree;
-    size_t xHeapMinMemExisted; 
+    size_t xHeapMinMemExisted;
 
     xHeapFree = xPortGetFreeHeapSize();
     xHeapMinMemExisted = xPortGetMinimumEverFreeHeapSize();
-
-    snprintf(pcWriteBuffer, xWriteBufferLen, 
+    snprintf(pcWriteBuffer, xWriteBufferLen,
              "Heap size            : %3u bytes (%3d KiB)\nRemaining            : %3u bytes (%3d KiB)\nMinimum ever existed : %3u bytes (%3d KiB)\n",
              configTOTAL_HEAP_SIZE, configTOTAL_HEAP_SIZE / 1024, xHeapFree, xHeapFree / 1024, xHeapMinMemExisted, xHeapMinMemExisted / 1024);
 
     return pdFALSE;
 }
 
+/**
+* @brief Command that gets clock information from current clock settings.
+* @param *pcWriteBuffer FreeRTOS CLI write buffer.
+* @param xWriteBufferLen Length of write buffer.
+* @param *pcCommandString pointer to the command name.
+* @retval HAL status
+*/
 static BaseType_t prvCommandClk(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
-    uint32_t uPCLK1;
-    uint32_t uPCLK2;
-    uint32_t uSysClock;
-    uint32_t APB1CLKDivider;
-    uint32_t APB2CLKDivider;
-    uint32_t APB1TimerClocks; 
-    uint32_t APB2TimerClocks;
-
-    /* Update clock system according to register values */
-    SystemCoreClockUpdate();
-
-    /* Read SysClock, PCLK1 and PCLK2 */
-    uSysClock = HAL_RCC_GetHCLKFreq();
-    uPCLK1 = HAL_RCC_GetPCLK1Freq();
-    uPCLK2 = HAL_RCC_GetPCLK2Freq();
-
-    /* Calculate APB1 and APB2*/
-    APB1CLKDivider = (uint32_t)(RCC->CFGR & RCC_CFGR_PPRE1);
-    APB2CLKDivider = (uint32_t)(RCC->CFGR & RCC_CFGR_PPRE2);
-    APB1TimerClocks = (APB1CLKDivider > RCC_CFGR_PPRE1_DIV1) ? (uPCLK1 * 2) : uPCLK1;
-    APB2TimerClocks = (APB2CLKDivider > RCC_CFGR_PPRE1_DIV1) ? (uPCLK2 * 2) : uPCLK2;
-
-    snprintf(pcWriteBuffer, xWriteBufferLen, 
-             "Clock name           Hz       kHz       MHz\n"\
-             "===========       ========  ========  ========\n"\
-             "System clock      %lu     %lu        %lu\n"\
-             "APB1 peripheral   %lu     %lu        %lu\n"\
-             "APB2 peripheral   %lu     %lu        %lu\n"\
-             "APB1 timers       %lu     %lu        %lu\n"\
-             "APB2 timers       %lu     %lu        %lu\n",
-             uSysClock, uSysClock / 1000, uSysClock / 1000000,
-             uPCLK1, uPCLK1 / 1000, uPCLK1 / 1000000,
-             uPCLK2, uPCLK2 / 1000, uPCLK2 / 1000000,
-             APB1TimerClocks, APB1TimerClocks / 1000, APB1TimerClocks / 1000000,
-             APB2TimerClocks, APB2TimerClocks / 1000, APB2TimerClocks / 1000000);
-
+    bspGetClockIinfo(pcWriteBuffer, xWriteBufferLen);
     return pdFALSE;
 }
 
+/**
+* @brief Command that calculate OS ticks information.
+* @param *pcWriteBuffer FreeRTOS CLI write buffer.
+* @param xWriteBufferLen Length of write buffer.
+* @param *pcCommandString pointer to the command name.
+* @retval HAL status
+*/
 static BaseType_t prvCommandTicks(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
-    uint32_t uSec; 
     uint32_t uMs;
+    uint32_t uSec;
     TickType_t xTickCount = xTaskGetTickCount();
 
     uSec = xTickCount / configTICK_RATE_HZ;
     uMs = xTickCount % configTICK_RATE_HZ;
-
     snprintf(pcWriteBuffer, xWriteBufferLen,
              "\nTick rate: %u Hz\nTicks: %u\nRun time: %u.%.3u seconds\n",
               configTICK_RATE_HZ, xTickCount, uSec, uMs);
@@ -438,10 +410,10 @@ static BaseType_t prvCommandTicks(char *pcWriteBuffer, size_t xWriteBufferLen, c
     return pdFALSE;
 }
 
-
-/*
-    Description: Read from a queue until there is a character in RX hardware
-    buffer. 
+/**
+* @brief Reads from UART RX buffer. Reads one bye at the time.
+* @param *cReadChar pointer to where data will be stored.
+* @retval HAL status
 */
 static BaseType_t xConsoleRead(uint8_t *cReadChar, size_t xLen)
 {
@@ -453,40 +425,52 @@ static BaseType_t xConsoleRead(uint8_t *cReadChar, size_t xLen)
     }
 
     /* Block until the there is input from the user */
-    xRetVal = xQueueReceive(xQueueRxHandle, cReadChar, portMAX_DELAY);
-    return xRetVal;
+    return xQueueReceive(xQueueRxHandle, cReadChar, portMAX_DELAY);
 }
 
-/*
-    Description: Write to TX device. 
+/**
+* @brief Write to UART TX
+* @param *buff buffer to be written.
+* @retval HAL status
 */
 static HAL_StatusTypeDef vConsoleWrite(const char *buff)
 {
     HAL_StatusTypeDef status;
-    size_t len = strlen(buff); 
+    size_t len = strlen(buff);
 
-    /* No preprocessing needed, write directly to the hardware */
-    if (pxUartDevHandle == NULL || *buff == '\0')
+    if (pxUartDevHandle == NULL || *buff == '\0' || len < 1)
     {
         return HAL_ERROR;
     }
-    status = HAL_UART_Transmit(pxUartDevHandle, (uint8_t *)buff, len, portMAX_DELAY);
-    if ( status != HAL_OK)
+
+    status = HAL_UART_Transmit(pxUartDevHandle, (uint8_t *)buff, strlen(buff), portMAX_DELAY);
+    if (status != HAL_OK)
     {
     	return HAL_ERROR;
     }
     return status;
 }
 
+/**
+* @brief Enables UART RX reception.
+* @param void
+* @retval void
+*/
 void vConsoleEnableRxInterrupt(void)
 {
     if (pxUartDevHandle == NULL)
     {
         return;
     }
+    /* UART Rx IT is enabled by reading a character */
     HAL_UART_Receive_IT(pxUartDevHandle,(uint8_t*)&cRxData, 1);
 }
 
+/**
+* @brief Task to handle user commands via serial communication.
+* @param void* Data passed at task creation.
+* @retval void
+*/
 void vTaskConsole(void *pvParams)
 {
     char cReadCh = '\0';
@@ -497,6 +481,7 @@ void vTaskConsole(void *pvParams)
     char pcOutputString[MAX_OUT_STR_LEN];
 
     memset(pcInputString, 0x00, MAX_IN_STR_LEN);
+    memset(pcPrevInputString, 0x00, MAX_IN_STR_LEN);
     memset(pcOutputString, 0x00, MAX_OUT_STR_LEN);
 
     /* Create a queue to store characters from RX ISR */
@@ -506,22 +491,19 @@ void vTaskConsole(void *pvParams)
         goto out_task_console;
     }
 
-
-    /* Send a welcome message to the user */
     vConsoleWrite(pcWelcomeMsg);
     vConsoleEnableRxInterrupt();
     vConsoleWrite(prvpcPrompt);
 
     while(1)
     {
-
         /* Block until there is a new character in RX buffer */
         xConsoleRead(&cReadCh, sizeof(cReadCh));
 
         switch (cReadCh)
         {
-            case ASCII_CR: 
-            case ASCII_LF: 
+            case ASCII_CR:
+            case ASCII_LF:
                 if (uInputIndex != 0)
                 {
                     vConsoleWrite("\n");
@@ -537,7 +519,7 @@ void vTaskConsole(void *pvParams)
                         vConsoleWrite(pcOutputString);
                     } while(xMoreDataToProcess != pdFALSE);
                 }
-                else 
+                else
                 {
                     vConsoleWrite("\n");
                 }
@@ -557,7 +539,6 @@ void vTaskConsole(void *pvParams)
                 vConsoleWrite("\n");
                 vConsoleWrite(prvpcPrompt);
                 break;
-            case ASCII_DEL:
             case ASCII_NACK:
             case ASCII_BACKSPACE:
                 if (uInputIndex > 0)
@@ -577,16 +558,24 @@ void vTaskConsole(void *pvParams)
                 uInputIndex = (unsigned char)strlen(pcInputString);
                 vConsoleWrite(pcInputString);
                 break;
+            case ASCII_DEL: /* Delete or CTRL + backspace */
+                while (uInputIndex)
+                {
+                    uInputIndex--;
+                    vConsoleWrite("\b \b");
+                }
+                 memset(pcInputString, 0x00, MAX_IN_STR_LEN);
+                break;
             default:
                 /* Check if read character is between [Space] and [~] in ASCII table */
                 if (uInputIndex < (MAX_IN_STR_LEN - 1 ) && (cReadCh >= 32 && cReadCh <= 126))
                 {
                     pcInputString[uInputIndex] = cReadCh;
                     vConsoleWrite(pcInputString + uInputIndex);
-                    uInputIndex++; 
+                    uInputIndex++;
                 }
                 break;
-        }   
+        }
     }
 
 out_task_console:
@@ -597,15 +586,22 @@ out_task_console:
     vTaskDelete(NULL);
 }
 
+/**
+* @brief Initialize the console by registering all commands and creating a task.
+* @param usStackSize Task console stack size
+* @param uxPriority Task console priority
+* @param *pxUartHandle Pointer for uart handle.
+* @retval FreeRTOS status
+*/
 BaseType_t xConsoleInit(uint16_t usStackSize, UBaseType_t uxPriority, UART_HandleTypeDef *pxUartHandle)
 {
-    const CLI_Command_Definition_t *pCommand; 
-    
+    const CLI_Command_Definition_t *pCommand;
+
     if (pxUartHandle == NULL)
     {
         return pdFALSE;
     }
-    pxUartDevHandle =  pxUartHandle;
+    pxUartDevHandle = pxUartHandle;
 
     /* Register all commands that can be accessed by the user */
     for (pCommand = xCommands; pCommand->pcCommand != NULL; pCommand++)
@@ -615,8 +611,10 @@ BaseType_t xConsoleInit(uint16_t usStackSize, UBaseType_t uxPriority, UART_Handl
     return xTaskCreate(vTaskConsole,"CLI", usStackSize, NULL, uxPriority, NULL);
 }
 
-/*
-    Description: Callback for UART RX event. 
+/**
+* @brief Callback for UART RX, triggered any time there is a new character.
+* @param *huart Pointer to the uart handle.
+* @retval void
 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {

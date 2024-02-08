@@ -15,8 +15,10 @@
 #include "bsp.h"
 #include "console.h"
 
-TaskHandle_t xTaskHeartBeatHandler; 
+TaskHandle_t xTaskHeartBeatHandler;
 extern UART_HandleTypeDef consoleHandle;
+
+void Error_Handler(void);
 
 /*
 * Task to indicate the freeRTOS app is alive.
@@ -26,7 +28,7 @@ void vTaskHeartBeat(void *params)
     while (1)
     {
        HAL_GPIO_TogglePin(HEART_BEAT_LED_PORT, HEART_BEAT_LED_PIN);
-        vTaskDelay(pdMS_TO_TICKS(HEART_BEAT_BLINK_DELAY));
+       vTaskDelay(pdMS_TO_TICKS(HEART_BEAT_BLINK_DELAY));
     }
 }
 
@@ -41,7 +43,7 @@ int main(void)
         goto main_out;
     }
 
-    retVal = xConsoleInit(CONSOLE_STACK_SIZE, CONSOLE_TASK_PRIORITY, 
+    retVal = xConsoleInit(CONSOLE_STACK_SIZE, CONSOLE_TASK_PRIORITY,
                           &consoleHandle);
     if (retVal != pdTRUE)
     {
@@ -59,10 +61,12 @@ int main(void)
     {
         goto main_out;
     }
+
     bspPwmStart(PWM_CH_1);
     bspPwmStart(PWM_CH_2);
     bspPwmStart(PWM_CH_3);
     bspPwmStart(PWM_CH_4);
+
     vTaskStartScheduler();
 
 main_out:
@@ -70,6 +74,7 @@ main_out:
     {
         vTaskDelete(xTaskHeartBeatHandler);
     }
+    Error_Handler();
 }
 
 /**
@@ -95,6 +100,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 void Error_Handler(void)
 {
   __disable_irq();
+  HAL_GPIO_WritePin(HEART_BEAT_LED_PORT, HEART_BEAT_LED_PIN, GPIO_PIN_SET);
   while (1)
   {
   }

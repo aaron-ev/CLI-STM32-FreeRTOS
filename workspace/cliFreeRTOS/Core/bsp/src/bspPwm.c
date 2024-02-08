@@ -1,3 +1,11 @@
+/**
+ ******************************************************************************
+ * @file    bspPwm.
+ * @author  Aaron Escoboza
+ * @brief   source file to implement functions related to PWM signal
+ *          manipulation.
+ ******************************************************************************
+ */
 
 #include "bspPwm.h"
 #include "stm32f4xx_hal.h"
@@ -7,7 +15,7 @@
 #define PWM_MAX_CHANNELS                4
 #define PWM_DEFAULT_FREQ                1000 /* 1kHz when clk is 1Mhz */
 
-typedef struct 
+typedef struct
 {
   TIM_OC_InitTypeDef xOcInit;
   uint16_t channel;
@@ -24,14 +32,14 @@ PwmConfigStruct pwmConfigStruct =
 {
     {
         PWM_TIM_INSTANCE,                               /* Timer instance */
-        {   /* TIM_Base_InitTypeDef */      
+        {   /* TIM_Base_InitTypeDef */
             40,                                         /* Prescaler */
             TIM_COUNTERMODE_UP,                         /* Counter mode */
             PWM_DEFAULT_FREQ - 1,                                   /* Period */
             TIM_CLOCKDIVISION_DIV1                      /* Clock division */
         }
     },
-    {       
+    {
         {   /* Channel 1 */
             {
                 TIM_OCMODE_PWM1,                         /* Specifies the TIM mode */
@@ -71,12 +79,22 @@ PwmConfigStruct pwmConfigStruct =
     }
 };
 
+/**
+* @brief Gets the timer handler associated to a PWM channel.
+* @param void
+* @retval Pointer to the timer handler.
+*/
 TIM_HandleTypeDef* bspPwmGetHandler(void)
 
 {
     return &pwmConfigStruct.xTimHandle;
 }
 
+/**
+* @brief Starts a PWM cannel.
+* @param eChannelIdex BSP channel number
+* @retval void
+*/
 void bspPwmStart(pwmChannels_e eChannelIndex)
 {
     switch (eChannelIndex)
@@ -89,6 +107,12 @@ void bspPwmStart(pwmChannels_e eChannelIndex)
     }
 }
 
+/**
+* @brief Sets a new frequency
+* @param uNewFreq Frequency to be set
+* @retval HAL status
+* @note 1 decimal value = 1Hz
+*/
 HAL_StatusTypeDef bspPwmSetFreq(uint32_t uNewFreq)
 {
     int i;
@@ -114,7 +138,7 @@ HAL_StatusTypeDef bspPwmSetFreq(uint32_t uNewFreq)
     if (status != HAL_OK)
     {
         return HAL_ERROR;
-    }   
+    }
 
     for( i = 0; i < PWM_MAX_CHANNELS; i++)
     {
@@ -126,32 +150,38 @@ HAL_StatusTypeDef bspPwmSetFreq(uint32_t uNewFreq)
     return HAL_OK;
 }
 
+/**
+* @brief Sets a new duty cycle to a giving channel.
+* @param uNewDuty Duty cycle to be set
+* @param xChannel PWM channel
+* @retval HAL status
+*/
 HAL_StatusTypeDef bspPwmSetDuty(uint8_t uNewDuty, pwmChannels_e xChannel)
 {
-    uint8_t uChannel; 
+    uint8_t uChannel;
     uint32_t newAutoReloadReg;
-    
+
     if (xChannel >= PWM_MAX_CHANNELS)
         return HAL_ERROR;
 
     switch (xChannel)
     {
-        case PWM_CH_1: 
+        case PWM_CH_1:
             uChannel = TIM_CHANNEL_1;
-            pwmConfigStruct.uChannelXConfig[xChannel].uDuty = uNewDuty; 
-            break; 
+            pwmConfigStruct.uChannelXConfig[xChannel].uDuty = uNewDuty;
+            break;
         case PWM_CH_2:
             uChannel = TIM_CHANNEL_2;
-            pwmConfigStruct.uChannelXConfig[xChannel].uDuty = uNewDuty; 
-            break; 
-        case PWM_CH_3: 
+            pwmConfigStruct.uChannelXConfig[xChannel].uDuty = uNewDuty;
+            break;
+        case PWM_CH_3:
             uChannel = TIM_CHANNEL_3;
-            pwmConfigStruct.uChannelXConfig[xChannel].uDuty = uNewDuty; 
-            break; 
-        case PWM_CH_4: 
+            pwmConfigStruct.uChannelXConfig[xChannel].uDuty = uNewDuty;
+            break;
+        case PWM_CH_4:
             uChannel = TIM_CHANNEL_4;
-            pwmConfigStruct.uChannelXConfig[xChannel].uDuty = uNewDuty; 
-            break; 
+            pwmConfigStruct.uChannelXConfig[xChannel].uDuty = uNewDuty;
+            break;
         default:  break;
     }
 
@@ -161,9 +191,11 @@ HAL_StatusTypeDef bspPwmSetDuty(uint8_t uNewDuty, pwmChannels_e xChannel)
     return HAL_OK;
 }
 
-/*
- * Description: Initialize TIMER : Output compare mode to produce a square wave.
- */
+/**
+* @brief Initialize the timer init and the PWM channel.
+* @param void
+* @retval HAL status
+*/
 HAL_StatusTypeDef bspPwmInit(void)
 {
     int i;
