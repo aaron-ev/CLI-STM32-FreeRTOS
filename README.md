@@ -29,7 +29,7 @@ Table of contents:
 help:
  Lists all the registered commands
 
-task-stats:
+stats:
  Displays a table with the state of each FreeRTOS task.
 
 gpio-w [gpio port] [pin number] [logical value]: Write a digital value to a GPIO pin.
@@ -75,11 +75,11 @@ Pin set to 1
 
 # Task statistics command
 
-*task-stats* shows a list with relevant information of each task such as task name,
+*stats* shows a list with relevant information of each task such as task name,
 state, priority, stack remaining, CPU usage and runtime.
 
 ```
-#cmd: task-stats
+#cmd: stats
 
 Task states: BL = Blocked RE = Ready DE = Deleted  SU = Suspended
 

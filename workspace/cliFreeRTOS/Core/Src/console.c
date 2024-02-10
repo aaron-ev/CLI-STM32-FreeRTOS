@@ -73,8 +73,8 @@ static const char *prvpcMapTaskState(eTaskState eState)
 static const CLI_Command_Definition_t xCommands[] =
 {
     {
-        "task-stats",
-        "\r\ntask-stats:\r\n Displays a table with the state of each FreeRTOS task.\r\n",
+        "stats",
+        "\r\nstats:\r\n Displays a table with the state of each FreeRTOS task.\r\n",
         prvCommandTaskStats,
         0
     },
