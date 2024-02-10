@@ -9,6 +9,7 @@
 #include "bsp.h"
 
 UART_HandleTypeDef consoleHandle;
+TIM_HandleTypeDef xTimStatsHandler;
 
 /**
 * @brief Initialize system clocks, PLL and Clock dividers.
@@ -66,6 +67,33 @@ static void heartBeatInit(void)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(HEART_BEAT_LED_PORT, &GPIO_InitStruct);
+}
+
+/**
+* @brief Configure timer used for FreeRTOS task statistics
+* @param void
+* @retval void
+*/
+void bspConfigureTimForRunTimeStats(void)
+{
+    xTimStatsHandler.Instance = TIM5;
+    xTimStatsHandler.Init.Prescaler = 4000; /* APB1 timers = 40Mhz, counting every 100us*/
+    xTimStatsHandler.Init.CounterMode = TIM_COUNTERMODE_UP;
+    xTimStatsHandler.Init.Period = 0xFFFFFFFF;
+    xTimStatsHandler.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+    xTimStatsHandler.Init.ClockDivision = TIM_AUTORELOAD_PRELOAD_DISABLE;
+    HAL_TIM_Base_Init(&xTimStatsHandler);
+    HAL_TIM_Base_Start(&xTimStatsHandler);
+}
+
+/**
+* @brief Get current timer counter for FreeRTOS task statistics.
+* @param void
+* @retval void
+*/
+uint32_t bspGetTimStatsCount(void)
+{
+    return __HAL_TIM_GET_COUNTER(&xTimStatsHandler);
 }
 
 /**

@@ -14,6 +14,7 @@ void HAL_MspInit(void)
     __HAL_RCC_GPIOB_CLK_ENABLE();
     __HAL_RCC_GPIOC_CLK_ENABLE();
     __HAL_RCC_TIM2_CLK_ENABLE();
+    __HAL_RCC_TIM5_CLK_ENABLE();
 
     /* Enable clock for the console */
     __HAL_RCC_USART1_CLK_ENABLE();

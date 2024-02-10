@@ -66,7 +66,7 @@
 #define configUSE_MALLOC_FAILED_HOOK 0
 #define configUSE_APPLICATION_TASK_TAG 0
 #define configUSE_COUNTING_SEMAPHORES 1
-#define configGENERATE_RUN_TIME_STATS 0
+#define configGENERATE_RUN_TIME_STATS 1
 #define configUSE_TASK_NOTIFICATIONS 1
 #define configTASK_NOTIFICATION_ARRAY_ENTRIES 2
 #define configCOMMAND_INT_MAX_OUTPUT_SIZE 500
@@ -131,5 +131,11 @@ standard names. */
 #define vPortSVCHandler SVC_Handler
 #define xPortPendSVHandler PendSV_Handler
 #define xPortSysTickHandler SysTick_Handler
+
+/* Functions and macros used for task statistics */
+extern void bspConfigureTimForRunTimeStats(void);
+extern uint16_t bspGetTimStatsCount(void);
+#define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS() bspConfigureTimForRunTimeStats()
+#define portGET_RUN_TIME_COUNTER_VALUE() bspGetTimStatsCount();
 
 #endif /* FREERTOS_CONFIG_H */

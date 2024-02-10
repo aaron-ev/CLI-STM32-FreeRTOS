@@ -38,9 +38,9 @@ QueueHandle_t xQueueRxHandle;
 UART_HandleTypeDef *pxUartDevHandle;
 static const char *pcWelcomeMsg = "Welcome to the console. Enter 'help' to view a list of available commands.\n";
 
-static const char *prvpcTaskListHeader = "Task states: BL = Blocked RE = Ready DE = Deleted  SU = Suspended\n\n"\
-                                         "Task name                         State  Priority  Stack remaining  %%CPU usage  Runtime\n"\
-                                         "================================  =====  ========  ===============  ===========  =======\n";
+static const char *prvpcTaskListHeader = "Task states: Bl = Blocked, Re = Ready, Ru = Running, De = Deleted,  Su = Suspended\n\n"\
+                                         "Task name         State  Priority  Stack remaining  CPU usage  Runtime(us)\n"\
+                                         "================= =====  ========  ===============  =========  ===========\n";
 static const char *prvpcPrompt = "#cmd: ";
 
 static BaseType_t prvCommandPwmSetFreq(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
@@ -61,11 +61,11 @@ static const char *prvpcMapTaskState(eTaskState eState)
 {
     switch (eState)
     {
-        case     eReady: return "RU";
-        case   eRunning: return "RE";
-        case   eDeleted: return "DE";
+        case     eReady: return "Re";
+        case   eRunning: return "Ru";
+        case   eDeleted: return "De";
         case   eBlocked: return "Bl";
-        case eSuspended: return "SU";
+        case eSuspended: return "S";
         default: return "??";
     }
 }
@@ -165,20 +165,33 @@ static BaseType_t prvCommandTaskStats( char *pcWriteBuffer, size_t xWriteBufferL
     }
     else
     {
-    	memset(pcWriteBuffer, 0x00, 300);
+        memset(pcWriteBuffer, 0x00, MAX_OUT_STR_LEN);
         /* Prevent from zero division */
         if (uTotalRunTime == 0)
             uTotalRunTime = 1;
 
         pxTmpTaskStatus = &pxTaskStatus[uTaskIndex];
-        snprintf(pcWriteBuffer, xWriteBufferLen,
-                "%-32s  %5s  %8lu  %15d  %11lu  %7lu\n",
-                pxTmpTaskStatus->pcTaskName,
-                prvpcMapTaskState(pxTmpTaskStatus->eCurrentState),
-                pxTmpTaskStatus->uxCurrentPriority,
-                pxTmpTaskStatus->usStackHighWaterMark,
-                pxTmpTaskStatus->ulRunTimeCounter / uTotalRunTime,
-                pxTmpTaskStatus->ulRunTimeCounter);
+        if (pxTmpTaskStatus->ulRunTimeCounter / uTotalRunTime < 1)
+        {
+         snprintf(pcWriteBuffer, xWriteBufferLen,
+                 "%-16s  %5s  %8lu  %14dB       < 1%%  %11lu\n",
+                 pxTmpTaskStatus->pcTaskName,
+                 prvpcMapTaskState(pxTmpTaskStatus->eCurrentState),
+                 pxTmpTaskStatus->uxCurrentPriority,
+                 pxTmpTaskStatus->usStackHighWaterMark,
+                 pxTmpTaskStatus->ulRunTimeCounter);
+        }
+        else
+        {
+            snprintf(pcWriteBuffer, xWriteBufferLen,
+                    "%-16s  %5s  %8lu  %14dB  %8lu%%  %11lu\n",
+                    pxTmpTaskStatus->pcTaskName,
+                    prvpcMapTaskState(pxTmpTaskStatus->eCurrentState),
+                    pxTmpTaskStatus->uxCurrentPriority,
+                    pxTmpTaskStatus->usStackHighWaterMark,
+                    pxTmpTaskStatus->ulRunTimeCounter / uTotalRunTime,
+                    pxTmpTaskStatus->ulRunTimeCounter);
+        }
         uTaskIndex++;
     }
 
@@ -518,7 +531,7 @@ void vTaskConsole(void *pvParams)
                                             );
                         vConsoleWrite(pcOutputString);
                     } while(xMoreDataToProcess != pdFALSE);
-                }
+                                    }
                 else
                 {
                     vConsoleWrite("\n");
@@ -539,7 +552,7 @@ void vTaskConsole(void *pvParams)
                 vConsoleWrite("\n");
                 vConsoleWrite(prvpcPrompt);
                 break;
-            case ASCII_NACK:
+                        case ASCII_NACK:
             case ASCII_BACKSPACE:
                 if (uInputIndex > 0)
                 {
@@ -558,7 +571,7 @@ void vTaskConsole(void *pvParams)
                 uInputIndex = (unsigned char)strlen(pcInputString);
                 vConsoleWrite(pcInputString);
                 break;
-            case ASCII_DEL: /* Delete or CTRL + backspace */
+case ASCII_DEL: /* Delete or CTRL + backspace */
                 while (uInputIndex)
                 {
                     uInputIndex--;
