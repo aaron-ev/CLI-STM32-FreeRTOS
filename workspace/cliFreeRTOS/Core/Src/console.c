@@ -531,7 +531,8 @@ void vTaskConsole(void *pvParams)
                                             );
                         vConsoleWrite(pcOutputString);
                     } while(xMoreDataToProcess != pdFALSE);
-                                    }
+                    vConsoleWrite("\n");
+                }
                 else
                 {
                     vConsoleWrite("\n");
@@ -552,7 +553,8 @@ void vTaskConsole(void *pvParams)
                 vConsoleWrite("\n");
                 vConsoleWrite(prvpcPrompt);
                 break;
-                        case ASCII_NACK:
+            case ASCII_DEL:
+            case ASCII_NACK:
             case ASCII_BACKSPACE:
                 if (uInputIndex > 0)
                 {
@@ -570,14 +572,6 @@ void vTaskConsole(void *pvParams)
                 strncpy(pcInputString, pcPrevInputString, MAX_IN_STR_LEN);
                 uInputIndex = (unsigned char)strlen(pcInputString);
                 vConsoleWrite(pcInputString);
-                break;
-case ASCII_DEL: /* Delete or CTRL + backspace */
-                while (uInputIndex)
-                {
-                    uInputIndex--;
-                    vConsoleWrite("\b \b");
-                }
-                 memset(pcInputString, 0x00, MAX_IN_STR_LEN);
                 break;
             default:
                 /* Check if read character is between [Space] and [~] in ASCII table */
