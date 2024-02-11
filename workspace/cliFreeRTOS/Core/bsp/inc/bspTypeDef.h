@@ -1,7 +1,7 @@
 /**
 ******************************************************************************
 * @file    bspTypeDef.h
-* @author  Aaron Escoboza
+* @author  Aaron Escoboza, Github account: https://github.com/aaron-ev
 * @brief   Header that contains BSP definitions
 ******************************************************************************
 */

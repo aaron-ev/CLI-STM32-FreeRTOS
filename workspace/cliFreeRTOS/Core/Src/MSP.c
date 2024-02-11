@@ -76,3 +76,29 @@ void HAL_TIM_OC_MspInit(TIM_HandleTypeDef *timerHandler)
     pwmGpioInit.Alternate = PWM_GPIO_ALTERNATE;
     HAL_GPIO_Init(PWM_GPIO_INSTANCE, &pwmGpioInit);
 }
+
+/**
+* @brief Low level initialization for RTC
+* @param *rtcHandler RTC handler
+* @retval void
+*/
+void HAL_RTC_MspInit(RTC_HandleTypeDef* rtcHandler)
+{
+    HAL_StatusTypeDef halStatus;
+    RCC_OscInitTypeDef oscConfig = {0};
+    RCC_PeriphCLKInitTypeDef pclkInit;
+
+    oscConfig.LSEState = RCC_LSE_ON;;
+    oscConfig.OscillatorType = RCC_OSCILLATORTYPE_LSE;
+    halStatus = HAL_RCC_OscConfig(&oscConfig);
+    if (halStatus != HAL_OK)
+        Error_Handler();
+
+    pclkInit.PeriphClockSelection = RCC_PERIPHCLK_RTC;
+    pclkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
+    halStatus = HAL_RCCEx_PeriphCLKConfig(&pclkInit);
+    if (halStatus != HAL_OK)
+        Error_Handler();
+
+    __HAL_RCC_RTC_ENABLE();
+}

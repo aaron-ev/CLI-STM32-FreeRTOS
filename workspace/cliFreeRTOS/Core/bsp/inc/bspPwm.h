@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    bspPwm.h
-  * @author  Aaron Escoboza
+  * @author  Aaron Escoboza, Github account: https://github.com/aaron-ev
   * @brief   Header file that exposes PWM data types and PWM APIs
   ******************************************************************************
 */

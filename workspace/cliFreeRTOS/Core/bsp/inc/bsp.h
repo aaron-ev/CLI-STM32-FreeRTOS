@@ -1,7 +1,7 @@
 /**
 ******************************************************************************
 * @file    bsp.h
-* @author  Aaron Escoboza
+* @author  Aaron Escoboza, Github account: https://github.com/aaron-ev
 * @brief   Header file to expose a BSP generic functions
 ******************************************************************************
 */
@@ -12,6 +12,7 @@
 #include "bspPwm.h"
 #include "bspGpio.h"
 #include "bspClk.h"
+#include "bspRtc.h"
 
 BspError_e bspInit(void);
 

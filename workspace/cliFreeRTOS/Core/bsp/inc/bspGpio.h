@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    bspGpio.h
-  * @author  Aaron Escoboza
+  * @author  Aaron Escoboza, Github account: https://github.com/aaron-ev
   * @brief   Header file that exposes GPIO data types and GPIo APIs
   ******************************************************************************
 */

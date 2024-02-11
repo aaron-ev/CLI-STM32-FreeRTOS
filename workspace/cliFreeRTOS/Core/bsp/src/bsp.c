@@ -57,9 +57,9 @@ static BspError_e clkInit(void)
 /**
 * @brief Initialize GPIO pin for heart beat functionality.
 * @param void
-* @retval void
+* @retval BSP error
 */
-static void heartBeatInit(void)
+static BspError_e heartBeatInit(void)
 {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
 
@@ -69,6 +69,8 @@ static void heartBeatInit(void)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(HEART_BEAT_LED_PORT, &GPIO_InitStruct);
+
+    return BSP_NO_ERROR;
 }
 
 /**
@@ -130,33 +132,33 @@ BspError_e consoleInit(void)
 BspError_e bspInit(void)
 {
     HAL_StatusTypeDef halStatus;
+    BspError_e bspError = BSP_NO_ERROR;
 
     /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
     halStatus = HAL_Init();
     if (halStatus != HAL_OK)
-    {
         return BSP_ERROR_EIO;
-    }
 
-    halStatus = clkInit();
-    if (halStatus != HAL_OK)
-    {
-        return BSP_ERROR_EIO;
-    }
+    bspError = clkInit();
+    if (bspError != BSP_NO_ERROR)
+        goto out_bsp_init;
 
-    halStatus = consoleInit();
-    if (halStatus != HAL_OK)
-    {
-        return BSP_ERROR_EIO;
-    }
+    bspError = consoleInit();
+    if (bspError != BSP_NO_ERROR)
+        goto out_bsp_init;
 
-    heartBeatInit();
+    bspError = heartBeatInit();
+    if (bspError != BSP_NO_ERROR)
+        goto out_bsp_init;
 
-    halStatus = bspPwmInit();
-    if (halStatus != HAL_OK)
-    {
-        return BSP_ERROR_EIO;
-    }
+    bspError = bspPwmInit();
+    if (bspError != BSP_NO_ERROR)
+        goto out_bsp_init;
 
-    return BSP_NO_ERROR;
+    bspError = bspRtcInit();
+    if (bspError != BSP_NO_ERROR)
+        goto out_bsp_init;
+
+out_bsp_init:
+    return bspError;
 }

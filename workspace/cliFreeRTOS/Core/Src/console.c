@@ -52,6 +52,8 @@ static BaseType_t prvCommandTaskStats( char *pcWriteBuffer, size_t xWriteBufferL
 static BaseType_t prvCommandHeap(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandClk(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandTicks(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
+static BaseType_t prvCommandRtcGet(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
+static BaseType_t prvCommandRtcSet(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 
 /**
 *   @brief  This function is executed in case of error occurrence.
@@ -80,31 +82,31 @@ static const CLI_Command_Definition_t xCommands[] =
     },
     {
         "gpio-w",
-        "\r\ngpio-w [gpio port] [pin number] [logical value]: Write a digital value to GPIO pin.\r\n",
+        "\r\ngpio-w <gpio port> <pin number> <logical value>: Write a digital value to GPIO pin.\r\n",
         prvCommandGpioWrite,
         3
     },
     {
         "gpio-r",
-        "\r\ngpio-r [gpio port] [pin number] : Read a GPIO pin.\r\n",
+        "\r\ngpio-r <gpio port> <pin number>: Read a GPIO pin.\r\n",
         prvCommandGpioRead,
         2
     },
     {
        "echo",
-       "\r\necho [string to echo]\r\n",
+       "\r\necho <string to echo>\r\n",
        prvCommandEcho,
        1
     },
     {
         "pwm-f",
-        "\r\npwm-f [Frequency]: Set a new frequency.\r\n",
+        "\r\npwm-f <Frequency>: Set a new frequency.\r\n",
         prvCommandPwmSetFreq,
         1
     },
     {
         "pwm-d",
-        "\r\npwm-d [Duty cycle] [Channel]: Set a new PWM duty cycle of a giving channel.\r\n",
+        "\r\npwm-d <Duty cycle> Channel>: Set a new PWM duty cycle of a giving channel.\r\n",
         prvCommandPwmSetDuty,
         2
     },
@@ -126,6 +128,18 @@ static const CLI_Command_Definition_t xCommands[] =
         prvCommandTicks,
         0
     },
+    {
+        "rtc-g",
+        "\r\nrtc-g: Get the current time\r\n",
+        prvCommandRtcGet,
+        0
+    },
+    {
+        "rtc-s",
+        "\r\nrtc-s <Hours> <Minutes> <Seconds>: Set a new time\r\n",
+        prvCommandRtcSet,
+        3
+    },
     { NULL, NULL, NULL, 0 }
 };
 
@@ -134,7 +148,7 @@ static const CLI_Command_Definition_t xCommands[] =
 * @param *pcWriteBuffer FreeRTOS CLI write buffer.
 * @param xWriteBufferLen Length of write buffer.
 * @param *pcCommandString pointer to the command name.
-* @retval HAL status
+* @retval FreeRTOS status
 */
 static BaseType_t prvCommandTaskStats( char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
@@ -212,7 +226,7 @@ out_cmd_task_stats :
 * @param *pcWriteBuffer FreeRTOS CLI write buffer.
 * @param xWriteBufferLen Length of write buffer.
 * @param *pcCommandString pointer to the command name.
-* @retval HAL status
+* @retval FreeRTOS status
 */
 static BaseType_t prvCommandGpioWrite(char *pcWriteBuffer, size_t xWriteBufferLen,\
                                       const char *pcCommandString)
@@ -266,7 +280,7 @@ out_cmd_gpio_write:
 * @param *pcWriteBuffer FreeRTOS CLI write buffer.
 * @param xWriteBufferLen Length of write buffer.
 * @param *pcCommandString pointer to the command name.
-* @retval HAL status
+* @retval FreeRTOS status
 */
 static BaseType_t prvCommandGpioRead(char *pcWriteBuffer, size_t xWriteBufferLen\
                                      , const char *pcCommandString)
@@ -310,7 +324,7 @@ out_cmd_gpio_read:
 * @param *pcWriteBuffer FreeRTOS CLI write buffer.
 * @param xWriteBufferLen Length of write buffer.
 * @param *pcCommandString pointer to the command name.
-* @retval HAL status
+* @retval FreeRTOS status
 */
 static BaseType_t prvCommandEcho( char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
@@ -319,7 +333,7 @@ static BaseType_t prvCommandEcho( char *pcWriteBuffer, size_t xWriteBufferLen, c
 
     /* Get the user input and write it back the FreeRTOS write buffer */
     pcStrToOutput = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
-    snprintf(pcWriteBuffer, xWriteBufferLen, pcStrToOutput);
+    snprintf(pcWriteBuffer, xWriteBufferLen, "%s\n", pcStrToOutput);
 
     return pdFALSE;
 }
@@ -329,7 +343,7 @@ static BaseType_t prvCommandEcho( char *pcWriteBuffer, size_t xWriteBufferLen, c
 * @param *pcWriteBuffer FreeRTOS CLI write buffer.
 * @param xWriteBufferLen Length of write buffer.
 * @param *pcCommandString pointer to the command name.
-* @retval HAL status
+* @retval FreeRTOS status
 */
 static BaseType_t prvCommandPwmSetFreq(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
@@ -354,7 +368,7 @@ static BaseType_t prvCommandPwmSetFreq(char *pcWriteBuffer, size_t xWriteBufferL
 * @param *pcWriteBuffer FreeRTOS CLI write buffer.
 * @param xWriteBufferLen Length of write buffer.
 * @param *pcCommandString pointer to the command name.
-* @retval HAL status
+* @retval FreeRTOS status
 */
 static BaseType_t prvCommandPwmSetDuty(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
@@ -383,7 +397,7 @@ static BaseType_t prvCommandPwmSetDuty(char *pcWriteBuffer, size_t xWriteBufferL
 * @param *pcWriteBuffer FreeRTOS CLI write buffer.
 * @param xWriteBufferLen Length of write buffer.
 * @param *pcCommandString pointer to the command name.
-* @retval HAL status
+* @retval FreeRTOS status
 */
 static BaseType_t prvCommandHeap(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
@@ -405,7 +419,7 @@ static BaseType_t prvCommandHeap(char *pcWriteBuffer, size_t xWriteBufferLen, co
 * @param *pcWriteBuffer FreeRTOS CLI write buffer.
 * @param xWriteBufferLen Length of write buffer.
 * @param *pcCommandString pointer to the command name.
-* @retval HAL status
+* @retval FreeRTOS status
 */
 static BaseType_t prvCommandClk(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
@@ -418,7 +432,7 @@ static BaseType_t prvCommandClk(char *pcWriteBuffer, size_t xWriteBufferLen, con
 * @param *pcWriteBuffer FreeRTOS CLI write buffer.
 * @param xWriteBufferLen Length of write buffer.
 * @param *pcCommandString pointer to the command name.
-* @retval HAL status
+* @retval FreeRTOS status
 */
 static BaseType_t prvCommandTicks(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
@@ -429,16 +443,84 @@ static BaseType_t prvCommandTicks(char *pcWriteBuffer, size_t xWriteBufferLen, c
     uSec = xTickCount / configTICK_RATE_HZ;
     uMs = xTickCount % configTICK_RATE_HZ;
     snprintf(pcWriteBuffer, xWriteBufferLen,
-             "\nTick rate: %u Hz\nTicks: %lu\nRun time: %lu.%.3lu seconds\n",
+             "Tick rate: %u Hz\nTicks: %lu\nRun time: %lu.%.3lu seconds\n",
               (unsigned)configTICK_RATE_HZ, xTickCount, uSec, uMs);
 
+    return pdFALSE;
+}
+
+
+/**
+* @brief Get the current time stored in RTC registers
+* @param *pcWriteBuffer FreeRTOS CLI write buffer.
+* @param xWriteBufferLen Length of write buffer.
+* @param *pcCommandString pointer to the command name.
+* @retval FreeRTOS status
+*/
+static BaseType_t prvCommandRtcGet(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
+{
+    BspRtcTime bspRtcTime;
+    BspError_e bspStatus;
+
+    bspStatus = bspRtcGetTime(&bspRtcTime);
+    if (bspStatus != BSP_NO_ERROR)
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: Could not get current time\n");
+
+    snprintf(pcWriteBuffer, xWriteBufferLen, "Time (24hr format): %u:%u:%u\n",
+            bspRtcTime.uHours, bspRtcTime.uMinutes, bspRtcTime.uSeconds);
+
+    return pdFALSE;
+}
+
+/**
+* @brief Set a new time in RCT registers
+* @param *pcWriteBuffer FreeRTOS CLI write buffer.
+* @param xWriteBufferLen Length of write buffer.
+* @param *pcCommandString pointer to the command name.
+* @retval FreeRTOS status
+*/
+static BaseType_t prvCommandRtcSet(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
+{
+    const char *cHours;
+    const char *cMinutes;
+    const char *cSeconds;
+    BaseType_t xParamLen;
+    BspError_e bspStatus;
+    BspRtcTime bspRtcTime;
+
+    cHours = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
+    cMinutes = FreeRTOS_CLIGetParameter(pcCommandString, 2, &xParamLen);
+    cSeconds = FreeRTOS_CLIGetParameter(pcCommandString, 3, &xParamLen);
+
+    bspRtcTime.uHours = atoi(cHours);
+    bspRtcTime.uMinutes = atoi(cMinutes);
+    bspRtcTime.uSeconds = atoi(cSeconds);
+
+    bspStatus = bspRtcSetTime(&bspRtcTime);
+    if (bspStatus == BSP_ERROR_EINVAL)
+    {
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: Invalid parameters\n");
+        goto out_cmd_rtc_set;
+    }
+    else if (bspStatus == BSP_ERROR_EIO)
+    {
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: I/O\n");
+        goto out_cmd_rtc_set;
+    }
+    else
+    {
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Time (24hr format) set to: %u:%u:%u\n",
+                bspRtcTime.uHours, bspRtcTime.uMinutes, bspRtcTime.uSeconds);
+    }
+
+out_cmd_rtc_set:
     return pdFALSE;
 }
 
 /**
 * @brief Reads from UART RX buffer. Reads one bye at the time.
 * @param *cReadChar pointer to where data will be stored.
-* @retval HAL status
+* @retval FreeRTOS status
 */
 static BaseType_t xConsoleRead(uint8_t *cReadChar, size_t xLen)
 {
@@ -529,9 +611,10 @@ void vTaskConsole(void *pvParams)
         {
             case ASCII_CR:
             case ASCII_LF:
+
                 if (uInputIndex != 0)
                 {
-                    vConsoleWrite("\n");
+                    vConsoleWrite("\n\n");
                     strncpy(pcPrevInputString, pcInputString, MAX_IN_STR_LEN);
                     do
                     {
@@ -543,15 +626,11 @@ void vTaskConsole(void *pvParams)
                                             );
                         vConsoleWrite(pcOutputString);
                     } while (xMoreDataToProcess != pdFALSE);
-                    vConsoleWrite("\n");
-                }
-                else
-                {
-                    vConsoleWrite("\n");
                 }
                 uInputIndex = 0;
                 memset(pcInputString, 0x00, MAX_IN_STR_LEN);
                 memset(pcOutputString, 0x00, MAX_OUT_STR_LEN);
+                vConsoleWrite("\n");
                 vConsoleWrite(prvpcPrompt);
                 break;
             case ASCII_FORM_FEED:
