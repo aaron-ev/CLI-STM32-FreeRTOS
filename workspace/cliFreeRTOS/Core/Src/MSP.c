@@ -20,14 +20,12 @@ void HAL_MspInit(void)
     __HAL_RCC_SYSCFG_CLK_ENABLE();
     __HAL_RCC_PWR_CLK_ENABLE();
 
-    /* Enable clock for GPIOs being used */
+    /* Enable clock for all peripherals being used */
     __HAL_RCC_GPIOA_CLK_ENABLE();
     __HAL_RCC_GPIOB_CLK_ENABLE();
     __HAL_RCC_GPIOC_CLK_ENABLE();
     __HAL_RCC_TIM2_CLK_ENABLE();
     __HAL_RCC_TIM5_CLK_ENABLE();
-
-    /* Enable clock for the console */
     __HAL_RCC_USART1_CLK_ENABLE();
 
     /* Set priority for PWM timer */
@@ -54,7 +52,6 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandler)
         uartGpioInit.Alternate = GPIO_AF7_USART1;
         HAL_GPIO_Init(CONSOLE_GPIO_PORT, &uartGpioInit);
 
-        /* USART hardware priority  = 15*/
         HAL_NVIC_SetPriority(USART1_IRQn, 15 , 0);
         HAL_NVIC_EnableIRQ(USART1_IRQn);
     }

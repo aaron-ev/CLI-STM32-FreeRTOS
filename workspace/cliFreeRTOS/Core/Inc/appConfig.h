@@ -34,7 +34,5 @@
 #define PWM_GPIO_PINX                       GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3
 #define PWM_GPIO_ALTERNATE                  GPIO_AF1_TIM2
 #define PWM_TIM_INSTANCE                    TIM2
-#define PWM_TIM_CHANNEL                     TIM_CHANNEL_1
-#define PWM_DEFAULT_PULSE                   500
 
 #endif

@@ -713,7 +713,7 @@ out_task_console:
 * @param *pxUartHandle Pointer for uart handle.
 * @retval FreeRTOS status
 */
-BaseType_t xConsoleInit(uint16_t usStackSize, UBaseType_t uxPriority, UART_HandleTypeDef *pxUartHandle)
+BaseType_t xbspConsoleInit(uint16_t usStackSize, UBaseType_t uxPriority, UART_HandleTypeDef *pxUartHandle)
 {
     const CLI_Command_Definition_t *pCommand;
 

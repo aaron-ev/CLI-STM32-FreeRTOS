@@ -46,7 +46,7 @@ int main(void)
     if (halStatus != HAL_OK)
         goto main_out;
 
-    retVal = xConsoleInit(CONSOLE_STACK_SIZE, CONSOLE_TASK_PRIORITY, &consoleHandle);
+    retVal = xbspConsoleInit(CONSOLE_STACK_SIZE, CONSOLE_TASK_PRIORITY, &consoleHandle);
     if (retVal != pdTRUE)
         goto main_out;
 

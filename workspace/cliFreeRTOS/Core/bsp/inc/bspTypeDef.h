@@ -12,7 +12,6 @@
 #include "errno.h"
 
 typedef enum
-
 {
     BSP_NO_ERROR,
     BSP_ERROR_EIO = EIO,

@@ -36,9 +36,7 @@ static BspError_e clkInit(void)
     RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
     RCC_OscInitStruct.PLL.PLLQ = 4;
     if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-    {
         return BSP_ERROR_EIO;
-    }
 
     RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK
                                   | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
@@ -47,9 +45,7 @@ static BspError_e clkInit(void)
     RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
     RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
     if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
-    {
         return BSP_ERROR_EIO;
-    }
 
     return BSP_NO_ERROR;
 }
@@ -59,7 +55,7 @@ static BspError_e clkInit(void)
 * @param void
 * @retval BSP error
 */
-static BspError_e heartBeatInit(void)
+static BspError_e bspHearBeatInit(void)
 {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
 
@@ -76,9 +72,9 @@ static BspError_e heartBeatInit(void)
 /**
 * @brief Configure timer used for FreeRTOS task statistics
 * @param void
-* @retval void
+* @retval BSP error
 */
-void bspConfigureTimForRunTimeStats(void)
+BspError_e bspConfigureTimForRunTimeStats(void)
 {
     xTimStatsHandler.Instance = TIM5;
     xTimStatsHandler.Init.Prescaler = 4000; /* APB1 timers = 40Mhz, counting every 100us*/
@@ -86,8 +82,12 @@ void bspConfigureTimForRunTimeStats(void)
     xTimStatsHandler.Init.Period = 0xFFFFFFFF;
     xTimStatsHandler.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
     xTimStatsHandler.Init.ClockDivision = TIM_AUTORELOAD_PRELOAD_DISABLE;
-    HAL_TIM_Base_Init(&xTimStatsHandler);
-    HAL_TIM_Base_Start(&xTimStatsHandler);
+    if (HAL_TIM_Base_Init(&xTimStatsHandler) != HAL_OK)
+        return BSP_ERROR_EIO;
+    if (HAL_TIM_Base_Start(&xTimStatsHandler) != HAL_OK)
+        return BSP_ERROR_EIO;
+
+    return BSP_NO_ERROR;
 }
 
 /**
@@ -105,9 +105,8 @@ uint32_t bspGetTimStatsCount(void)
 * @param void
 * @retval BSP error
 */
-BspError_e consoleInit(void)
+BspError_e bspConsoleInit(void)
 {
-    /* GPIO initializations */
     consoleHandle.Instance = CONSOLE_INSTANCE;
     consoleHandle.Init.BaudRate = CONSOLE_BAUDRATE;
     consoleHandle.Init.WordLength = UART_WORDLENGTH_8B;
@@ -117,9 +116,7 @@ BspError_e consoleInit(void)
     consoleHandle.Init.HwFlowCtl = UART_HWCONTROL_NONE;
     consoleHandle.Init.OverSampling = UART_OVERSAMPLING_16;
     if (HAL_UART_Init(&consoleHandle) != HAL_OK)
-    {
         return BSP_ERROR_EIO;
-    }
 
     return BSP_NO_ERROR;
 }
@@ -143,11 +140,11 @@ BspError_e bspInit(void)
     if (bspError != BSP_NO_ERROR)
         goto out_bsp_init;
 
-    bspError = consoleInit();
+    bspError = bspConsoleInit();
     if (bspError != BSP_NO_ERROR)
         goto out_bsp_init;
 
-    bspError = heartBeatInit();
+    bspError = bspHearBeatInit();
     if (bspError != BSP_NO_ERROR)
         goto out_bsp_init;
 
