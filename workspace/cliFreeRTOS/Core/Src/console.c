@@ -18,6 +18,9 @@
 #include "string.h"
 #include "bsp.h"
 
+#define CONSOLE_VERSION_MAJOR                   1
+#define CONSOLE_VERSION_MINOR                   0
+
 #define MAX_IN_STR_LEN                          300
 #define MAX_OUT_STR_LEN                         600
 #define MAX_RX_QUEUE_LEN                        300
@@ -54,6 +57,7 @@ static BaseType_t prvCommandClk(char *pcWriteBuffer, size_t xWriteBufferLen, con
 static BaseType_t prvCommandTicks(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandRtcGet(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandRtcSet(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
+static BaseType_t prvCommandVersion(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 
 /**
 *   @brief  This function is executed in case of error occurrence.
@@ -139,6 +143,12 @@ static const CLI_Command_Definition_t xCommands[] =
         "\r\nrtc-s <Hours> <Minutes> <Seconds>: Set a new time\r\n",
         prvCommandRtcSet,
         3
+    },
+    {
+        "version",
+        "\r\nversion: Get console version\r\n",
+        prvCommandVersion,
+        0
     },
     { NULL, NULL, NULL, 0 }
 };
@@ -518,6 +528,19 @@ out_cmd_rtc_set:
 }
 
 /**
+* @brief Get current console version
+* @param *pcWriteBuffer FreeRTOS CLI write buffer.
+* @param xWriteBufferLen Length of write buffer.
+* @param *pcCommandString pointer to the command name.
+* @retval FreeRTOS status
+*/
+static BaseType_t prvCommandVersion(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
+{
+    snprintf(pcWriteBuffer, xWriteBufferLen, "%d.%d\n", (uint8_t)(CONSOLE_VERSION_MAJOR), (uint8_t)(CONSOLE_VERSION_MINOR));
+    return pdFALSE;
+}
+
+/**
 * @brief Reads from UART RX buffer. Reads one bye at the time.
 * @param *cReadChar pointer to where data will be stored.
 * @retval FreeRTOS status
@@ -611,7 +634,6 @@ void vTaskConsole(void *pvParams)
         {
             case ASCII_CR:
             case ASCII_LF:
-
                 if (uInputIndex != 0)
                 {
                     vConsoleWrite("\n\n");

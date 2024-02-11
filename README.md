@@ -2,15 +2,16 @@ IMPORTANT: This repo is under developmcommandent and first release will be poste
 
 - [Introduction: FreeRTOS CLI + STM32](#introduction-freertos-cli--stm32)
 - [Commands](#commands)
-  - [Help command](#help-command)
-  - [GPIO read command](#gpio-read-command)
-  - [GPIO write command](#gpio-write-command)
-  - [Task statistics command](#task-statistics-command)
-  - [Heap command](#heap-command)
-  - [Clock command](#clock-command)
-  - [Ticks command](#ticks-command)
-  - [Pwm set frequency and set duty command](#pwm-set-frequency-and-set-duty-command)
-  - [RTC set and get time commands](#rtc-set-and-get-time-commands)
+  - [Help](#help)
+  - [GPIO read](#gpio-read)
+  - [GPIO write](#gpio-write)
+  - [Task statistics](#task-statistics)
+  - [Heap](#heap)
+  - [Clock](#clock)
+  - [Ticks](#ticks)
+  - [Pwm set frequency and set duty](#pwm-set-frequency-and-set-duty)
+  - [RTC set and get time](#rtc-set-and-get-time)
+  - [Version](#version)
 - [Console software architecture](#console-software-architecture)
 - [API documentation with Doxygen](#api-documentation-with-doxygen)
 
@@ -25,7 +26,7 @@ The following output is what would you see if you open a serial port with a seri
 Once you are here, type any of the following commands.
 
 # Commands
-## Help command
+## Help
 
 *help* lists all available commands.
 
@@ -55,7 +56,7 @@ clk: Display clock information.
 ticks: Display OS tick count and run time in seconds.
 ```
 
-## GPIO read command
+## GPIO read
 
 *gpio-r* reads a GPIO pin state
 
@@ -67,7 +68,7 @@ Example: Read GPIO port A pin number 2
 Pin state: 0
 ```
 
-## GPIO write command
+## GPIO write
 
 *gpio-w* writes to a GPIO pin
 
@@ -79,7 +80,7 @@ Example: Write 1 to GPIO port C pin number 12
 Pin set to 1
 ```
 
-## Task statistics command
+## Task statistics
 
 *stats* shows a list with relevant information of each task such as task name,
 state, priority, stack remaining, CPU usage and runtime.
@@ -98,7 +99,7 @@ task-hear                            Bl         1              104            0 
 Tmr Svc
 ```
 
-## Heap command
+## Heap
 
 *heap* Shows heap size, remaining memory in the heap and
 the minimum heap size ever existed since power on. Note: See FreeRTOS documentation for more information. To understand each output of this command, take a look at [FreeRTOS memory management](https://www.freertos.org/a00111.html).
@@ -110,7 +111,7 @@ Remaining            : 24016 bytes ( 23 KiB)
 Minimum ever existed : 23864 bytes ( 23 KiB)
 ```
 
-## Clock command
+## Clock
 
 *clk* Shows STM32 clock information.
 
@@ -125,7 +126,7 @@ APB1 timers       40000000     40000        40
 APB2 timers       80000000     80000        80
 ```
 
-## Ticks command
+## Ticks
 
 *ticks* Shows FreeRTOS tick count in ticks and run time in
 seconds.
@@ -138,7 +139,7 @@ Ticks: 2852
 Run time: 2.852 seconds
 ```
 
-## Pwm set frequency and set duty command
+## Pwm set frequency and set duty
 
 *pwm-f* sets a new frequency in Hz.
 
@@ -146,7 +147,7 @@ Run time: 2.852 seconds
 
 ![pwm-f command](/docs/img/pwmCommand.png)
 
-## RTC set and get time commands
+## RTC set and get time
 
 *rtc-s* Sets a new time in 24hr format. Example: Set time to 12:0:0.
 
@@ -163,6 +164,16 @@ Time (24hr format) set to: 12:0:0
 
 Time (24hr format): 12:1:51
 ```
+
+## Version
+
+*version* Shows the current console version. Example:
+```
+#cmd: version
+
+1.0
+```
+
 # Console software architecture
 
 ![Software architecture](/docs/img/sw_architecture.png)
