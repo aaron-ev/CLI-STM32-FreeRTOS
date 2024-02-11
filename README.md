@@ -1,6 +1,5 @@
 IMPORTANT: This repo is under developmcommandent and first release will be posted by end of February 2024.
 
-Table of contents:
 - [Introduction: FreeRTOS CLI + STM32](#introduction-freertos-cli--stm32)
 - [Commands](#commands)
   - [Help command](#help-command)
@@ -11,11 +10,12 @@ Table of contents:
   - [Clock command](#clock-command)
   - [Ticks command](#ticks-command)
   - [Pwm set frequency and set duty command](#pwm-set-frequency-and-set-duty-command)
+  - [RTC set and get time commands](#rtc-set-and-get-time-commands)
 - [Console software architecture](#console-software-architecture)
 - [API documentation with Doxygen](#api-documentation-with-doxygen)
 
 # Introduction: FreeRTOS CLI + STM32
-FreeRTOS-Plus-CLI (Command Line Interface) provides a simple, small, extensible and RAM efficient method of enabling your FreeRTOS application to process command line input. Reference: [FreeRTOS CLI](https://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_CLI/FreeRTOS_Plus_Command_Line_Interface.html).
+FreeRTOS-Plus-CLI (Command Line Interface) provides a simple, small, extensible and RAM efficient method of enabling your FreeRTOS application to process command line input. Reference: <FreeRTOS CLI>(https://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_CLI/FreeRTOS_Plus_Command_Line_Interface.html).
 
 The following output is what would you see if you open a serial port with a serial cable connected to the microcontroller. The serial device configuration should be  9600 baud, no parity, 1 stop bit and 7 bit data frame (very common serial device configuration).
 ```
@@ -38,15 +38,15 @@ help:
 stats:
  Displays a table with the state of each FreeRTOS task.
 
-gpio-w [gpio port] [pin number] [logical value]: Write a digital value to a GPIO pin.
+gpio-w <gpio port> <pin number> <logical value>: Write a digital value to a GPIO pin.
 
-gpio-r [gpio port] [pin number] : Read a GPIO pin.
+gpio-r <gpio port> <pin number>: Read a GPIO pin.
 
-echo [string to echo]
+echo <string to echo>
 
-pwm-f [Frequency]: Set a new frequency.
+pwm-f <Frequency>: Set a new frequency.
 
-pwm-d [Duty cycle] [Channel]: Set a new PWM duty cycle of a giving channel.
+pwm-d <Duty cycle> <Channel>: Set a new PWM duty cycle of a giving channel.
 
 heap: Display free heap memory.
 
@@ -146,6 +146,23 @@ Run time: 2.852 seconds
 
 ![pwm-f command](/docs/img/pwmCommand.png)
 
+## RTC set and get time commands
+
+*rtc-s* Sets a new time in 24hr format. Example: Set time to 12:0:0.
+
+```
+#cmd: rtc-s 12 0 0
+
+Time (24hr format) set to: 12:0:0
+```
+
+*rtc-g* Gets the current time stored in RTC time registers. Example:
+
+```
+#cmd: rtc-g
+
+Time (24hr format): 12:1:51
+```
 # Console software architecture
 
 ![Software architecture](/docs/img/sw_architecture.png)
