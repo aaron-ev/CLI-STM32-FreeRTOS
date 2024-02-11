@@ -144,11 +144,11 @@ Run time: 2.852 seconds
 
 *pwm-d* sets a new duty of a giving timer and channel. Duty cycle must be between 1% and 100%.
 
-![pwm-f command](/img/pwmCommand.png)
+![pwm-f command](/docs/img/pwmCommand.png)
 
 # Console software architecture
 
-![Software architecture](/img/sw_architecture.png)
+![Software architecture](/docs/img/sw_architecture.png)
 
 # API documentation with Doxygen
 
