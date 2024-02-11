@@ -176,7 +176,7 @@ Time (24hr format): 12:1:51
 
 # Console software architecture
 
-![Software architecture](/docs/img/sw_architecture.png)
+![Software architecture](/docs/img/swArchitecture.png)
 
 # API documentation with Doxygen
 
