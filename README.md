@@ -1,25 +1,31 @@
-IMPORTANT: This repo is under development and first release will be posted by end of February 2024.
+IMPORTANT: This repo is under developmcommandent and first release will be posted by end of February 2024.
 
 Table of contents:
-- [CLI based on FreeRTOS and STM32](#cli-based-on-freertos-and-stm32)
-- [Help command](#help-command)
-- [GPIO read command](#gpio-read-command)
-- [GPIO write command](#gpio-write-command)
-- [Task statistics command](#task-statistics-command)
-- [Heap command](#heap-command)
-- [Clock command](#clock-command)
-- [Ticks command](#ticks-command)
-- [Pwm set frequency and set duty command](#pwm-set-frequency-and-set-duty-command)
+- [Introduction: FreeRTOS CLI + STM32](#introduction-freertos-cli--stm32)
+- [Commands](#commands)
+  - [Help command](#help-command)
+  - [GPIO read command](#gpio-read-command)
+  - [GPIO write command](#gpio-write-command)
+  - [Task statistics command](#task-statistics-command)
+  - [Heap command](#heap-command)
+  - [Clock command](#clock-command)
+  - [Ticks command](#ticks-command)
+  - [Pwm set frequency and set duty command](#pwm-set-frequency-and-set-duty-command)
+- [Console software architecture](#console-software-architecture)
+- [API documentation with Doxygen](#api-documentation-with-doxygen)
 
-# CLI based on FreeRTOS and STM32
+# Introduction: FreeRTOS CLI + STM32
+FreeRTOS-Plus-CLI (Command Line Interface) provides a simple, small, extensible and RAM efficient method of enabling your FreeRTOS application to process command line input. Reference: [FreeRTOS CLI](https://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_CLI/FreeRTOS_Plus_Command_Line_Interface.html).
 
+The following output is what would you see if you open a serial port with a serial cable connected to the microcontroller. The serial device configuration should be  9600 baud, no parity, 1 stop bit and 7 bit data frame (very common serial device configuration).
 ```
 #cmd: Welcome to the console. Enter 'help' to view a list of available commands.
 #cmd:
-
 ```
+Once you are here, type any of the following commands.
 
-# Help command
+# Commands
+## Help command
 
 *help* lists all available commands.
 
@@ -49,7 +55,7 @@ clk: Display clock information.
 ticks: Display OS tick count and run time in seconds.
 ```
 
-# GPIO read command
+## GPIO read command
 
 *gpio-r* reads a GPIO pin state
 
@@ -61,7 +67,7 @@ Example: Read GPIO port A pin number 2
 Pin state: 0
 ```
 
-# GPIO write command
+## GPIO write command
 
 *gpio-w* writes to a GPIO pin
 
@@ -73,10 +79,11 @@ Example: Write 1 to GPIO port C pin number 12
 Pin set to 1
 ```
 
-# Task statistics command
+## Task statistics command
 
 *stats* shows a list with relevant information of each task such as task name,
 state, priority, stack remaining, CPU usage and runtime.
+For more information about FreeRTOS statistics, take a look at [FreeRTOS statistics](https://www.freertos.org/rtos-run-time-stats.html).
 
 ```
 #cmd: stats
@@ -91,10 +98,10 @@ task-hear                            Bl         1              104            0 
 Tmr Svc
 ```
 
-# Heap command
+## Heap command
 
 *heap* Shows heap size, remaining memory in the heap and
-the minimum heap size ever existed since power on. Note: See FreeRTOS documentation for more information.
+the minimum heap size ever existed since power on. Note: See FreeRTOS documentation for more information. To understand each output of this command, take a look at [FreeRTOS memory management](https://www.freertos.org/a00111.html).
 
 ```
 #cmd: heap
@@ -103,7 +110,7 @@ Remaining            : 24016 bytes ( 23 KiB)
 Minimum ever existed : 23864 bytes ( 23 KiB)
 ```
 
-# Clock command
+## Clock command
 
 *clk* Shows STM32 clock information.
 
@@ -118,7 +125,7 @@ APB1 timers       40000000     40000        40
 APB2 timers       80000000     80000        80
 ```
 
-# Ticks command
+## Ticks command
 
 *ticks* Shows FreeRTOS tick count in ticks and run time in
 seconds.
@@ -131,10 +138,18 @@ Ticks: 2852
 Run time: 2.852 seconds
 ```
 
-# Pwm set frequency and set duty command
+## Pwm set frequency and set duty command
 
 *pwm-f* sets a new frequency in Hz.
 
 *pwm-d* sets a new duty of a giving timer and channel. Duty cycle must be between 1% and 100%.
 
 ![pwm-f command](/img/pwmCommand.png)
+
+# Console software architecture
+
+![Software architecture](/img/sw_architecture.png)
+
+# API documentation with Doxygen
+
+There is documentation for every function in this project, Doxygen (documentation generator) was used to generate a PDF report [sw_docs_doxygen.pdf](/docs/sw_docs_doxygen.pdf) that can be found in docs folder.
