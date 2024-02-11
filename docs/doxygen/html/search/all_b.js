@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['tim1_5fbrk_5ftim9_5firqhandler_0',['TIM1_BRK_TIM9_IRQHandler',['../stm32f4xx__it_8h.html#a3b60f6118cdd3449f4ed29fde4704236',1,'TIM1_BRK_TIM9_IRQHandler(void):&#160;stm32f4xx_it.c'],['../stm32f4xx__it_8c.html#a3b60f6118cdd3449f4ed29fde4704236',1,'TIM1_BRK_TIM9_IRQHandler(void):&#160;stm32f4xx_it.c']]],
-  ['tim2_5firqhandler_1',['TIM2_IRQHandler',['../stm32f4xx__it_8c.html#a38ad4725462bdc5e86c4ead4f04b9fc2',1,'stm32f4xx_it.c']]]
+  ['usagefault_5fhandler_0',['UsageFault_Handler',['../stm32f4xx__it_8h.html#a1d98923de2ed6b7309b66f9ba2971647',1,'UsageFault_Handler(void):&#160;stm32f4xx_it.c'],['../stm32f4xx__it_8c.html#a1d98923de2ed6b7309b66f9ba2971647',1,'UsageFault_Handler(void):&#160;stm32f4xx_it.c']]],
+  ['usart1_5firqhandler_1',['USART1_IRQHandler',['../stm32f4xx__it_8c.html#a7139cd4baabbbcbab0c1fe6d7d4ae1cc',1,'stm32f4xx_it.c']]]
 ];

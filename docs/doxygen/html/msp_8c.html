@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FreeRTOS CLI + STM32 -- By Aaron Escoboza: C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTOS/Core/Src/msp.c File Reference</title>
+<title>FreeRTOS CLI + STM32 by Aaron Escoboza: C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTOS/Core/Src/msp.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">FreeRTOS CLI + STM32 -- By Aaron Escoboza
+   <div id="projectname">FreeRTOS CLI + STM32 by Aaron Escoboza<span id="projectnumber">&#160;1.0</span>
    </div>
   </td>
  </tr>
@@ -71,7 +71,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_a5be7bbed3ff2f129951759fe96bf5d5.html">workspace</a></li><li class="navelem"><a class="el" href="dir_3145d045d801423c189319e0cef9a404.html">cliFreeRTOS</a></li><li class="navelem"><a class="el" href="dir_3b8e3f9051d8d667f23be9757bbd41fc.html">Core</a></li><li class="navelem"><a class="el" href="dir_14552714200928224635f2d322170216.html">Src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a class="el" href="dir_d04ab94777002b6946ab6a1d2c6fe397.html">aaron</a></li><li class="navelem"><a class="el" href="dir_e350ba7631406939187043805cfb40f6.html">main</a></li><li class="navelem"><a class="el" href="dir_bb58801fe20d1f98392f9df0dcba38a4.html">projects</a></li><li class="navelem"><a class="el" href="dir_c3d90d105a8af6255a8dd3b86f929fd8.html">cli_freeRTOS</a></li><li class="navelem"><a class="el" href="dir_45fecfdcb13c2c791f59b9d584961550.html">workspace</a></li><li class="navelem"><a class="el" href="dir_624b49ceaf11f1201a9ce01724d3b1ad.html">cliFreeRTOS</a></li><li class="navelem"><a class="el" href="dir_9837add19eb55431ed045cfb51636cdf.html">Core</a></li><li class="navelem"><a class="el" href="dir_edafce4f5686fec061f855dad513d2f2.html">Src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -95,6 +95,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a890e812c46e2c1998061e9298058d111" id="r_a890e812c46e2c1998061e9298058d111"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a890e812c46e2c1998061e9298058d111">HAL_TIM_OC_MspInit</a> (TIM_HandleTypeDef *timerHandler)</td></tr>
 <tr class="memdesc:a890e812c46e2c1998061e9298058d111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low level initialization for GPIO pins assigned to PWM feature.  <br /></td></tr>
 <tr class="separator:a890e812c46e2c1998061e9298058d111"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37e82e2ee9eb026588c9b94a41ef7c8c" id="r_a37e82e2ee9eb026588c9b94a41ef7c8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37e82e2ee9eb026588c9b94a41ef7c8c">HAL_RTC_MspInit</a> (RTC_HandleTypeDef *rtcHandler)</td></tr>
+<tr class="memdesc:a37e82e2ee9eb026588c9b94a41ef7c8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low level initialization for RTC.  <br /></td></tr>
+<tr class="separator:a37e82e2ee9eb026588c9b94a41ef7c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interrupt header file: Holds interrupt handlers. </p>
@@ -119,6 +122,37 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a37e82e2ee9eb026588c9b94a41ef7c8c" name="a37e82e2ee9eb026588c9b94a41ef7c8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37e82e2ee9eb026588c9b94a41ef7c8c">&#9670;&#160;</a></span>HAL_RTC_MspInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HAL_RTC_MspInit </td>
+          <td>(</td>
+          <td class="paramtype">RTC_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>rtcHandler</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Low level initialization for RTC. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*rtcHandler</td><td>RTC handler </td></tr>
   </table>
   </dd>
 </dl>

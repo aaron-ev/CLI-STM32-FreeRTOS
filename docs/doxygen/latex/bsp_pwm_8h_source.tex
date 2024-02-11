@@ -1,6 +1,6 @@
 \doxysection{bsp\+Pwm.\+h}
-\label{bsp_pwm_8h_source}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspPwm.h@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspPwm.h}}
-\textbf{ Go to the documentation of this file.}
+\hypertarget{bsp_pwm_8h_source}{}\label{bsp_pwm_8h_source}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspPwm.h@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspPwm.h}}
+\mbox{\hyperlink{bsp_pwm_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ \_\_BSP\_PWM\_H}}
@@ -8,7 +8,7 @@
 \DoxyCodeLine{00011\ }
 \DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}stdint.h"{}}}
 \DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}stm32f4xx\_hal.h"{}}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}bspTypeDef.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bsp_type_def_8h}{bspTypeDef.h}}"{}}}
 \DoxyCodeLine{00015\ }
 \DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
 \DoxyCodeLine{00017\ \{}
@@ -19,11 +19,11 @@
 \DoxyCodeLine{00022\ \ \ \ \ MAX\_PWM\_CH,}
 \DoxyCodeLine{00023\ \}\ pwmChannels\_e;}
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ BspError\_e\ bspPwmInit(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00026\ TIM\_HandleTypeDef*\ bspPwmGetHandler(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00027\ BspError\_e\ bspPwmSetFreq(uint32\_t\ uNewFreq);}
-\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ bspPwmStart(pwmChannels\_e\ eChannelIndex);}
-\DoxyCodeLine{00029\ BspError\_e\ bspPwmSetDuty(uint8\_t\ uNewDuty,\ pwmChannels\_e\ xChannel);}
+\DoxyCodeLine{00025\ BspError\_e\ \mbox{\hyperlink{bsp_pwm_8h_ae4e7e1de9c66814e2e19a4d08eb0ed2d}{bspPwmInit}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00026\ TIM\_HandleTypeDef*\ \mbox{\hyperlink{bsp_pwm_8h_ad17fc96dfb49ab1f665ee9f8989e4cbc}{bspPwmGetHandler}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00027\ BspError\_e\ \mbox{\hyperlink{bsp_pwm_8h_aea1bf57d691f57fe166625f08b3b9de3}{bspPwmSetFreq}}(uint32\_t\ uNewFreq);}
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bsp_pwm_8h_af818a700ebde2f98815c2a6e66df5e53}{bspPwmStart}}(pwmChannels\_e\ eChannelIndex);}
+\DoxyCodeLine{00029\ BspError\_e\ \mbox{\hyperlink{bsp_pwm_8h_a45b605cb34b6b47a6c5ee996a9e339de}{bspPwmSetDuty}}(uint8\_t\ uNewDuty,\ pwmChannels\_e\ xChannel);}
 \DoxyCodeLine{00030\ }
 \DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif}}
 

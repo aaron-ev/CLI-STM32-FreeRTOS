@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FreeRTOS CLI + STM32 -- By Aaron Escoboza: C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTOS/Core/bsp/src/bsp.c File Reference</title>
+<title>FreeRTOS CLI + STM32 by Aaron Escoboza: C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTOS/Core/bsp/src/bsp.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">FreeRTOS CLI + STM32 -- By Aaron Escoboza
+   <div id="projectname">FreeRTOS CLI + STM32 by Aaron Escoboza<span id="projectnumber">&#160;1.0</span>
    </div>
   </td>
  </tr>
@@ -71,7 +71,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_a5be7bbed3ff2f129951759fe96bf5d5.html">workspace</a></li><li class="navelem"><a class="el" href="dir_3145d045d801423c189319e0cef9a404.html">cliFreeRTOS</a></li><li class="navelem"><a class="el" href="dir_3b8e3f9051d8d667f23be9757bbd41fc.html">Core</a></li><li class="navelem"><a class="el" href="dir_150b0414826fa9465d558601cbca8a37.html">bsp</a></li><li class="navelem"><a class="el" href="dir_1c7721ccbd798aa8e39c0eb218ae7824.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a class="el" href="dir_d04ab94777002b6946ab6a1d2c6fe397.html">aaron</a></li><li class="navelem"><a class="el" href="dir_e350ba7631406939187043805cfb40f6.html">main</a></li><li class="navelem"><a class="el" href="dir_bb58801fe20d1f98392f9df0dcba38a4.html">projects</a></li><li class="navelem"><a class="el" href="dir_c3d90d105a8af6255a8dd3b86f929fd8.html">cli_freeRTOS</a></li><li class="navelem"><a class="el" href="dir_45fecfdcb13c2c791f59b9d584961550.html">workspace</a></li><li class="navelem"><a class="el" href="dir_624b49ceaf11f1201a9ce01724d3b1ad.html">cliFreeRTOS</a></li><li class="navelem"><a class="el" href="dir_9837add19eb55431ed045cfb51636cdf.html">Core</a></li><li class="navelem"><a class="el" href="dir_471560ef66cb0a80dd293c3ecfe409aa.html">bsp</a></li><li class="navelem"><a class="el" href="dir_cc28bd27f169f74adc4c0d63ce5449e8.html">src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -87,21 +87,15 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a43bd21f2cf23cc9fdc0c418d96b229f4" id="r_a43bd21f2cf23cc9fdc0c418d96b229f4"><td class="memItemLeft" align="right" valign="top">static BspError_e&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43bd21f2cf23cc9fdc0c418d96b229f4">clkInit</a> (void)</td></tr>
-<tr class="memdesc:a43bd21f2cf23cc9fdc0c418d96b229f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize system clocks, PLL and Clock dividers.  <br /></td></tr>
-<tr class="separator:a43bd21f2cf23cc9fdc0c418d96b229f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dfa1f72dc082449fed5964306895fbc" id="r_a8dfa1f72dc082449fed5964306895fbc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8dfa1f72dc082449fed5964306895fbc">heartBeatInit</a> (void)</td></tr>
-<tr class="memdesc:a8dfa1f72dc082449fed5964306895fbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize GPIO pin for heart beat functionality.  <br /></td></tr>
-<tr class="separator:a8dfa1f72dc082449fed5964306895fbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a124161194a3c593a141ded8dfc3aede6" id="r_a124161194a3c593a141ded8dfc3aede6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a124161194a3c593a141ded8dfc3aede6">bspConfigureTimForRunTimeStats</a> (void)</td></tr>
-<tr class="memdesc:a124161194a3c593a141ded8dfc3aede6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure timer used for FreeRTOS task statistics.  <br /></td></tr>
-<tr class="separator:a124161194a3c593a141ded8dfc3aede6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63490aecff604d624ee01359518b3bdd" id="r_a63490aecff604d624ee01359518b3bdd"><td class="memItemLeft" align="right" valign="top">BspError_e&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63490aecff604d624ee01359518b3bdd">bspConfigureTimForRunTimeStats</a> (void)</td></tr>
+<tr class="memdesc:a63490aecff604d624ee01359518b3bdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure timer used for FreeRTOS task statistics.  <br /></td></tr>
+<tr class="separator:a63490aecff604d624ee01359518b3bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd5643bf815ae57dfec38b4ab4d74aae" id="r_afd5643bf815ae57dfec38b4ab4d74aae"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd5643bf815ae57dfec38b4ab4d74aae">bspGetTimStatsCount</a> (void)</td></tr>
 <tr class="memdesc:afd5643bf815ae57dfec38b4ab4d74aae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current timer counter for FreeRTOS task statistics.  <br /></td></tr>
 <tr class="separator:afd5643bf815ae57dfec38b4ab4d74aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44f4d83317e8564dae26372440d5d8f2" id="r_a44f4d83317e8564dae26372440d5d8f2"><td class="memItemLeft" align="right" valign="top">BspError_e&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44f4d83317e8564dae26372440d5d8f2">consoleInit</a> (void)</td></tr>
-<tr class="memdesc:a44f4d83317e8564dae26372440d5d8f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize UART frame.  <br /></td></tr>
-<tr class="separator:a44f4d83317e8564dae26372440d5d8f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5580a8ae37298a89d6744b2e5944ee04" id="r_a5580a8ae37298a89d6744b2e5944ee04"><td class="memItemLeft" align="right" valign="top">BspError_e&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5580a8ae37298a89d6744b2e5944ee04">bspConsoleInit</a> (void)</td></tr>
+<tr class="memdesc:a5580a8ae37298a89d6744b2e5944ee04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize UART frame.  <br /></td></tr>
+<tr class="separator:a5580a8ae37298a89d6744b2e5944ee04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ed3e84308619ce012bf26692e16cbcf" id="r_a7ed3e84308619ce012bf26692e16cbcf"><td class="memItemLeft" align="right" valign="top">BspError_e&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ed3e84308619ce012bf26692e16cbcf">bspInit</a> (void)</td></tr>
 <tr class="memdesc:a7ed3e84308619ce012bf26692e16cbcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls all BSP init functions.  <br /></td></tr>
 <tr class="separator:a7ed3e84308619ce012bf26692e16cbcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,14 +113,14 @@ TIM_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>xTimStat
 <div class="textblock"><p>source file to implement low level initializations. </p>
 <dl class="section author"><dt>Author</dt><dd>Aaron Escoboza, Github account: <a href="https://github.com/aaron-ev">https://github.com/aaron-ev</a></dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a124161194a3c593a141ded8dfc3aede6" name="a124161194a3c593a141ded8dfc3aede6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a124161194a3c593a141ded8dfc3aede6">&#9670;&#160;</a></span>bspConfigureTimForRunTimeStats()</h2>
+<a id="a63490aecff604d624ee01359518b3bdd" name="a63490aecff604d624ee01359518b3bdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63490aecff604d624ee01359518b3bdd">&#9670;&#160;</a></span>bspConfigureTimForRunTimeStats()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void bspConfigureTimForRunTimeStats </td>
+          <td class="memname">BspError_e bspConfigureTimForRunTimeStats </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
@@ -143,7 +137,38 @@ TIM_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>xTimStat
 </dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
+    <tr><td class="paramname">BSP</td><td>error </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5580a8ae37298a89d6744b2e5944ee04" name="a5580a8ae37298a89d6744b2e5944ee04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5580a8ae37298a89d6744b2e5944ee04">&#9670;&#160;</a></span>bspConsoleInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BspError_e bspConsoleInit </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize UART frame. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BSP</td><td>error </td></tr>
   </table>
   </dd>
 </dl>
@@ -206,115 +231,6 @@ TIM_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>xTimStat
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">BspError_e</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a43bd21f2cf23cc9fdc0c418d96b229f4" name="a43bd21f2cf23cc9fdc0c418d96b229f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43bd21f2cf23cc9fdc0c418d96b229f4">&#9670;&#160;</a></span>clkInit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static BspError_e clkInit </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initialize system clocks, PLL and Clock dividers. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">void</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">BspError_e</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a44f4d83317e8564dae26372440d5d8f2" name="a44f4d83317e8564dae26372440d5d8f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44f4d83317e8564dae26372440d5d8f2">&#9670;&#160;</a></span>consoleInit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">BspError_e consoleInit </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initialize UART frame. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">void</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">BSP</td><td>error </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a8dfa1f72dc082449fed5964306895fbc" name="a8dfa1f72dc082449fed5964306895fbc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8dfa1f72dc082449fed5964306895fbc">&#9670;&#160;</a></span>heartBeatInit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void heartBeatInit </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initialize GPIO pin for heart beat functionality. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">void</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">void</td><td></td></tr>
   </table>
   </dd>
 </dl>

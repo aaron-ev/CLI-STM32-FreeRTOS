@@ -1,5 +1,5 @@
 \doxysection{C\+:/\+Users/aaron/main/projects/cli\+\_\+free\+RTOS/workspace/cli\+Free\+RTOS/\+Core/bsp/src/bsp\+Gpio.c File Reference}
-\label{bsp_gpio_8c}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/src/bspGpio.c@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/src/bspGpio.c}}
+\hypertarget{bsp_gpio_8c}{}\label{bsp_gpio_8c}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/src/bspGpio.c@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/src/bspGpio.c}}
 
 
 source file to implement functions related to GPIO operations.  
@@ -8,17 +8,13 @@ source file to implement functions related to GPIO operations.
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-static uint16\+\_\+t \textbf{ bsp\+Map\+Pin\+Num\+From\+Bsp\+To\+Hal} (uint16\+\_\+t u\+Gpio\+Number)
-\begin{DoxyCompactList}\small\item\em Maps a number from the range 0 -\/ 15 to STM32 pin macro value. \end{DoxyCompactList}\item 
-Bsp\+Gpio\+Instance\+\_\+e \textbf{ bsp\+Gpio\+Map\+Instance} (const char pc\+Gpio\+Instance)
+Bsp\+Gpio\+Instance\+\_\+e \mbox{\hyperlink{bsp_gpio_8c_a9bad07c28f9ec403f65d935531d13b32}{bsp\+Gpio\+Map\+Instance}} (const char pc\+Gpio\+Instance)
 \begin{DoxyCompactList}\small\item\em Maps a letter (a, b, c, d, e , h) to a BSP GPIO instance. \end{DoxyCompactList}\item 
-static GPIO\+\_\+\+Type\+Def $\ast$ \textbf{ bsp\+Map\+Instance\+To\+Hal} (Bsp\+Gpio\+Instance\+\_\+e e\+Gpio)
-\begin{DoxyCompactList}\small\item\em Maps from a BSP instance to HAL GPIO instance pointer. \end{DoxyCompactList}\item 
-void \textbf{ bsp\+Gpio\+Toggle} (Bsp\+Gpio\+Instance\+\_\+e e\+Gpio, Bsp\+Pin\+Num\+\_\+e pin\+Num)
+void \mbox{\hyperlink{bsp_gpio_8c_a80c3edc8b245f1a1e7f244455c9849d3}{bsp\+Gpio\+Toggle}} (Bsp\+Gpio\+Instance\+\_\+e e\+Gpio, Bsp\+Pin\+Num\+\_\+e pin\+Num)
 \begin{DoxyCompactList}\small\item\em Toggles a GPIO pin. \end{DoxyCompactList}\item 
-void \textbf{ bsp\+Gpio\+Write} (Bsp\+Gpio\+Instance\+\_\+e e\+Gpio, Bsp\+Pin\+Num\+\_\+e pin\+Num, Bsp\+Gpio\+Pin\+State\+\_\+e pin\+State)
+void \mbox{\hyperlink{bsp_gpio_8c_a63f284f8215147513089787f3279dec5}{bsp\+Gpio\+Write}} (Bsp\+Gpio\+Instance\+\_\+e e\+Gpio, Bsp\+Pin\+Num\+\_\+e pin\+Num, Bsp\+Gpio\+Pin\+State\+\_\+e pin\+State)
 \begin{DoxyCompactList}\small\item\em Writes to a GPIO pin. \end{DoxyCompactList}\item 
-Bsp\+Gpio\+Pin\+State\+\_\+e \textbf{ bsp\+Gpio\+Read} (Bsp\+Gpio\+Instance\+\_\+e e\+Gpio, Bsp\+Pin\+Num\+\_\+e pin\+Num)
+Bsp\+Gpio\+Pin\+State\+\_\+e \mbox{\hyperlink{bsp_gpio_8c_a376e08d3c9c86ae2f523838efeae8a00}{bsp\+Gpio\+Read}} (Bsp\+Gpio\+Instance\+\_\+e e\+Gpio, Bsp\+Pin\+Num\+\_\+e pin\+Num)
 \begin{DoxyCompactList}\small\item\em Reads from a GPIO pin. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -26,15 +22,15 @@ Bsp\+Gpio\+Pin\+State\+\_\+e \textbf{ bsp\+Gpio\+Read} (Bsp\+Gpio\+Instance\+\_\
 source file to implement functions related to GPIO operations. 
 
 \begin{DoxyAuthor}{Author}
-Aaron Escoboza, Github account\+: {\texttt{ https\+://github.\+com/aaron-\/ev}}  
+Aaron Escoboza, Github account\+: \href{https://github.com/aaron-ev}{\texttt{ https\+://github.\+com/aaron-\/ev}}  
 \end{DoxyAuthor}
 
 
 \doxysubsection{Function Documentation}
-\label{bsp_gpio_8c_a9bad07c28f9ec403f65d935531d13b32} 
+\Hypertarget{bsp_gpio_8c_a9bad07c28f9ec403f65d935531d13b32}\label{bsp_gpio_8c_a9bad07c28f9ec403f65d935531d13b32} 
 \index{bspGpio.c@{bspGpio.c}!bspGpioMapInstance@{bspGpioMapInstance}}
 \index{bspGpioMapInstance@{bspGpioMapInstance}!bspGpio.c@{bspGpio.c}}
-\doxysubsubsection{bspGpioMapInstance()}
+\doxysubsubsection{\texorpdfstring{bspGpioMapInstance()}{bspGpioMapInstance()}}
 {\footnotesize\ttfamily Bsp\+Gpio\+Instance\+\_\+e bsp\+Gpio\+Map\+Instance (\begin{DoxyParamCaption}\item[{const char}]{pc\+Gpio\+Instance }\end{DoxyParamCaption})}
 
 
@@ -51,10 +47,10 @@ Maps a letter (a, b, c, d, e , h) to a BSP GPIO instance.
 {\em BSP} & GPIO instance. \\
 \hline
 \end{DoxyRetVals}
-\label{bsp_gpio_8c_a376e08d3c9c86ae2f523838efeae8a00} 
+\Hypertarget{bsp_gpio_8c_a376e08d3c9c86ae2f523838efeae8a00}\label{bsp_gpio_8c_a376e08d3c9c86ae2f523838efeae8a00} 
 \index{bspGpio.c@{bspGpio.c}!bspGpioRead@{bspGpioRead}}
 \index{bspGpioRead@{bspGpioRead}!bspGpio.c@{bspGpio.c}}
-\doxysubsubsection{bspGpioRead()}
+\doxysubsubsection{\texorpdfstring{bspGpioRead()}{bspGpioRead()}}
 {\footnotesize\ttfamily Bsp\+Gpio\+Pin\+State\+\_\+e bsp\+Gpio\+Read (\begin{DoxyParamCaption}\item[{Bsp\+Gpio\+Instance\+\_\+e}]{e\+Gpio,  }\item[{Bsp\+Pin\+Num\+\_\+e}]{pin\+Num }\end{DoxyParamCaption})}
 
 
@@ -73,10 +69,10 @@ Reads from a GPIO pin.
 {\em BSP} & pin state \\
 \hline
 \end{DoxyRetVals}
-\label{bsp_gpio_8c_a80c3edc8b245f1a1e7f244455c9849d3} 
+\Hypertarget{bsp_gpio_8c_a80c3edc8b245f1a1e7f244455c9849d3}\label{bsp_gpio_8c_a80c3edc8b245f1a1e7f244455c9849d3} 
 \index{bspGpio.c@{bspGpio.c}!bspGpioToggle@{bspGpioToggle}}
 \index{bspGpioToggle@{bspGpioToggle}!bspGpio.c@{bspGpio.c}}
-\doxysubsubsection{bspGpioToggle()}
+\doxysubsubsection{\texorpdfstring{bspGpioToggle()}{bspGpioToggle()}}
 {\footnotesize\ttfamily void bsp\+Gpio\+Toggle (\begin{DoxyParamCaption}\item[{Bsp\+Gpio\+Instance\+\_\+e}]{e\+Gpio,  }\item[{Bsp\+Pin\+Num\+\_\+e}]{pin\+Num }\end{DoxyParamCaption})}
 
 
@@ -95,10 +91,10 @@ Toggles a GPIO pin.
 {\em void} & \\
 \hline
 \end{DoxyRetVals}
-\label{bsp_gpio_8c_a63f284f8215147513089787f3279dec5} 
+\Hypertarget{bsp_gpio_8c_a63f284f8215147513089787f3279dec5}\label{bsp_gpio_8c_a63f284f8215147513089787f3279dec5} 
 \index{bspGpio.c@{bspGpio.c}!bspGpioWrite@{bspGpioWrite}}
 \index{bspGpioWrite@{bspGpioWrite}!bspGpio.c@{bspGpio.c}}
-\doxysubsubsection{bspGpioWrite()}
+\doxysubsubsection{\texorpdfstring{bspGpioWrite()}{bspGpioWrite()}}
 {\footnotesize\ttfamily void bsp\+Gpio\+Write (\begin{DoxyParamCaption}\item[{Bsp\+Gpio\+Instance\+\_\+e}]{e\+Gpio,  }\item[{Bsp\+Pin\+Num\+\_\+e}]{pin\+Num,  }\item[{Bsp\+Gpio\+Pin\+State\+\_\+e}]{pin\+State }\end{DoxyParamCaption})}
 
 
@@ -117,45 +113,5 @@ Writes to a GPIO pin.
 
 \begin{DoxyRetVals}{Return values}
 {\em void} & \\
-\hline
-\end{DoxyRetVals}
-\label{bsp_gpio_8c_a6dae4c978c65eca647937416dd686357} 
-\index{bspGpio.c@{bspGpio.c}!bspMapInstanceToHal@{bspMapInstanceToHal}}
-\index{bspMapInstanceToHal@{bspMapInstanceToHal}!bspGpio.c@{bspGpio.c}}
-\doxysubsubsection{bspMapInstanceToHal()}
-{\footnotesize\ttfamily static GPIO\+\_\+\+Type\+Def $\ast$ bsp\+Map\+Instance\+To\+Hal (\begin{DoxyParamCaption}\item[{Bsp\+Gpio\+Instance\+\_\+e}]{e\+Gpio }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Maps from a BSP instance to HAL GPIO instance pointer. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em e\+Gpio} & BSP GPIO instance. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em HAL} & GPIO instance pointer. \\
-\hline
-\end{DoxyRetVals}
-\label{bsp_gpio_8c_ae060191d0d59c7d619aec00da08b189a} 
-\index{bspGpio.c@{bspGpio.c}!bspMapPinNumFromBspToHal@{bspMapPinNumFromBspToHal}}
-\index{bspMapPinNumFromBspToHal@{bspMapPinNumFromBspToHal}!bspGpio.c@{bspGpio.c}}
-\doxysubsubsection{bspMapPinNumFromBspToHal()}
-{\footnotesize\ttfamily static uint16\+\_\+t bsp\+Map\+Pin\+Num\+From\+Bsp\+To\+Hal (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{u\+Gpio\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Maps a number from the range 0 -\/ 15 to STM32 pin macro value. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em u\+Gpio\+Number} & Pin number. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em STM32} & HAL pin number. \\
 \hline
 \end{DoxyRetVals}

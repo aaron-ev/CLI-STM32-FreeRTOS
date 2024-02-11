@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FreeRTOS CLI + STM32 -- By Aaron Escoboza: C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTOS/Core/Src/console.c File Reference</title>
+<title>FreeRTOS CLI + STM32 by Aaron Escoboza: C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTOS/Core/Src/console.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">FreeRTOS CLI + STM32 -- By Aaron Escoboza
+   <div id="projectname">FreeRTOS CLI + STM32 by Aaron Escoboza<span id="projectnumber">&#160;1.0</span>
    </div>
   </td>
  </tr>
@@ -71,7 +71,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_a5be7bbed3ff2f129951759fe96bf5d5.html">workspace</a></li><li class="navelem"><a class="el" href="dir_3145d045d801423c189319e0cef9a404.html">cliFreeRTOS</a></li><li class="navelem"><a class="el" href="dir_3b8e3f9051d8d667f23be9757bbd41fc.html">Core</a></li><li class="navelem"><a class="el" href="dir_14552714200928224635f2d322170216.html">Src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a class="el" href="dir_d04ab94777002b6946ab6a1d2c6fe397.html">aaron</a></li><li class="navelem"><a class="el" href="dir_e350ba7631406939187043805cfb40f6.html">main</a></li><li class="navelem"><a class="el" href="dir_bb58801fe20d1f98392f9df0dcba38a4.html">projects</a></li><li class="navelem"><a class="el" href="dir_c3d90d105a8af6255a8dd3b86f929fd8.html">cli_freeRTOS</a></li><li class="navelem"><a class="el" href="dir_45fecfdcb13c2c791f59b9d584961550.html">workspace</a></li><li class="navelem"><a class="el" href="dir_624b49ceaf11f1201a9ce01724d3b1ad.html">cliFreeRTOS</a></li><li class="navelem"><a class="el" href="dir_9837add19eb55431ed045cfb51636cdf.html">Core</a></li><li class="navelem"><a class="el" href="dir_edafce4f5686fec061f855dad513d2f2.html">Src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -88,6 +88,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:aecef8fd16f8135b1d3d4c703d9ff9fdb" id="r_aecef8fd16f8135b1d3d4c703d9ff9fdb"><td class="memItemLeft" align="right" valign="top"><a id="aecef8fd16f8135b1d3d4c703d9ff9fdb" name="aecef8fd16f8135b1d3d4c703d9ff9fdb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CONSOLE_VERSION_MAJOR</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:aecef8fd16f8135b1d3d4c703d9ff9fdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23179065f462a838d3b097791e02ca4e" id="r_a23179065f462a838d3b097791e02ca4e"><td class="memItemLeft" align="right" valign="top"><a id="a23179065f462a838d3b097791e02ca4e" name="a23179065f462a838d3b097791e02ca4e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CONSOLE_VERSION_MINOR</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a23179065f462a838d3b097791e02ca4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa413985a990a27ae0d2517c1f8a9bc75" id="r_aa413985a990a27ae0d2517c1f8a9bc75"><td class="memItemLeft" align="right" valign="top"><a id="aa413985a990a27ae0d2517c1f8a9bc75" name="aa413985a990a27ae0d2517c1f8a9bc75"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_IN_STR_LEN</b>&#160;&#160;&#160;300</td></tr>
 <tr class="separator:aa413985a990a27ae0d2517c1f8a9bc75"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,51 +130,15 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0c9611d73842355e41f450ed7697c705" id="r_a0c9611d73842355e41f450ed7697c705"><td class="memItemLeft" align="right" valign="top">static BaseType_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c9611d73842355e41f450ed7697c705">prvCommandPwmSetFreq</a> (char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)</td></tr>
-<tr class="memdesc:a0c9611d73842355e41f450ed7697c705"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command that sets a new pwm frequency.  <br /></td></tr>
-<tr class="separator:a0c9611d73842355e41f450ed7697c705"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af502907f6cea4c6d399cb789e6c825d8" id="r_af502907f6cea4c6d399cb789e6c825d8"><td class="memItemLeft" align="right" valign="top">static BaseType_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af502907f6cea4c6d399cb789e6c825d8">prvCommandPwmSetDuty</a> (char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)</td></tr>
-<tr class="memdesc:af502907f6cea4c6d399cb789e6c825d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command that sets a new pwm duty cycle.  <br /></td></tr>
-<tr class="separator:af502907f6cea4c6d399cb789e6c825d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa81c2b19d7736be31a76e71c85453be8" id="r_aa81c2b19d7736be31a76e71c85453be8"><td class="memItemLeft" align="right" valign="top">static BaseType_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa81c2b19d7736be31a76e71c85453be8">prvCommandGpioWrite</a> (char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)</td></tr>
-<tr class="memdesc:aa81c2b19d7736be31a76e71c85453be8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command that writes to a GPIOx pin.  <br /></td></tr>
-<tr class="separator:aa81c2b19d7736be31a76e71c85453be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73f82c58529e0808fb14308885d357d9" id="r_a73f82c58529e0808fb14308885d357d9"><td class="memItemLeft" align="right" valign="top">static BaseType_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73f82c58529e0808fb14308885d357d9">prvCommandGpioRead</a> (char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)</td></tr>
-<tr class="memdesc:a73f82c58529e0808fb14308885d357d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command that reads from GPIOx Pin.  <br /></td></tr>
-<tr class="separator:a73f82c58529e0808fb14308885d357d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5135696580c6d7e9c69e21431b63edf" id="r_af5135696580c6d7e9c69e21431b63edf"><td class="memItemLeft" align="right" valign="top">static BaseType_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5135696580c6d7e9c69e21431b63edf">prvCommandEcho</a> (char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)</td></tr>
-<tr class="memdesc:af5135696580c6d7e9c69e21431b63edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Echo command line in UNIX systems.  <br /></td></tr>
-<tr class="separator:af5135696580c6d7e9c69e21431b63edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0b096e64e18ff7f9821ab686fb283d4" id="r_ad0b096e64e18ff7f9821ab686fb283d4"><td class="memItemLeft" align="right" valign="top">static BaseType_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0b096e64e18ff7f9821ab686fb283d4">prvCommandTaskStats</a> (char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)</td></tr>
-<tr class="memdesc:ad0b096e64e18ff7f9821ab686fb283d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command that gets task statistics.  <br /></td></tr>
-<tr class="separator:ad0b096e64e18ff7f9821ab686fb283d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bde92a1b9ac8591ad48952b5d57fdf3" id="r_a0bde92a1b9ac8591ad48952b5d57fdf3"><td class="memItemLeft" align="right" valign="top">static BaseType_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0bde92a1b9ac8591ad48952b5d57fdf3">prvCommandHeap</a> (char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)</td></tr>
-<tr class="memdesc:a0bde92a1b9ac8591ad48952b5d57fdf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command that gets heap information.  <br /></td></tr>
-<tr class="separator:a0bde92a1b9ac8591ad48952b5d57fdf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac94bc173884830535c5fb7123e7f58f7" id="r_ac94bc173884830535c5fb7123e7f58f7"><td class="memItemLeft" align="right" valign="top">static BaseType_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac94bc173884830535c5fb7123e7f58f7">prvCommandClk</a> (char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)</td></tr>
-<tr class="memdesc:ac94bc173884830535c5fb7123e7f58f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command that gets clock information from current clock settings.  <br /></td></tr>
-<tr class="separator:ac94bc173884830535c5fb7123e7f58f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2535a42d882dfda8c7ff082f4a0d6624" id="r_a2535a42d882dfda8c7ff082f4a0d6624"><td class="memItemLeft" align="right" valign="top">static BaseType_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2535a42d882dfda8c7ff082f4a0d6624">prvCommandTicks</a> (char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)</td></tr>
-<tr class="memdesc:a2535a42d882dfda8c7ff082f4a0d6624"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command that calculate OS ticks information.  <br /></td></tr>
-<tr class="separator:a2535a42d882dfda8c7ff082f4a0d6624"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5fdb52f15fc4464434ada863f62537f" id="r_ab5fdb52f15fc4464434ada863f62537f"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5fdb52f15fc4464434ada863f62537f">prvpcMapTaskState</a> (eTaskState eState)</td></tr>
-<tr class="memdesc:ab5fdb52f15fc4464434ada863f62537f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is executed in case of error occurrence.  <br /></td></tr>
-<tr class="separator:ab5fdb52f15fc4464434ada863f62537f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e62f8156a9b4421f0b218d106b5c314" id="r_a5e62f8156a9b4421f0b218d106b5c314"><td class="memItemLeft" align="right" valign="top">static BaseType_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e62f8156a9b4421f0b218d106b5c314">xConsoleRead</a> (uint8_t *cReadChar, size_t xLen)</td></tr>
-<tr class="memdesc:a5e62f8156a9b4421f0b218d106b5c314"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads from UART RX buffer. Reads one bye at the time.  <br /></td></tr>
-<tr class="separator:a5e62f8156a9b4421f0b218d106b5c314"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff9f8d3463d6951baf74fbd80d2d96d6" id="r_aff9f8d3463d6951baf74fbd80d2d96d6"><td class="memItemLeft" align="right" valign="top">static HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff9f8d3463d6951baf74fbd80d2d96d6">vConsoleWrite</a> (const char *buff)</td></tr>
-<tr class="memdesc:aff9f8d3463d6951baf74fbd80d2d96d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write to UART TX.  <br /></td></tr>
-<tr class="separator:aff9f8d3463d6951baf74fbd80d2d96d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af16c4f6d612b882216c45d0694cc91f7" id="r_af16c4f6d612b882216c45d0694cc91f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af16c4f6d612b882216c45d0694cc91f7">vConsoleEnableRxInterrupt</a> (void)</td></tr>
 <tr class="memdesc:af16c4f6d612b882216c45d0694cc91f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables UART RX reception.  <br /></td></tr>
 <tr class="separator:af16c4f6d612b882216c45d0694cc91f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a543ad7230077405e260788b3ea15c561" id="r_a543ad7230077405e260788b3ea15c561"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a543ad7230077405e260788b3ea15c561">vTaskConsole</a> (void *pvParams)</td></tr>
 <tr class="memdesc:a543ad7230077405e260788b3ea15c561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task to handle user commands via serial communication.  <br /></td></tr>
 <tr class="separator:a543ad7230077405e260788b3ea15c561"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d08e7d29e2188cbc8e50ca5e6cdb909" id="r_a7d08e7d29e2188cbc8e50ca5e6cdb909"><td class="memItemLeft" align="right" valign="top">BaseType_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d08e7d29e2188cbc8e50ca5e6cdb909">xConsoleInit</a> (uint16_t usStackSize, UBaseType_t uxPriority, UART_HandleTypeDef *pxUartHandle)</td></tr>
-<tr class="memdesc:a7d08e7d29e2188cbc8e50ca5e6cdb909"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the console by registering all commands and creating a task.  <br /></td></tr>
-<tr class="separator:a7d08e7d29e2188cbc8e50ca5e6cdb909"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47c84c8572fe023f334d03e60e32f4b1" id="r_a47c84c8572fe023f334d03e60e32f4b1"><td class="memItemLeft" align="right" valign="top">BaseType_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47c84c8572fe023f334d03e60e32f4b1">xbspConsoleInit</a> (uint16_t usStackSize, UBaseType_t uxPriority, UART_HandleTypeDef *pxUartHandle)</td></tr>
+<tr class="memdesc:a47c84c8572fe023f334d03e60e32f4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the console by registering all commands and creating a task.  <br /></td></tr>
+<tr class="separator:a47c84c8572fe023f334d03e60e32f4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae494a9643f29b87d6d81e5264e60e57b" id="r_ae494a9643f29b87d6d81e5264e60e57b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae494a9643f29b87d6d81e5264e60e57b">HAL_UART_RxCpltCallback</a> (UART_HandleTypeDef *huart)</td></tr>
 <tr class="memdesc:ae494a9643f29b87d6d81e5264e60e57b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback for UART RX, triggered any time there is a new character.  <br /></td></tr>
 <tr class="separator:ae494a9643f29b87d6d81e5264e60e57b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -184,17 +154,6 @@ QueueHandle_t&#160;</td><td class="memItemRight" valign="bottom"><b>xQueueRxHand
 <tr class="memitem:ad2b92ca7267dfab7ab5e2ec8e44d2bf8" id="r_ad2b92ca7267dfab7ab5e2ec8e44d2bf8"><td class="memItemLeft" align="right" valign="top"><a id="ad2b92ca7267dfab7ab5e2ec8e44d2bf8" name="ad2b92ca7267dfab7ab5e2ec8e44d2bf8"></a>
 UART_HandleTypeDef *&#160;</td><td class="memItemRight" valign="bottom"><b>pxUartDevHandle</b></td></tr>
 <tr class="separator:ad2b92ca7267dfab7ab5e2ec8e44d2bf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9959c138500d93946cae46155d0a1b2" id="r_ac9959c138500d93946cae46155d0a1b2"><td class="memItemLeft" align="right" valign="top"><a id="ac9959c138500d93946cae46155d0a1b2" name="ac9959c138500d93946cae46155d0a1b2"></a>
-static const char *&#160;</td><td class="memItemRight" valign="bottom"><b>pcWelcomeMsg</b> = &quot;Welcome to the console. Enter 'help' to view a list of available commands.\n&quot;</td></tr>
-<tr class="separator:ac9959c138500d93946cae46155d0a1b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bad54f294a6ea63f868848fc4520132" id="r_a9bad54f294a6ea63f868848fc4520132"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bad54f294a6ea63f868848fc4520132">prvpcTaskListHeader</a></td></tr>
-<tr class="separator:a9bad54f294a6ea63f868848fc4520132"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20556c921b76bc30e72f5722dd6e07c0" id="r_a20556c921b76bc30e72f5722dd6e07c0"><td class="memItemLeft" align="right" valign="top"><a id="a20556c921b76bc30e72f5722dd6e07c0" name="a20556c921b76bc30e72f5722dd6e07c0"></a>
-static const char *&#160;</td><td class="memItemRight" valign="bottom"><b>prvpcPrompt</b> = &quot;#cmd: &quot;</td></tr>
-<tr class="separator:a20556c921b76bc30e72f5722dd6e07c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c69fb8deadc7f68397fcab5ebaf2b07" id="r_a7c69fb8deadc7f68397fcab5ebaf2b07"><td class="memItemLeft" align="right" valign="top"><a id="a7c69fb8deadc7f68397fcab5ebaf2b07" name="a7c69fb8deadc7f68397fcab5ebaf2b07"></a>
-static const CLI_Command_Definition_t&#160;</td><td class="memItemRight" valign="bottom"><b>xCommands</b> []</td></tr>
-<tr class="separator:a7c69fb8deadc7f68397fcab5ebaf2b07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Command Line Interpreter based on FreeRTOS and STM32 HAL layer. </p>
@@ -225,489 +184,6 @@ static const CLI_Command_Definition_t&#160;</td><td class="memItemRight" valign=
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">void</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ac94bc173884830535c5fb7123e7f58f7" name="ac94bc173884830535c5fb7123e7f58f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac94bc173884830535c5fb7123e7f58f7">&#9670;&#160;</a></span>prvCommandClk()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static BaseType_t prvCommandClk </td>
-          <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>pcWriteBuffer</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>xWriteBufferLen</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>pcCommandString</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Command that gets clock information from current clock settings. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">*pcWriteBuffer</td><td>FreeRTOS CLI write buffer. </td></tr>
-    <tr><td class="paramname">xWriteBufferLen</td><td>Length of write buffer. </td></tr>
-    <tr><td class="paramname">*pcCommandString</td><td>pointer to the command name. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">HAL</td><td>status </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="af5135696580c6d7e9c69e21431b63edf" name="af5135696580c6d7e9c69e21431b63edf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5135696580c6d7e9c69e21431b63edf">&#9670;&#160;</a></span>prvCommandEcho()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static BaseType_t prvCommandEcho </td>
-          <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>pcWriteBuffer</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>xWriteBufferLen</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>pcCommandString</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Echo command line in UNIX systems. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">*pcWriteBuffer</td><td>FreeRTOS CLI write buffer. </td></tr>
-    <tr><td class="paramname">xWriteBufferLen</td><td>Length of write buffer. </td></tr>
-    <tr><td class="paramname">*pcCommandString</td><td>pointer to the command name. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">HAL</td><td>status </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a73f82c58529e0808fb14308885d357d9" name="a73f82c58529e0808fb14308885d357d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73f82c58529e0808fb14308885d357d9">&#9670;&#160;</a></span>prvCommandGpioRead()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static BaseType_t prvCommandGpioRead </td>
-          <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>pcWriteBuffer</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>xWriteBufferLen</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>pcCommandString</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Command that reads from GPIOx Pin. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">*pcWriteBuffer</td><td>FreeRTOS CLI write buffer. </td></tr>
-    <tr><td class="paramname">xWriteBufferLen</td><td>Length of write buffer. </td></tr>
-    <tr><td class="paramname">*pcCommandString</td><td>pointer to the command name. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">HAL</td><td>status </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aa81c2b19d7736be31a76e71c85453be8" name="aa81c2b19d7736be31a76e71c85453be8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa81c2b19d7736be31a76e71c85453be8">&#9670;&#160;</a></span>prvCommandGpioWrite()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static BaseType_t prvCommandGpioWrite </td>
-          <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>pcWriteBuffer</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>xWriteBufferLen</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>pcCommandString</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Command that writes to a GPIOx pin. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">*pcWriteBuffer</td><td>FreeRTOS CLI write buffer. </td></tr>
-    <tr><td class="paramname">xWriteBufferLen</td><td>Length of write buffer. </td></tr>
-    <tr><td class="paramname">*pcCommandString</td><td>pointer to the command name. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">HAL</td><td>status </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a0bde92a1b9ac8591ad48952b5d57fdf3" name="a0bde92a1b9ac8591ad48952b5d57fdf3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0bde92a1b9ac8591ad48952b5d57fdf3">&#9670;&#160;</a></span>prvCommandHeap()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static BaseType_t prvCommandHeap </td>
-          <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>pcWriteBuffer</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>xWriteBufferLen</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>pcCommandString</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Command that gets heap information. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">*pcWriteBuffer</td><td>FreeRTOS CLI write buffer. </td></tr>
-    <tr><td class="paramname">xWriteBufferLen</td><td>Length of write buffer. </td></tr>
-    <tr><td class="paramname">*pcCommandString</td><td>pointer to the command name. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">HAL</td><td>status </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="af502907f6cea4c6d399cb789e6c825d8" name="af502907f6cea4c6d399cb789e6c825d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af502907f6cea4c6d399cb789e6c825d8">&#9670;&#160;</a></span>prvCommandPwmSetDuty()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static BaseType_t prvCommandPwmSetDuty </td>
-          <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>pcWriteBuffer</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>xWriteBufferLen</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>pcCommandString</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Command that sets a new pwm duty cycle. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">*pcWriteBuffer</td><td>FreeRTOS CLI write buffer. </td></tr>
-    <tr><td class="paramname">xWriteBufferLen</td><td>Length of write buffer. </td></tr>
-    <tr><td class="paramname">*pcCommandString</td><td>pointer to the command name. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">HAL</td><td>status </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a0c9611d73842355e41f450ed7697c705" name="a0c9611d73842355e41f450ed7697c705"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c9611d73842355e41f450ed7697c705">&#9670;&#160;</a></span>prvCommandPwmSetFreq()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static BaseType_t prvCommandPwmSetFreq </td>
-          <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>pcWriteBuffer</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>xWriteBufferLen</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>pcCommandString</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Command that sets a new pwm frequency. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">*pcWriteBuffer</td><td>FreeRTOS CLI write buffer. </td></tr>
-    <tr><td class="paramname">xWriteBufferLen</td><td>Length of write buffer. </td></tr>
-    <tr><td class="paramname">*pcCommandString</td><td>pointer to the command name. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">HAL</td><td>status </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ad0b096e64e18ff7f9821ab686fb283d4" name="ad0b096e64e18ff7f9821ab686fb283d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0b096e64e18ff7f9821ab686fb283d4">&#9670;&#160;</a></span>prvCommandTaskStats()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static BaseType_t prvCommandTaskStats </td>
-          <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>pcWriteBuffer</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>xWriteBufferLen</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>pcCommandString</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Command that gets task statistics. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">*pcWriteBuffer</td><td>FreeRTOS CLI write buffer. </td></tr>
-    <tr><td class="paramname">xWriteBufferLen</td><td>Length of write buffer. </td></tr>
-    <tr><td class="paramname">*pcCommandString</td><td>pointer to the command name. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">HAL</td><td>status </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a2535a42d882dfda8c7ff082f4a0d6624" name="a2535a42d882dfda8c7ff082f4a0d6624"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2535a42d882dfda8c7ff082f4a0d6624">&#9670;&#160;</a></span>prvCommandTicks()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static BaseType_t prvCommandTicks </td>
-          <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>pcWriteBuffer</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>xWriteBufferLen</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>pcCommandString</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Command that calculate OS ticks information. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">*pcWriteBuffer</td><td>FreeRTOS CLI write buffer. </td></tr>
-    <tr><td class="paramname">xWriteBufferLen</td><td>Length of write buffer. </td></tr>
-    <tr><td class="paramname">*pcCommandString</td><td>pointer to the command name. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">HAL</td><td>status </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ab5fdb52f15fc4464434ada863f62537f" name="ab5fdb52f15fc4464434ada863f62537f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5fdb52f15fc4464434ada863f62537f">&#9670;&#160;</a></span>prvpcMapTaskState()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static const char * prvpcMapTaskState </td>
-          <td>(</td>
-          <td class="paramtype">eTaskState</td>          <td class="paramname"><span class="paramname"><em>eState</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This function is executed in case of error occurrence. </p>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -745,45 +221,6 @@ static const CLI_Command_Definition_t&#160;</td><td class="memItemRight" valign=
 
 </div>
 </div>
-<a id="aff9f8d3463d6951baf74fbd80d2d96d6" name="aff9f8d3463d6951baf74fbd80d2d96d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff9f8d3463d6951baf74fbd80d2d96d6">&#9670;&#160;</a></span>vConsoleWrite()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static HAL_StatusTypeDef vConsoleWrite </td>
-          <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>buff</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Write to UART TX. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">*buff</td><td>buffer to be written. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">HAL</td><td>status </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a543ad7230077405e260788b3ea15c561" name="a543ad7230077405e260788b3ea15c561"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a543ad7230077405e260788b3ea15c561">&#9670;&#160;</a></span>vTaskConsole()</h2>
 
@@ -815,14 +252,14 @@ static const CLI_Command_Definition_t&#160;</td><td class="memItemRight" valign=
 
 </div>
 </div>
-<a id="a7d08e7d29e2188cbc8e50ca5e6cdb909" name="a7d08e7d29e2188cbc8e50ca5e6cdb909"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d08e7d29e2188cbc8e50ca5e6cdb909">&#9670;&#160;</a></span>xConsoleInit()</h2>
+<a id="a47c84c8572fe023f334d03e60e32f4b1" name="a47c84c8572fe023f334d03e60e32f4b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47c84c8572fe023f334d03e60e32f4b1">&#9670;&#160;</a></span>xbspConsoleInit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">BaseType_t xConsoleInit </td>
+          <td class="memname">BaseType_t xbspConsoleInit </td>
           <td>(</td>
           <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>usStackSize</em>, </span></td>
         </tr>
@@ -855,75 +292,6 @@ static const CLI_Command_Definition_t&#160;</td><td class="memItemRight" valign=
   </dd>
 </dl>
 
-</div>
-</div>
-<a id="a5e62f8156a9b4421f0b218d106b5c314" name="a5e62f8156a9b4421f0b218d106b5c314"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e62f8156a9b4421f0b218d106b5c314">&#9670;&#160;</a></span>xConsoleRead()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static BaseType_t xConsoleRead </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>cReadChar</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>xLen</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reads from UART RX buffer. Reads one bye at the time. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">*cReadChar</td><td>pointer to where data will be stored. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">HAL</td><td>status </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a9bad54f294a6ea63f868848fc4520132" name="a9bad54f294a6ea63f868848fc4520132"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bad54f294a6ea63f868848fc4520132">&#9670;&#160;</a></span>prvpcTaskListHeader</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* prvpcTaskListHeader</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <span class="stringliteral">&quot;Task states: Bl = Blocked, Re = Ready, Ru = Running, De = Deleted,  Su = Suspended\n\n&quot;</span></div>
-<div class="line">                                         <span class="stringliteral">&quot;Task name         State  Priority  Stack remaining  CPU usage  Runtime(us)\n&quot;</span></div>
-<div class="line">                                         <span class="stringliteral">&quot;================= =====  ========  ===============  =========  ===========\n&quot;</span></div>
-</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

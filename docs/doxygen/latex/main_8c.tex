@@ -1,5 +1,5 @@
 \doxysection{C\+:/\+Users/aaron/main/projects/cli\+\_\+free\+RTOS/workspace/cli\+Free\+RTOS/\+Core/\+Src/main.c File Reference}
-\label{main_8c}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/main.c@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/main.c}}
+\hypertarget{main_8c}{}\label{main_8c}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/main.c@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/main.c}}
 
 
 Command Line Interpreter based on Free\+RTOS and STM32 HAL layer.  
@@ -8,21 +8,21 @@ Command Line Interpreter based on Free\+RTOS and STM32 HAL layer.
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \textbf{ v\+Task\+Heart\+Beat} (void $\ast$pv\+Params)
+void \mbox{\hyperlink{main_8c_a2867c7abb891ee61196e69c1f4206857}{v\+Task\+Heart\+Beat}} (void \texorpdfstring{$\ast$}{*}pv\+Params)
 \begin{DoxyCompactList}\small\item\em Heart beat task indicates project alive by toggling an LED. \end{DoxyCompactList}\item 
-int \textbf{ main} (void)
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
 \begin{DoxyCompactList}\small\item\em main function\+: Initialize BSP, console, and Free\+RTOS. \end{DoxyCompactList}\item 
-void \textbf{ HAL\+\_\+\+TIM\+\_\+\+Period\+Elapsed\+Callback} (TIM\+\_\+\+Handle\+Type\+Def $\ast$htim)
+void \mbox{\hyperlink{main_8c_a8a3b0ad512a6e6c6157440b68d395eac}{HAL\+\_\+\+TIM\+\_\+\+Period\+Elapsed\+Callback}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim)
 \begin{DoxyCompactList}\small\item\em Period elapsed callback in non blocking mode. \end{DoxyCompactList}\item 
-void \textbf{ Error\+\_\+\+Handler} (void)
+void \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
 \begin{DoxyCompactList}\small\item\em This function is executed in case of error occurrence. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\label{main_8c_a811a0d36323932180b025271b3dfae4d} 
+\Hypertarget{main_8c_a811a0d36323932180b025271b3dfae4d}\label{main_8c_a811a0d36323932180b025271b3dfae4d} 
 Task\+Handle\+\_\+t {\bfseries x\+Task\+Heart\+Beat\+Handler}
 \item 
-\label{main_8c_a0bf36f01ef9a381ced391d8eda46105d} 
+\Hypertarget{main_8c_a0bf36f01ef9a381ced391d8eda46105d}\label{main_8c_a0bf36f01ef9a381ced391d8eda46105d} 
 UART\+\_\+\+Handle\+Type\+Def {\bfseries console\+Handle}
 \end{DoxyCompactItemize}
 
@@ -31,15 +31,15 @@ UART\+\_\+\+Handle\+Type\+Def {\bfseries console\+Handle}
 Command Line Interpreter based on Free\+RTOS and STM32 HAL layer. 
 
 \begin{DoxyAuthor}{Author}
-Aaron Escoboza, Github account\+: {\texttt{ https\+://github.\+com/aaron-\/ev}}  
+Aaron Escoboza, Github account\+: \href{https://github.com/aaron-ev}{\texttt{ https\+://github.\+com/aaron-\/ev}}  
 \end{DoxyAuthor}
 
 
 \doxysubsection{Function Documentation}
-\label{main_8c_a1730ffe1e560465665eb47d9264826f9} 
+\Hypertarget{main_8c_a1730ffe1e560465665eb47d9264826f9}\label{main_8c_a1730ffe1e560465665eb47d9264826f9} 
 \index{main.c@{main.c}!Error\_Handler@{Error\_Handler}}
 \index{Error\_Handler@{Error\_Handler}!main.c@{main.c}}
-\doxysubsubsection{Error\_Handler()}
+\doxysubsubsection{\texorpdfstring{Error\_Handler()}{Error\_Handler()}}
 {\footnotesize\ttfamily void Error\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
@@ -51,11 +51,11 @@ This function is executed in case of error occurrence.
 {\em None} & \\
 \hline
 \end{DoxyRetVals}
-\label{main_8c_a8a3b0ad512a6e6c6157440b68d395eac} 
+\Hypertarget{main_8c_a8a3b0ad512a6e6c6157440b68d395eac}\label{main_8c_a8a3b0ad512a6e6c6157440b68d395eac} 
 \index{main.c@{main.c}!HAL\_TIM\_PeriodElapsedCallback@{HAL\_TIM\_PeriodElapsedCallback}}
 \index{HAL\_TIM\_PeriodElapsedCallback@{HAL\_TIM\_PeriodElapsedCallback}!main.c@{main.c}}
-\doxysubsubsection{HAL\_TIM\_PeriodElapsedCallback()}
-{\footnotesize\ttfamily void HAL\+\_\+\+TIM\+\_\+\+Period\+Elapsed\+Callback (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def $\ast$}]{htim }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{HAL\_TIM\_PeriodElapsedCallback()}{HAL\_TIM\_PeriodElapsedCallback()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+TIM\+\_\+\+Period\+Elapsed\+Callback (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim }\end{DoxyParamCaption})}
 
 
 
@@ -74,10 +74,10 @@ This function is called when TIM9 interrupt took place, inside HAL\+\_\+\+TIM\+\
 {\em None} & \\
 \hline
 \end{DoxyRetVals}
-\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
 \index{main.c@{main.c}!main@{main}}
 \index{main@{main}!main.c@{main.c}}
-\doxysubsubsection{main()}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
@@ -94,11 +94,11 @@ main function\+: Initialize BSP, console, and Free\+RTOS.
 {\em void} & \\
 \hline
 \end{DoxyRetVals}
-\label{main_8c_a2867c7abb891ee61196e69c1f4206857} 
+\Hypertarget{main_8c_a2867c7abb891ee61196e69c1f4206857}\label{main_8c_a2867c7abb891ee61196e69c1f4206857} 
 \index{main.c@{main.c}!vTaskHeartBeat@{vTaskHeartBeat}}
 \index{vTaskHeartBeat@{vTaskHeartBeat}!main.c@{main.c}}
-\doxysubsubsection{vTaskHeartBeat()}
-{\footnotesize\ttfamily void v\+Task\+Heart\+Beat (\begin{DoxyParamCaption}\item[{void $\ast$}]{pv\+Params }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{vTaskHeartBeat()}{vTaskHeartBeat()}}
+{\footnotesize\ttfamily void v\+Task\+Heart\+Beat (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Params }\end{DoxyParamCaption})}
 
 
 
@@ -106,7 +106,7 @@ Heart beat task indicates project alive by toggling an LED.
 
 
 \begin{DoxyParams}{Parameters}
-{\em $\ast$pv\+Params} & data passed at task creation \\
+{\em \texorpdfstring{$\ast$}{*}pv\+Params} & data passed at task creation \\
 \hline
 \end{DoxyParams}
 

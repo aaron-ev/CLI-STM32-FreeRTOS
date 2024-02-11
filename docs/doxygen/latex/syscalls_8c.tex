@@ -1,5 +1,5 @@
 \doxysection{C\+:/\+Users/aaron/main/projects/cli\+\_\+free\+RTOS/workspace/cli\+Free\+RTOS/\+Core/\+Src/syscalls.c File Reference}
-\label{syscalls_8c}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/syscalls.c@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/syscalls.c}}
+\hypertarget{syscalls_8c}{}\label{syscalls_8c}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/syscalls.c@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/syscalls.c}}
 
 
 STM32\+Cube\+IDE Minimal System calls file.  
@@ -8,68 +8,68 @@ STM32\+Cube\+IDE Minimal System calls file.
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\label{syscalls_8c_aa53ed4b191897a1bfc205aa1da005d24} 
+\Hypertarget{syscalls_8c_aa53ed4b191897a1bfc205aa1da005d24}\label{syscalls_8c_aa53ed4b191897a1bfc205aa1da005d24} 
 int {\bfseries \+\_\+\+\_\+io\+\_\+putchar} (int ch) \+\_\+\+\_\+attribute\+\_\+\+\_\+((weak))
 \item 
-\label{syscalls_8c_ad0122671640a3af49792ddaa59e8294e} 
+\Hypertarget{syscalls_8c_ad0122671640a3af49792ddaa59e8294e}\label{syscalls_8c_ad0122671640a3af49792ddaa59e8294e} 
 int {\bfseries \+\_\+\+\_\+io\+\_\+getchar} (void)
 \item 
-\label{syscalls_8c_a25c7f100d498300fff65568c2fcfe639} 
+\Hypertarget{syscalls_8c_a25c7f100d498300fff65568c2fcfe639}\label{syscalls_8c_a25c7f100d498300fff65568c2fcfe639} 
 void {\bfseries initialise\+\_\+monitor\+\_\+handles} ()
 \item 
-\label{syscalls_8c_a945e539df8e0f66d3c73c533fe1968ee} 
+\Hypertarget{syscalls_8c_a945e539df8e0f66d3c73c533fe1968ee}\label{syscalls_8c_a945e539df8e0f66d3c73c533fe1968ee} 
 int {\bfseries \+\_\+getpid} (void)
 \item 
-\label{syscalls_8c_a062a5101199c3128edd5170f2575bb10} 
+\Hypertarget{syscalls_8c_a062a5101199c3128edd5170f2575bb10}\label{syscalls_8c_a062a5101199c3128edd5170f2575bb10} 
 int {\bfseries \+\_\+kill} (int pid, int sig)
 \item 
-\label{syscalls_8c_abc96bd69b58b2deaddb484478d911c1b} 
+\Hypertarget{syscalls_8c_abc96bd69b58b2deaddb484478d911c1b}\label{syscalls_8c_abc96bd69b58b2deaddb484478d911c1b} 
 void {\bfseries \+\_\+exit} (int status)
 \item 
-\label{syscalls_8c_af9aace1b44b73111e15aa39f06f43456} 
+\Hypertarget{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}\label{syscalls_8c_af9aace1b44b73111e15aa39f06f43456} 
 {\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((weak))
 \item 
-\label{syscalls_8c_a5aab5e2acfd600e3667dc915a2bbc7cb} 
+\Hypertarget{syscalls_8c_a5aab5e2acfd600e3667dc915a2bbc7cb}\label{syscalls_8c_a5aab5e2acfd600e3667dc915a2bbc7cb} 
 int {\bfseries \+\_\+close} (int file)
 \item 
-\label{syscalls_8c_a41eef54307912a82d20e71c3d47315aa} 
-int {\bfseries \+\_\+fstat} (int file, struct stat $\ast$st)
+\Hypertarget{syscalls_8c_a41eef54307912a82d20e71c3d47315aa}\label{syscalls_8c_a41eef54307912a82d20e71c3d47315aa} 
+int {\bfseries \+\_\+fstat} (int file, struct stat \texorpdfstring{$\ast$}{*}st)
 \item 
-\label{syscalls_8c_ad3134a3dc296622b8d1c5456e481505b} 
+\Hypertarget{syscalls_8c_ad3134a3dc296622b8d1c5456e481505b}\label{syscalls_8c_ad3134a3dc296622b8d1c5456e481505b} 
 int {\bfseries \+\_\+isatty} (int file)
 \item 
-\label{syscalls_8c_a7a61311bdf1cb025fc07dc2bdae22ce4} 
+\Hypertarget{syscalls_8c_a7a61311bdf1cb025fc07dc2bdae22ce4}\label{syscalls_8c_a7a61311bdf1cb025fc07dc2bdae22ce4} 
 int {\bfseries \+\_\+lseek} (int file, int ptr, int dir)
 \item 
-\label{syscalls_8c_a270c9113047edd8d64186710ad76062b} 
-int {\bfseries \+\_\+open} (char $\ast$path, int flags,...)
+\Hypertarget{syscalls_8c_a270c9113047edd8d64186710ad76062b}\label{syscalls_8c_a270c9113047edd8d64186710ad76062b} 
+int {\bfseries \+\_\+open} (char \texorpdfstring{$\ast$}{*}path, int flags,...)
 \item 
-\label{syscalls_8c_aeef0c3372d04caa1bcc99fed2ab6ec72} 
-int {\bfseries \+\_\+wait} (int $\ast$status)
+\Hypertarget{syscalls_8c_aeef0c3372d04caa1bcc99fed2ab6ec72}\label{syscalls_8c_aeef0c3372d04caa1bcc99fed2ab6ec72} 
+int {\bfseries \+\_\+wait} (int \texorpdfstring{$\ast$}{*}status)
 \item 
-\label{syscalls_8c_a70b2f211d665cded5637065aa2bb89dc} 
-int {\bfseries \+\_\+unlink} (char $\ast$name)
+\Hypertarget{syscalls_8c_a70b2f211d665cded5637065aa2bb89dc}\label{syscalls_8c_a70b2f211d665cded5637065aa2bb89dc} 
+int {\bfseries \+\_\+unlink} (char \texorpdfstring{$\ast$}{*}name)
 \item 
-\label{syscalls_8c_aaf727ebf57cd64d6c58b23e6ee4a4a69} 
-int {\bfseries \+\_\+times} (struct tms $\ast$buf)
+\Hypertarget{syscalls_8c_aaf727ebf57cd64d6c58b23e6ee4a4a69}\label{syscalls_8c_aaf727ebf57cd64d6c58b23e6ee4a4a69} 
+int {\bfseries \+\_\+times} (struct tms \texorpdfstring{$\ast$}{*}buf)
 \item 
-\label{syscalls_8c_a4711e961db985ed2c850a8be6597af50} 
-int {\bfseries \+\_\+stat} (char $\ast$file, struct stat $\ast$st)
+\Hypertarget{syscalls_8c_a4711e961db985ed2c850a8be6597af50}\label{syscalls_8c_a4711e961db985ed2c850a8be6597af50} 
+int {\bfseries \+\_\+stat} (char \texorpdfstring{$\ast$}{*}file, struct stat \texorpdfstring{$\ast$}{*}st)
 \item 
-\label{syscalls_8c_a31da4cd5328defa76a9e2246992aba12} 
-int {\bfseries \+\_\+link} (char $\ast$old, char $\ast$new)
+\Hypertarget{syscalls_8c_a31da4cd5328defa76a9e2246992aba12}\label{syscalls_8c_a31da4cd5328defa76a9e2246992aba12} 
+int {\bfseries \+\_\+link} (char \texorpdfstring{$\ast$}{*}old, char \texorpdfstring{$\ast$}{*}new)
 \item 
-\label{syscalls_8c_a6cb6331c9d166180903d5fb78b9c9dd7} 
+\Hypertarget{syscalls_8c_a6cb6331c9d166180903d5fb78b9c9dd7}\label{syscalls_8c_a6cb6331c9d166180903d5fb78b9c9dd7} 
 int {\bfseries \+\_\+fork} (void)
 \item 
-\label{syscalls_8c_ad2a07db8fdf26151eb98ba5711fad8c5} 
-int {\bfseries \+\_\+execve} (char $\ast$name, char $\ast$$\ast$argv, char $\ast$$\ast$env)
+\Hypertarget{syscalls_8c_ad2a07db8fdf26151eb98ba5711fad8c5}\label{syscalls_8c_ad2a07db8fdf26151eb98ba5711fad8c5} 
+int {\bfseries \+\_\+execve} (char \texorpdfstring{$\ast$}{*}name, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}env)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\label{syscalls_8c_aa006daaf11f1e2e45a6ababaf463212b} 
-char $\ast$$\ast$ {\bfseries environ} = \+\_\+\+\_\+env
+\Hypertarget{syscalls_8c_aa006daaf11f1e2e45a6ababaf463212b}\label{syscalls_8c_aa006daaf11f1e2e45a6ababaf463212b} 
+char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries environ} = \+\_\+\+\_\+env
 \end{DoxyCompactItemize}
 
 

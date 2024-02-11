@@ -1,267 +1,238 @@
 \begin{theindex}
 
-  \item {\_\_sbrk\_heap\_end}
-    \subitem {sysmem.c}, 53
   \item {\_sbrk}
-    \subitem {sysmem.c}, 52
+    \subitem {sysmem.c}, \hyperpage{51}
 
   \indexspace
 
   \item {bsp.c}
-    \subitem {bspConfigureTimForRunTimeStats}, 20
-    \subitem {bspGetTimStatsCount}, 20
-    \subitem {bspInit}, 21
-    \subitem {clkInit}, 21
-    \subitem {consoleInit}, 21
-    \subitem {heartBeatInit}, 22
+    \subitem {bspConfigureTimForRunTimeStats}, \hyperpage{22}
+    \subitem {bspConsoleInit}, \hyperpage{22}
+    \subitem {bspGetTimStatsCount}, \hyperpage{22}
+    \subitem {bspInit}, \hyperpage{23}
   \item {bsp.h}
-    \subitem {bspInit}, 11
+    \subitem {bspInit}, \hyperpage{11}
   \item {bspClk.c}
-    \subitem {bspGetClockIinfo}, 23
+    \subitem {bspGetClockIinfo}, \hyperpage{24}
   \item {bspClk.h}
-    \subitem {bspGetClockIinfo}, 12
+    \subitem {bspGetClockIinfo}, \hyperpage{12}
   \item {bspConfigureTimForRunTimeStats}
-    \subitem {bsp.c}, 20
+    \subitem {bsp.c}, \hyperpage{22}
+  \item {bspConsoleInit}
+    \subitem {bsp.c}, \hyperpage{22}
   \item {bspGetClockIinfo}
-    \subitem {bspClk.c}, 23
-    \subitem {bspClk.h}, 12
+    \subitem {bspClk.c}, \hyperpage{24}
+    \subitem {bspClk.h}, \hyperpage{12}
   \item {bspGetTimStatsCount}
-    \subitem {bsp.c}, 20
+    \subitem {bsp.c}, \hyperpage{22}
   \item {bspGpio.c}
-    \subitem {bspGpioMapInstance}, 24
-    \subitem {bspGpioRead}, 24
-    \subitem {bspGpioToggle}, 24
-    \subitem {bspGpioWrite}, 25
-    \subitem {bspMapInstanceToHal}, 25
-    \subitem {bspMapPinNumFromBspToHal}, 25
+    \subitem {bspGpioMapInstance}, \hyperpage{24}
+    \subitem {bspGpioRead}, \hyperpage{25}
+    \subitem {bspGpioToggle}, \hyperpage{25}
+    \subitem {bspGpioWrite}, \hyperpage{25}
   \item {bspGpio.h}
-    \subitem {bspGpioMapInstance}, 14
-    \subitem {bspGpioRead}, 14
-    \subitem {bspGpioToggle}, 14
-    \subitem {bspGpioWrite}, 15
+    \subitem {bspGpioMapInstance}, \hyperpage{14}
+    \subitem {bspGpioRead}, \hyperpage{14}
+    \subitem {bspGpioToggle}, \hyperpage{14}
+    \subitem {bspGpioWrite}, \hyperpage{15}
   \item {bspGpioMapInstance}
-    \subitem {bspGpio.c}, 24
-    \subitem {bspGpio.h}, 14
+    \subitem {bspGpio.c}, \hyperpage{24}
+    \subitem {bspGpio.h}, \hyperpage{14}
   \item {bspGpioRead}
-    \subitem {bspGpio.c}, 24
-    \subitem {bspGpio.h}, 14
+    \subitem {bspGpio.c}, \hyperpage{25}
+    \subitem {bspGpio.h}, \hyperpage{14}
   \item {bspGpioToggle}
-    \subitem {bspGpio.c}, 24
-    \subitem {bspGpio.h}, 14
+    \subitem {bspGpio.c}, \hyperpage{25}
+    \subitem {bspGpio.h}, \hyperpage{14}
   \item {bspGpioWrite}
-    \subitem {bspGpio.c}, 25
-    \subitem {bspGpio.h}, 15
+    \subitem {bspGpio.c}, \hyperpage{25}
+    \subitem {bspGpio.h}, \hyperpage{15}
   \item {bspInit}
-    \subitem {bsp.c}, 21
-    \subitem {bsp.h}, 11
-  \item {bspMapInstanceToHal}
-    \subitem {bspGpio.c}, 25
-  \item {bspMapPinNumFromBspToHal}
-    \subitem {bspGpio.c}, 25
+    \subitem {bsp.c}, \hyperpage{23}
+    \subitem {bsp.h}, \hyperpage{11}
+  \item {bspPwm.c}
+    \subitem {bspPwmGetHandler}, \hyperpage{27}
+    \subitem {bspPwmInit}, \hyperpage{27}
+    \subitem {bspPwmSetDuty}, \hyperpage{27}
+    \subitem {bspPwmSetFreq}, \hyperpage{28}
+    \subitem {bspPwmStart}, \hyperpage{28}
   \item {bspPwm.h}
-    \subitem {bspPwmGetHandler}, 17
-    \subitem {bspPwmInit}, 17
-    \subitem {bspPwmSetDuty}, 17
-    \subitem {bspPwmSetFreq}, 18
-    \subitem {bspPwmStart}, 18
+    \subitem {bspPwmGetHandler}, \hyperpage{17}
+    \subitem {bspPwmInit}, \hyperpage{17}
+    \subitem {bspPwmSetDuty}, \hyperpage{17}
+    \subitem {bspPwmSetFreq}, \hyperpage{18}
+    \subitem {bspPwmStart}, \hyperpage{18}
   \item {bspPwmGetHandler}
-    \subitem {bspPwm.h}, 17
+    \subitem {bspPwm.c}, \hyperpage{27}
+    \subitem {bspPwm.h}, \hyperpage{17}
   \item {bspPwmInit}
-    \subitem {bspPwm.h}, 17
+    \subitem {bspPwm.c}, \hyperpage{27}
+    \subitem {bspPwm.h}, \hyperpage{17}
   \item {bspPwmSetDuty}
-    \subitem {bspPwm.h}, 17
+    \subitem {bspPwm.c}, \hyperpage{27}
+    \subitem {bspPwm.h}, \hyperpage{17}
   \item {bspPwmSetFreq}
-    \subitem {bspPwm.h}, 18
+    \subitem {bspPwm.c}, \hyperpage{28}
+    \subitem {bspPwm.h}, \hyperpage{18}
   \item {bspPwmStart}
-    \subitem {bspPwm.h}, 18
+    \subitem {bspPwm.c}, \hyperpage{28}
+    \subitem {bspPwm.h}, \hyperpage{18}
+  \item {bspRtc.h}
+    \subitem {bspRtcGetTime}, \hyperpage{19}
+    \subitem {bspRtcInit}, \hyperpage{19}
+    \subitem {bspRtcSetTime}, \hyperpage{20}
+  \item {bspRtcGetTime}
+    \subitem {bspRtc.h}, \hyperpage{19}
+  \item {bspRtcInit}
+    \subitem {bspRtc.h}, \hyperpage{19}
+  \item {bspRtcSetTime}
+    \subitem {bspRtc.h}, \hyperpage{20}
 
   \indexspace
 
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bsp.h}, 
-		11, 12
+		\hyperpage{11, 12}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspClk.h}, 
-		12, 13
+		\hyperpage{12, 13}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspGpio.h}, 
-		13, 15
+		\hyperpage{13}, \hyperpage{15}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspPwm.h}, 
-		16, 18
+		\hyperpage{16}, \hyperpage{18}
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspRtc.h}, 
+		\hyperpage{19, 20}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspTypeDef.h}, 
-		19
+		\hyperpage{21}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/src/bsp.c}, 
-		19
+		\hyperpage{21}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/src/bspClk.c}, 
-		22
+		\hyperpage{23}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/src/bspGpio.c}, 
-		23
+		\hyperpage{24}
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/src/bspPwm.c}, 
+		\hyperpage{26}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Inc/appConfig.h}, 
-		26, 27
+		\hyperpage{28, 29}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Inc/console.h}, 
-		27, 28
+		\hyperpage{29, 30}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Inc/FreeRTOSConfig.h}, 
-		28
+		\hyperpage{31}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Inc/main.h}, 
-		30
+		\hyperpage{32, 33}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Inc/stm32f4xx\_hal\_conf.h}, 
-		31
+		\hyperpage{33}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Inc/stm32f4xx\_it.h}, 
-		36
+		\hyperpage{38, 39}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/console.c}, 
-		37
+		\hyperpage{39}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/main.c}, 
-		44
+		\hyperpage{42}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/msp.c}, 
-		46
+		\hyperpage{44}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/stm32f4xx\_hal\_timebase\_tim.c}, 
-		48
+		\hyperpage{46}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/stm32f4xx\_it.c}, 
-		50
+		\hyperpage{49}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/syscalls.c}, 
-		51
+		\hyperpage{49}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/sysmem.c}, 
-		52
+		\hyperpage{50}
   \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/system\_stm32f4xx.c}, 
-		53
-  \item {clkInit}
-    \subitem {bsp.c}, 21
-  \item {CMSIS}, 5
+		\hyperpage{52}
+  \item {CMSIS}, \hyperpage{5}
   \item {console.c}
-    \subitem {HAL\_UART\_RxCpltCallback}, 38
-    \subitem {prvCommandClk}, 39
-    \subitem {prvCommandEcho}, 39
-    \subitem {prvCommandGpioRead}, 39
-    \subitem {prvCommandGpioWrite}, 40
-    \subitem {prvCommandHeap}, 40
-    \subitem {prvCommandPwmSetDuty}, 41
-    \subitem {prvCommandPwmSetFreq}, 41
-    \subitem {prvCommandTaskStats}, 41
-    \subitem {prvCommandTicks}, 42
-    \subitem {prvpcMapTaskState}, 42
-    \subitem {prvpcTaskListHeader}, 44
-    \subitem {vConsoleEnableRxInterrupt}, 42
-    \subitem {vConsoleWrite}, 43
-    \subitem {vTaskConsole}, 43
-    \subitem {xConsoleInit}, 43
-    \subitem {xConsoleRead}, 44
+    \subitem {HAL\_UART\_RxCpltCallback}, \hyperpage{40}
+    \subitem {vConsoleEnableRxInterrupt}, \hyperpage{40}
+    \subitem {vTaskConsole}, \hyperpage{41}
+    \subitem {xbspConsoleInit}, \hyperpage{41}
   \item {console.h}
-    \subitem {xConsoleInit}, 27
-  \item {consoleInit}
-    \subitem {bsp.c}, 21
+    \subitem {xbspConsoleInit}, \hyperpage{30}
 
   \indexspace
 
   \item {Error\_Handler}
-    \subitem {main.c}, 45
-    \subitem {main.h}, 30
+    \subitem {main.c}, \hyperpage{42}
+    \subitem {main.h}, \hyperpage{33}
 
   \indexspace
 
   \item {HAL\_InitTick}
-    \subitem {stm32f4xx\_hal\_timebase\_tim.c}, 49
+    \subitem {stm32f4xx\_hal\_timebase\_tim.c}, \hyperpage{47}
   \item {HAL\_MspInit}
-    \subitem {msp.c}, 47
+    \subitem {msp.c}, \hyperpage{44}
   \item {HAL\_ResumeTick}
-    \subitem {stm32f4xx\_hal\_timebase\_tim.c}, 49
+    \subitem {stm32f4xx\_hal\_timebase\_tim.c}, \hyperpage{48}
+  \item {HAL\_RTC\_MspInit}
+    \subitem {msp.c}, \hyperpage{44}
   \item {HAL\_SuspendTick}
-    \subitem {stm32f4xx\_hal\_timebase\_tim.c}, 49
+    \subitem {stm32f4xx\_hal\_timebase\_tim.c}, \hyperpage{48}
   \item {HAL\_TIM\_OC\_MspInit}
-    \subitem {msp.c}, 47
+    \subitem {msp.c}, \hyperpage{46}
   \item {HAL\_TIM\_PeriodElapsedCallback}
-    \subitem {main.c}, 45
+    \subitem {main.c}, \hyperpage{42}
   \item {HAL\_UART\_MspInit}
-    \subitem {msp.c}, 48
+    \subitem {msp.c}, \hyperpage{46}
   \item {HAL\_UART\_RxCpltCallback}
-    \subitem {console.c}, 38
-  \item {heartBeatInit}
-    \subitem {bsp.c}, 22
+    \subitem {console.c}, \hyperpage{40}
   \item {HSE\_VALUE}
-    \subitem {STM32F4xx\_System\_Private\_Includes}, 6
+    \subitem {STM32F4xx\_System\_Private\_Includes}, \hyperpage{6}
   \item {HSI\_VALUE}
-    \subitem {STM32F4xx\_System\_Private\_Includes}, 6
+    \subitem {STM32F4xx\_System\_Private\_Includes}, \hyperpage{6}
 
   \indexspace
 
   \item {main}
-    \subitem {main.c}, 46
+    \subitem {main.c}, \hyperpage{43}
   \item {main.c}
-    \subitem {Error\_Handler}, 45
-    \subitem {HAL\_TIM\_PeriodElapsedCallback}, 45
-    \subitem {main}, 46
-    \subitem {vTaskHeartBeat}, 46
+    \subitem {Error\_Handler}, \hyperpage{42}
+    \subitem {HAL\_TIM\_PeriodElapsedCallback}, \hyperpage{42}
+    \subitem {main}, \hyperpage{43}
+    \subitem {vTaskHeartBeat}, \hyperpage{43}
   \item {main.h}
-    \subitem {Error\_Handler}, 30
+    \subitem {Error\_Handler}, \hyperpage{33}
   \item {msp.c}
-    \subitem {HAL\_MspInit}, 47
-    \subitem {HAL\_TIM\_OC\_MspInit}, 47
-    \subitem {HAL\_UART\_MspInit}, 48
-
-  \indexspace
-
-  \item {prvCommandClk}
-    \subitem {console.c}, 39
-  \item {prvCommandEcho}
-    \subitem {console.c}, 39
-  \item {prvCommandGpioRead}
-    \subitem {console.c}, 39
-  \item {prvCommandGpioWrite}
-    \subitem {console.c}, 40
-  \item {prvCommandHeap}
-    \subitem {console.c}, 40
-  \item {prvCommandPwmSetDuty}
-    \subitem {console.c}, 41
-  \item {prvCommandPwmSetFreq}
-    \subitem {console.c}, 41
-  \item {prvCommandTaskStats}
-    \subitem {console.c}, 41
-  \item {prvCommandTicks}
-    \subitem {console.c}, 42
-  \item {prvpcMapTaskState}
-    \subitem {console.c}, 42
-  \item {prvpcTaskListHeader}
-    \subitem {console.c}, 44
+    \subitem {HAL\_MspInit}, \hyperpage{44}
+    \subitem {HAL\_RTC\_MspInit}, \hyperpage{44}
+    \subitem {HAL\_TIM\_OC\_MspInit}, \hyperpage{46}
+    \subitem {HAL\_UART\_MspInit}, \hyperpage{46}
 
   \indexspace
 
   \item {stm32f4xx\_hal\_timebase\_tim.c}
-    \subitem {HAL\_InitTick}, 49
-    \subitem {HAL\_ResumeTick}, 49
-    \subitem {HAL\_SuspendTick}, 49
-  \item {Stm32f4xx\_system}, 5
-  \item {STM32F4xx\_System\_Private\_Defines}, 6
-  \item {STM32F4xx\_System\_Private\_FunctionPrototypes}, 6
-  \item {STM32F4xx\_System\_Private\_Functions}, 6
-    \subitem {SystemCoreClockUpdate}, 7
-    \subitem {SystemInit}, 7
-  \item {STM32F4xx\_System\_Private\_Includes}, 5
-    \subitem {HSE\_VALUE}, 6
-    \subitem {HSI\_VALUE}, 6
-  \item {STM32F4xx\_System\_Private\_Macros}, 6
-  \item {STM32F4xx\_System\_Private\_TypesDefinitions}, 6
-  \item {STM32F4xx\_System\_Private\_Variables}, 6
+    \subitem {HAL\_InitTick}, \hyperpage{47}
+    \subitem {HAL\_ResumeTick}, \hyperpage{48}
+    \subitem {HAL\_SuspendTick}, \hyperpage{48}
+  \item {Stm32f4xx\_system}, \hyperpage{5}
+  \item {STM32F4xx\_System\_Private\_Defines}, \hyperpage{6}
+  \item {STM32F4xx\_System\_Private\_FunctionPrototypes}, \hyperpage{6}
+  \item {STM32F4xx\_System\_Private\_Functions}, \hyperpage{6}
+    \subitem {SystemCoreClockUpdate}, \hyperpage{7}
+    \subitem {SystemInit}, \hyperpage{7}
+  \item {STM32F4xx\_System\_Private\_Includes}, \hyperpage{5}
+    \subitem {HSE\_VALUE}, \hyperpage{6}
+    \subitem {HSI\_VALUE}, \hyperpage{6}
+  \item {STM32F4xx\_System\_Private\_Macros}, \hyperpage{6}
+  \item {STM32F4xx\_System\_Private\_TypesDefinitions}, \hyperpage{6}
+  \item {STM32F4xx\_System\_Private\_Variables}, \hyperpage{6}
   \item {sysmem.c}
-    \subitem {\_\_sbrk\_heap\_end}, 53
-    \subitem {\_sbrk}, 52
+    \subitem {\_sbrk}, \hyperpage{51}
   \item {SystemCoreClockUpdate}
-    \subitem {STM32F4xx\_System\_Private\_Functions}, 7
+    \subitem {STM32F4xx\_System\_Private\_Functions}, \hyperpage{7}
   \item {SystemInit}
-    \subitem {STM32F4xx\_System\_Private\_Functions}, 7
+    \subitem {STM32F4xx\_System\_Private\_Functions}, \hyperpage{7}
 
   \indexspace
 
   \item {vConsoleEnableRxInterrupt}
-    \subitem {console.c}, 42
-  \item {vConsoleWrite}
-    \subitem {console.c}, 43
+    \subitem {console.c}, \hyperpage{40}
   \item {vTaskConsole}
-    \subitem {console.c}, 43
+    \subitem {console.c}, \hyperpage{41}
   \item {vTaskHeartBeat}
-    \subitem {main.c}, 46
+    \subitem {main.c}, \hyperpage{43}
 
   \indexspace
 
-  \item {xConsoleInit}
-    \subitem {console.c}, 43
-    \subitem {console.h}, 27
-  \item {xConsoleRead}
-    \subitem {console.c}, 44
+  \item {xbspConsoleInit}
+    \subitem {console.c}, \hyperpage{41}
+    \subitem {console.h}, \hyperpage{30}
 
 \end{theindex}

@@ -1,5 +1,5 @@
 \doxysection{C\+:/\+Users/aaron/main/projects/cli\+\_\+free\+RTOS/workspace/cli\+Free\+RTOS/\+Core/\+Src/system\+\_\+stm32f4xx.c File Reference}
-\label{system__stm32f4xx_8c}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/system\_stm32f4xx.c@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/system\_stm32f4xx.c}}
+\hypertarget{system__stm32f4xx_8c}{}\label{system__stm32f4xx_8c}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/system\_stm32f4xx.c@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/system\_stm32f4xx.c}}
 
 
 CMSIS Cortex-\/\+M4 Device Peripheral Access Layer System Source File.  
@@ -8,25 +8,25 @@ CMSIS Cortex-\/\+M4 Device Peripheral Access Layer System Source File.
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \textbf{ HSE\+\_\+\+VALUE}~((uint32\+\_\+t)25000000)
+\#define \mbox{\hyperlink{group___s_t_m32_f4xx___system___private___includes_gaeafcff4f57440c60e64812dddd13e7cb}{HSE\+\_\+\+VALUE}}~((uint32\+\_\+t)25000000)
 \item 
-\#define \textbf{ HSI\+\_\+\+VALUE}~((uint32\+\_\+t)16000000)
+\#define \mbox{\hyperlink{group___s_t_m32_f4xx___system___private___includes_gaaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\+\_\+\+VALUE}}~((uint32\+\_\+t)16000000)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \textbf{ System\+Init} (void)
+void \mbox{\hyperlink{group___s_t_m32_f4xx___system___private___functions_ga93f514700ccf00d08dbdcff7f1224eb2}{System\+Init}} (void)
 \begin{DoxyCompactList}\small\item\em Setup the microcontroller system Initialize the FPU setting, vector table location and External memory configuration. \end{DoxyCompactList}\item 
-void \textbf{ System\+Core\+Clock\+Update} (void)
+void \mbox{\hyperlink{group___s_t_m32_f4xx___system___private___functions_gae0c36a9591fe6e9c45ecb21a794f0f0f}{System\+Core\+Clock\+Update}} (void)
 \begin{DoxyCompactList}\small\item\em Update System\+Core\+Clock variable according to Clock Register Values. The System\+Core\+Clock variable contains the core clock (HCLK), it can be used by the user application to setup the Sys\+Tick timer or configure other parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 uint32\+\_\+t {\bfseries System\+Core\+Clock} = 16000000
 \item 
-const uint8\+\_\+t {\bfseries AHBPresc\+Table} [16] = \{0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9\}
+const uint8\+\_\+t {\bfseries AHBPresc\+Table} \mbox{[}16\mbox{]} = \{0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9\}
 \item 
-const uint8\+\_\+t {\bfseries APBPresc\+Table} [8] = \{0, 0, 0, 0, 1, 2, 3, 4\}
+const uint8\+\_\+t {\bfseries APBPresc\+Table} \mbox{[}8\mbox{]} = \{0, 0, 0, 0, 1, 2, 3, 4\}
 \end{DoxyCompactItemize}
 
 
@@ -38,9 +38,9 @@ MCD Application Team
 \end{DoxyAuthor}
 This file provides two functions and one global variable to be called from user application\+:
 \begin{DoxyItemize}
-\item \doxyref{System\+Init()}{p.}{group___s_t_m32_f4xx___system___private___functions_ga93f514700ccf00d08dbdcff7f1224eb2}\+: This function is called at startup just after reset and before branch to main program. This call is made inside the "{}startup\+\_\+stm32f4xx.\+s"{} file.
+\item \doxylink{group___s_t_m32_f4xx___system___private___functions_ga93f514700ccf00d08dbdcff7f1224eb2}{System\+Init()}\+: This function is called at startup just after reset and before branch to main program. This call is made inside the "{}startup\+\_\+stm32f4xx.\+s"{} file.
 \item System\+Core\+Clock variable\+: Contains the core clock (HCLK), it can be used by the user application to setup the Sys\+Tick timer or configure other parameters.
-\item \doxyref{System\+Core\+Clock\+Update()}{p.}{group___s_t_m32_f4xx___system___private___functions_gae0c36a9591fe6e9c45ecb21a794f0f0f}\+: Updates the variable System\+Core\+Clock and must be called whenever the core clock is changed during program execution.
+\item \doxylink{group___s_t_m32_f4xx___system___private___functions_gae0c36a9591fe6e9c45ecb21a794f0f0f}{System\+Core\+Clock\+Update()}\+: Updates the variable System\+Core\+Clock and must be called whenever the core clock is changed during program execution.
 \end{DoxyItemize}
 
 \begin{DoxyAttention}{Attention}

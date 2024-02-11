@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.7)  10 FEB 2024 18:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.7)  11 FEB 2024 12:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -554,91 +554,224 @@ Writing index file refman.idx
 dechar.sty
 Package: newunicodechar 2018/04/08 v1.2 Defining Unicode characters
 )
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
+
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
+ty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+))
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro
+.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+lestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count330
+)
+\@linkdim=\dimen198
+\Hy@linkcounter=\count331
+\Hy@pagecounter=\count332
+ (C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2023-11-26 v7.01g Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+\Hy@SavedSpaceFactor=\count333
+ (C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2023-11-26 v7.01g Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4181.
+Package hyperref Info: Link nesting OFF on input line 4186.
+Package hyperref Info: Hyper index ON on input line 4189.
+Package hyperref Info: Plain pages OFF on input line 4196.
+Package hyperref Info: Backreferencing ON on input line 4199.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4448.
+
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\backref.sty
+Package: backref 2023-11-26 v1.44 Bibliographical back referencing
+
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
+echeck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
+ounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
+.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+85.
+))
+\c@Hy@tempcnt=\count334
+ (C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4786.
+\XeTeXLinkMargin=\dimen199
+
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+)
+\Fld@menulength=\count335
+\Field@Width=\dimen256
+\Fld@charsize=\dimen257
+Package hyperref Info: Hyper figures OFF on input line 6065.
+Package hyperref Info: Link nesting OFF on input line 6070.
+Package hyperref Info: Hyper index ON on input line 6073.
+Package hyperref Info: backreferencing ON on input line 6078.
+Package hyperref Info: Link coloring OFF on input line 6085.
+Package hyperref Info: Link coloring with OCG OFF on input line 6090.
+Package hyperref Info: PDF/A mode OFF on input line 6095.
+
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count336
+\c@Item=\count337
+\c@Hfootnote=\count338
+)
+Package hyperref Info: Driver: hpdftex.
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2023-11-26 v7.01g Hyperref driver for pdfTeX
+\Fld@listcount=\count339
+\c@bookmark@seq@number=\count340
+\Hy@SectionHShift=\skip128
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 161.
+Package hyperref Info: Option `unicode' set `true' on input line 161.
+
 (C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
 (C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen198
-\captionmargin=\dimen199
-\caption@leftmargin=\dimen256
-\caption@rightmargin=\dimen257
-\caption@width=\dimen258
-\caption@indent=\dimen259
-\caption@parindent=\dimen260
-\caption@hangindent=\dimen261
+\caption@tempdima=\dimen258
+\captionmargin=\dimen259
+\caption@leftmargin=\dimen260
+\caption@rightmargin=\dimen261
+\caption@width=\dimen262
+\caption@indent=\dimen263
+\caption@parindent=\dimen264
+\caption@hangindent=\dimen265
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count330
-\c@continuedfloat=\count331
+\c@caption@flags=\count341
+\c@continuedfloat=\count342
 Package caption Info: changepage package is loaded.
-\caption@adjustwidth@hsize=\dimen262
-\caption@adjustwidth@linewidth=\dimen263
+\caption@adjustwidth@hsize=\dimen266
+\caption@adjustwidth@linewidth=\dimen267
 Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
 
 (C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )) (C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/etoc\etoc.sty
 Package: etoc 2023/10/29 v1.2d Completely customisable TOCs (JFB)
-
-(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
-Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
-(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
-Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-)
-(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-))
 \Etoc@toctoks=\toks36
-\c@etoc@tocid=\count332
+\c@etoc@tocid=\count343
 \etoc@framed@titlebox=\box121
 \etoc@framed@contentsbox=\box122
 )
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 16
-5.
- (C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1phv.fd
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 18
+3.
+
+(C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 165.
+(Font)              scaled to size 8.99994pt on input line 183.
 
 (C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count333
+\l__color_backend_stack_int=\count344
 \l__pdf_internal_box=\box123
 ) (refman.aux)
 \openout1 = `refman.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 165.
-LaTeX Font Info:    ... okay on input line 165.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 165.
-LaTeX Font Info:    ... okay on input line 165.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 165.
-LaTeX Font Info:    ... okay on input line 165.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 165.
-LaTeX Font Info:    ... okay on input line 165.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 165.
-LaTeX Font Info:    ... okay on input line 165.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 165.
-LaTeX Font Info:    ... okay on input line 165.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 165.
-LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
 
 (C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count334
-\scratchdimen=\dimen264
+\scratchcounter=\count345
+\scratchdimen=\dimen268
 \scratchbox=\box124
-\nofMPsegments=\count335
-\nofMParguments=\count336
+\nofMPsegments=\count346
+\nofMParguments=\count347
 \everyMPshowfont=\toks37
-\MPscratchCnt=\count337
-\MPscratchDim=\dimen265
-\MPnumerator=\count338
-\makeMPintoPDFobject=\count339
+\MPscratchCnt=\count348
+\MPscratchDim=\dimen269
+\MPnumerator=\count349
+\makeMPintoPDFobject=\count350
 \everyMPtoPDFconversion=\toks38
 )
 (C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -685,32 +818,43 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+Package backref Info: ** backref set up for natbib ** on input line 183.
+Package hyperref Info: Link coloring ON on input line 183.
+(refman.out) (refman.out)
+\@outlinefile=\write5
+\openout5 = `refman.out'.
+
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 \Etoc@tf=\read4
+Package hyperref Info: Option `pageanchor' set `false' on input line 191.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 191.
+
+Package hyperref Info: Option `unicode' set `true' on input line 191.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 12.9599pt on input line 172.
+(Font)              scaled to size 12.9599pt on input line 196.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 6.29996pt on input line 172.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 172
+(Font)              scaled to size 6.29996pt on input line 196.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 196
 .
+
 (C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 172
+LaTeX Font Info:    Trying to load font information for U+msb on input line 196
 .
 
 (C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 17
-2.
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 19
+6.
 
 (C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/wasysym\uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 10.79993pt on input line 174.
+(Font)              scaled to size 10.79993pt on input line 197.
 
 [1
 
@@ -719,63 +863,77 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 n/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}] [2
 
 ]
-\tf@toc=\write5
-\openout5 = `refman.toc'.
+\tf@toc=\write6
+\openout6 = `refman.toc'.
 
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 180.
+(Font)              scaled to size 8.99994pt on input line 205.
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--180
- [][] \T1/phv/m/n/10 4.5 C[]:/[]Users/aaron/main/projects/cli[]_[]free[]RTOS/wo
-rkspace/cli[]Free[]RTOS/[]Core/bsp/inc/bsp[]Gpio.h File 
+Underfull \hbox (badness 10000) in paragraph at lines 205--205
+ [][] [][]\T1/phv/m/n/10 4.5 C[]:/[]Users/aaron/main/projects/cli[]_[]free[]RTO
+S/workspace/cli[]Free[]RTOS/[]Core/bsp/inc/bsp[]Gpio.h File 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--180
- [][] \T1/phv/m/n/10 4.7 C[]:/[]Users/aaron/main/projects/cli[]_[]free[]RTOS/wo
-rkspace/cli[]Free[]RTOS/[]Core/bsp/inc/bsp[]Pwm.h File 
+Underfull \hbox (badness 10000) in paragraph at lines 205--205
+ [][] [][]\T1/phv/m/n/10 4.7 C[]:/[]Users/aaron/main/projects/cli[]_[]free[]RTO
+S/workspace/cli[]Free[]RTOS/[]Core/bsp/inc/bsp[]Pwm.h File 
  []
 
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.29996pt on input line 180.
+(Font)              scaled to size 6.29996pt on input line 205.
 [1]
-Underfull \hbox (badness 7613) in paragraph at lines 180--180
- [][] \T1/phv/m/n/10 4.13 C[]:/[]Users/aaron/main/projects/cli[]_[]free[]RTOS/w
-orkspace/cli[]Free[]RTOS/[]Core/bsp/src/bsp[]Gpio.c File 
+Underfull \hbox (badness 10000) in paragraph at lines 205--205
+ [][] [][]\T1/phv/m/n/10 4.11 C[]:/[]Users/aaron/main/projects/cli[]_[]free[]RT
+OS/workspace/cli[]Free[]RTOS/[]Core/bsp/inc/bsp[]Type[]Def.h 
+ []
+
+
+Underfull \hbox (badness 7613) in paragraph at lines 205--205
+ [][] [][]\T1/phv/m/n/10 4.15 C[]:/[]Users/aaron/main/projects/cli[]_[]free[]RT
+OS/workspace/cli[]Free[]RTOS/[]Core/bsp/src/bsp[]Gpio.c File 
+ []
+
+
+Underfull \hbox (badness 5431) in paragraph at lines 205--205
+ [][] [][]\T1/phv/m/n/10 4.16 C[]:/[]Users/aaron/main/projects/cli[]_[]free[]RT
+OS/workspace/cli[]Free[]RTOS/[]Core/bsp/src/bsp[]Pwm.c File 
  []
 
 [2]
-Underfull \hbox (badness 6173) in paragraph at lines 180--180
- [][] \T1/phv/m/n/10 4.22 C[]:/[]Users/aaron/main/projects/cli[]_[]free[]RTOS/w
-orkspace/cli[]Free[]RTOS/[]Core/[]Inc/stm32f4xx[]_[]it.h File 
+Underfull \hbox (badness 6173) in paragraph at lines 205--205
+ [][] [][]\T1/phv/m/n/10 4.25 C[]:/[]Users/aaron/main/projects/cli[]_[]free[]RT
+OS/workspace/cli[]Free[]RTOS/[]Core/[]Inc/stm32f4xx[]_[]it.h File 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 180--180
- [][] \T1/phv/m/n/10 4.27 C[]:/[]Users/aaron/main/projects/cli[]_[]free[]RTOS/w
-orkspace/cli[]Free[]RTOS/[]Core/[]Src/stm32f4xx[]_[]hal[]_[] 
+Underfull \hbox (badness 10000) in paragraph at lines 205--205
+ [][] [][]\T1/phv/m/n/10 4.30 C[]:/[]Users/aaron/main/projects/cli[]_[]free[]RT
+OS/workspace/cli[]Free[]RTOS/[]Core/[]Src/stm32f4xx[]_[]hal[]_[] 
  []
 
 
-Underfull \hbox (badness 4739) in paragraph at lines 180--180
- [][] \T1/phv/m/n/10 4.28 C[]:/[]Users/aaron/main/projects/cli[]_[]free[]RTOS/w
-orkspace/cli[]Free[]RTOS/[]Core/[]Src/stm32f4xx[]_[]it.c File 
+Underfull \hbox (badness 4739) in paragraph at lines 205--205
+ [][] [][]\T1/phv/m/n/10 4.31 C[]:/[]Users/aaron/main/projects/cli[]_[]free[]RT
+OS/workspace/cli[]Free[]RTOS/[]Core/[]Src/stm32f4xx[]_[]it.c File 
  []
 
 
-Underfull \hbox (badness 1668) in paragraph at lines 180--180
- [][] \T1/phv/m/n/10 4.31 C[]:/[]Users/aaron/main/projects/cli[]_[]free[]RTOS/w
-orkspace/cli[]Free[]RTOS/[]Core/[]Src/system[]_[]stm32f4xx.c 
+Underfull \hbox (badness 1668) in paragraph at lines 205--205
+ [][] [][]\T1/phv/m/n/10 4.34 C[]:/[]Users/aaron/main/projects/cli[]_[]free[]RT
+OS/workspace/cli[]Free[]RTOS/[]Core/[]Src/system[]_[]stm32f4xx.c 
  []
 
 [4]
+Package hyperref Info: Option `pageanchor' set `true' on input line 208.
+
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 18.66588pt on input line 183.
+(Font)              scaled to size 18.66588pt on input line 210.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 18.66588pt on input line 183.
+(Font)              scaled to size 18.66588pt on input line 210.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 22.39185pt on input line 183.
+(Font)              scaled to size 22.39185pt on input line 210.
 (topics.tex
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 12.9599pt on input line 1.
@@ -787,9 +945,9 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 ]
 Chapter 2.
 (files.tex
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
+Overfull \hbox (17.41626pt too wide) in paragraph at lines 22--22
  [][] \T1/phv/m/n/10 C[]:/[]Users/aaron/main/projects/cli[]_[]free[]RTOS/worksp
-ace/cli[]Free[]RTOS/[]Core/[]Src/ \T1/phv/b/n/10 stm32f4xx[]_[]hal[]_[] 
+ace/cli[]Free[]RTOS/[]Core/[]Src/[]  
  []
 
 [3]) [4]
@@ -896,7 +1054,20 @@ Underfull \hbox (badness 10000) detected at line 127
 [][][]
  []
 
-) (bsp_pwm_8h_source.tex [18]) (bsp_type_def_8h.tex
+) (bsp_pwm_8h_source.tex [18]) (bsp_rtc_8h.tex
+Underfull \hbox (badness 10000) detected at line 22
+[][][]
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 22.16548pt, for example:
+(fancyhdr)                \setlength{\headheight}{22.16548pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-10.16548pt}.
+
+[19]) (bsp_rtc_8h_source.tex) (bsp_type_def_8h.tex [20]
 Underfull \hbox (badness 10000) detected at line 22
 [][][]
  []
@@ -910,95 +1081,136 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-10.16548pt}.
 
-[19]
-Underfull \hbox (badness 10000) detected at line 37
-[][][]
- []
-
-[20] [21]) (bsp_clk_8c.tex
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-[22]) (bsp_gpio_8c.tex
-Underfull \hbox (badness 10000) detected at line 28
-[][][]
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 22.16548pt, for example:
-(fancyhdr)                \setlength{\headheight}{22.16548pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-10.16548pt}.
-
-[23] [24]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 22.16548pt, for example:
-(fancyhdr)                \setlength{\headheight}{22.16548pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-10.16548pt}.
-
-[25]) (app_config_8h.tex
-Underfull \hbox (badness 10000) detected at line 70
-[][][]
- []
-
-) (app_config_8h_source.tex [26]) (console_8h.tex
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-[27]) (console_8h_source.tex) (_free_r_t_o_s_config_8h_source.tex [28] [29])
-(main_8h.tex
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-) (main_8h_source.tex [30]) (stm32f4xx__hal__conf_8h_source.tex [31] [32]
-[33] [34] [35]) (stm32f4xx__it_8h.tex
-Underfull \hbox (badness 10000) detected at line 37
-[][][]
- []
-
-) (stm32f4xx__it_8h_source.tex) (console_8c.tex [36] [37]
-Underfull \hbox (badness 10000) detected at line 107
-[][][]
- []
-
-[38] [39] [40] [41] [42] [43]) (main_8c.tex [44]
+[21]
 Underfull \hbox (badness 10000) detected at line 33
 [][][]
  []
 
+[22]) (bsp_clk_8c.tex
+Underfull \hbox (badness 10000) detected at line 18
+[][][]
+ []
 
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 22.16548pt, for example:
+(fancyhdr)                \setlength{\headheight}{22.16548pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-10.16548pt}.
+
+[23]) (bsp_gpio_8c.tex
+Underfull \hbox (badness 10000) detected at line 24
+[][][]
+ []
+
+[24]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 22.16548pt, for example:
+(fancyhdr)                \setlength{\headheight}{22.16548pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-10.16548pt}.
+
+[25]) (bsp_pwm_8c.tex
+Underfull \hbox (badness 10000) detected at line 41
+[][][]
+ []
+
+[26]
+Overfull \vbox (4.46793pt too high) has occurred while \output is active []
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 22.16548pt, for example:
+(fancyhdr)                \setlength{\headheight}{22.16548pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-10.16548pt}.
+
+[27]
+Underfull \hbox (badness 10000) detected at line 129
+[][][]
+ []
+
+) (app_config_8h.tex [28]
 Underfull \hbox (badness 10000) detected at line 64
 [][][]
  []
 
-[45]) (msp_8c.tex [46]
-Underfull \hbox (badness 10000) detected at line 22
+) (app_config_8h_source.tex) (console_8h.tex [29]
+Underfull \hbox (badness 10000) detected at line 18
 [][][]
  []
 
-[47]) (stm32f4xx__hal__timebase__tim_8c.tex
+) (console_8h_source.tex) (_free_r_t_o_s_config_8h_source.tex [30] [31])
+(main_8h.tex [32]
+Underfull \hbox (badness 10000) detected at line 18
+[][][]
+ []
+
+) (main_8h_source.tex) (stm32f4xx__hal__conf_8h_source.tex [33] [34] [35]
+[36] [37]) (stm32f4xx__it_8h.tex [38]
+Underfull \hbox (badness 10000) detected at line 37
+[][][]
+ []
+
+) (stm32f4xx__it_8h_source.tex) (console_8c.tex [39]
+Underfull \hbox (badness 10000) detected at line 78
+[][][]
+ []
+
+[40]) (main_8c.tex [41]
+Underfull \hbox (badness 10000) detected at line 33
+[][][]
+ []
+
+[42]
+Underfull \hbox (badness 10000) detected at line 64
+[][][]
+ []
+
+) (msp_8c.tex [43]
+Underfull \hbox (badness 10000) detected at line 24
+[][][]
+ []
+
+[44] [45]) (stm32f4xx__hal__timebase__tim_8c.tex [46]
 Underfull \hbox (badness 10000) detected at line 28
 [][][]
  []
 
-[48]
+
 Underfull \hbox (badness 10000) detected at line 46
 [][][]
  []
 
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 22.16548pt, for example:
+(fancyhdr)                \setlength{\headheight}{22.16548pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-10.16548pt}.
+
+[47]
 Underfull \hbox (badness 10000) detected at line 69
 [][][]
  []
 
+
+Underfull \hbox (badness 10000) detected at line 92
+[][][]
+ []
+
+) (stm32f4xx__it_8c.tex [48]
+Underfull \hbox (badness 10000) detected at line 52
+[][][]
+ []
+
+) (syscalls_8c.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 22.16548pt, for example:
@@ -1008,16 +1220,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.16548pt}.
 
 [49]
-Underfull \hbox (badness 10000) detected at line 92
-[][][]
- []
-
-) (stm32f4xx__it_8c.tex
-Underfull \hbox (badness 10000) detected at line 52
-[][][]
- []
-
-) (syscalls_8c.tex [50]
 Underfull \hbox (badness 10000) detected at line 79
 [][][]
  []
@@ -1027,7 +1229,16 @@ Underfull \hbox (badness 10000) detected at line 86
 [][][]
  []
 
-) (sysmem_8c.tex
+) (sysmem_8c.tex [50]
+Underfull \hbox (badness 10000) detected at line 18
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 25
+[][][]
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 22.16548pt, for example:
@@ -1037,26 +1248,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-10.16548pt}.
 
 [51]
-LaTeX Font Info:    Font shape `T1/phv/b/it' in size <9> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 12.
-LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
-(Font)              scaled to size 8.09995pt on input line 12.
-LaTeX Font Info:    Font shape `T1/phv/b/it' in size <7> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 12.
-LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
-(Font)              scaled to size 6.29996pt on input line 12.
-
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 30
-[][][]
- []
-
-[52]
-Underfull \hbox (badness 10000) detected at line 63
+Underfull \hbox (badness 10000) detected at line 58
 [][][]
  []
 
@@ -1066,173 +1258,177 @@ Underfull \hbox (badness 10000) detected at line 36
  []
 
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 22.16548pt, for example:
-(fancyhdr)                \setlength{\headheight}{22.16548pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-10.16548pt}.
-
-[53]
 Underfull \hbox (badness 10000) detected at line 46
 [][][]
  []
 
-) [54] (refman.ind
+) [52] (refman.ind
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 22.39185pt on input line 1.
 
-Overfull \hbox (128.53354pt too wide) in paragraph at lines 80--82
+Overfull \hbox (128.53354pt too wide) in paragraph at lines 93--95
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/bsp/inc/bsp.h,
  []
 
 
-Overfull \hbox (141.84438pt too wide) in paragraph at lines 82--84
+Overfull \hbox (141.84438pt too wide) in paragraph at lines 95--97
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/bsp/inc/bspClk.h,
  []
 
 
-Overfull \hbox (147.49623pt too wide) in paragraph at lines 84--86
+Overfull \hbox (147.49623pt too wide) in paragraph at lines 97--99
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/bsp/inc/bspGpio.h,
  []
 
 
-Overfull \hbox (148.84624pt too wide) in paragraph at lines 86--88
+Overfull \hbox (148.84624pt too wide) in paragraph at lines 99--101
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/bsp/inc/bspPwm.h,
  []
 
 
-Overfull \hbox (161.50908pt too wide) in paragraph at lines 88--90
+Overfull \hbox (142.34831pt too wide) in paragraph at lines 101--103
+[]\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
+S/Core/bsp/inc/bspRtc.h,
+ []
+
+
+Overfull \hbox (161.50908pt too wide) in paragraph at lines 103--105
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/bsp/inc/bspTypeDef.h,
  []
 
 
-Overfull \hbox (128.52464pt too wide) in paragraph at lines 90--92
+Overfull \hbox (128.52464pt too wide) in paragraph at lines 105--107
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/bsp/src/bsp.c,
  []
 
 
-Overfull \hbox (141.83548pt too wide) in paragraph at lines 92--94
+Overfull \hbox (141.83548pt too wide) in paragraph at lines 107--109
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/bsp/src/bspClk.c,
  []
 
+[53
 
-Overfull \hbox (147.48734pt too wide) in paragraph at lines 94--96
+
+
+]
+Overfull \hbox (147.48734pt too wide) in paragraph at lines 109--111
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/bsp/src/bspGpio.c,
  []
 
 
-Overfull \hbox (138.85634pt too wide) in paragraph at lines 96--98
+Overfull \hbox (148.83734pt too wide) in paragraph at lines 111--113
+[]\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
+S/Core/bsp/src/bspPwm.c,
+ []
+
+
+Overfull \hbox (138.85634pt too wide) in paragraph at lines 113--115
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/Inc/appConfig.h,
  []
 
 
-Overfull \hbox (128.71361pt too wide) in paragraph at lines 98--100
+Overfull \hbox (128.71361pt too wide) in paragraph at lines 115--117
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/Inc/console.h,
  []
 
 
-Overfull \hbox (166.3151pt too wide) in paragraph at lines 100--102
+Overfull \hbox (166.3151pt too wide) in paragraph at lines 117--119
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/Inc/FreeRTOSConfig.h,
  []
 
 
-Overfull \hbox (117.33768pt too wide) in paragraph at lines 102--104
+Overfull \hbox (117.33768pt too wide) in paragraph at lines 119--121
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/Inc/main.h,
  []
 
 
-Overfull \hbox (177.60063pt too wide) in paragraph at lines 104--106
+Overfull \hbox (177.60063pt too wide) in paragraph at lines 121--123
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/Inc/stm32f4xx_hal_conf.h,
  []
 
 
-Overfull \hbox (148.35107pt too wide) in paragraph at lines 106--108
+Overfull \hbox (148.35107pt too wide) in paragraph at lines 123--125
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/Inc/stm32f4xx_it.h,
  []
 
-[55
 
-
-
-]
-Overfull \hbox (129.70369pt too wide) in paragraph at lines 108--110
+Overfull \hbox (129.70369pt too wide) in paragraph at lines 125--127
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/Src/console.c,
  []
 
 
-Overfull \hbox (118.32776pt too wide) in paragraph at lines 110--112
+Overfull \hbox (118.32776pt too wide) in paragraph at lines 127--129
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/Src/main.c,
  []
 
 
-Overfull \hbox (115.51088pt too wide) in paragraph at lines 112--114
+Overfull \hbox (115.51088pt too wide) in paragraph at lines 129--131
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/Src/msp.c,
  []
 
 
-Overfull \hbox (215.36398pt too wide) in paragraph at lines 114--116
+Overfull \hbox (215.36398pt too wide) in paragraph at lines 131--133
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/Src/stm32f4xx_hal_timebase_tim.c,
  []
 
 
-Overfull \hbox (149.34116pt too wide) in paragraph at lines 116--118
+Overfull \hbox (149.34116pt too wide) in paragraph at lines 133--135
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/Src/stm32f4xx_it.c,
  []
 
 
-Overfull \hbox (130.18983pt too wide) in paragraph at lines 118--120
+Overfull \hbox (130.18983pt too wide) in paragraph at lines 135--137
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/Src/syscalls.c,
  []
 
 
-Overfull \hbox (132.32271pt too wide) in paragraph at lines 120--122
+Overfull \hbox (132.32271pt too wide) in paragraph at lines 137--139
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/Src/sysmem.c,
  []
 
 
-Overfull \hbox (173.34392pt too wide) in paragraph at lines 122--124
+Overfull \hbox (173.34392pt too wide) in paragraph at lines 139--141
 []\T1/phv/m/n/10 C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTO
 S/Core/Src/system_stm32f4xx.c,
  []
 
-[56] [57
-
-]) (refman.aux)
+[54]) (refman.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
+Package rerunfilecheck Info: File `refman.out' has not changed.
+(rerunfilecheck)             Checksum: 68206F00F971F8E406312AA509ED5404;35719.
  ) 
 Here is how much of TeX's memory you used:
- 12179 strings out of 474486
- 210151 string characters out of 5743756
- 1957542 words of memory out of 5000000
- 34094 multiletter control sequences out of 15000+600000
- 618119 words of font info for 107 fonts, out of 8000000 for 9000
+ 19039 strings out of 474486
+ 322036 string characters out of 5743756
+ 1963542 words of memory out of 5000000
+ 40382 multiletter control sequences out of 15000+600000
+ 612413 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 101i,16n,117p,1163b,617s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,16n,117p,1175b,744s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/aaron/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmmi7.pfb><C:/Users/aaron/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmsy10.pfb><C:/Users/aaron/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -1242,12 +1438,11 @@ X/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/aaron/AppData/Local/Programs/MiK
 TeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/aaron/AppData/Local/Programs/
 MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/aaron/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/urw/helvetic/uhvb8ac.pfb><C:/Users/aaron/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/urw/helvetic/uhvbo8a.pfb><C:/Users/aaron/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/aaron/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (63 pages, 231922 bytes).
+ograms/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/aaron/AppData/Local
+/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on refman.pdf (60 pages, 444322 bytes).
 PDF statistics:
- 261 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1759 PDF objects out of 2073 (max. 8388607)
+ 513 named destinations out of 1000 (max. 500000)
+ 1089 words of extra memory for PDF output out of 10000 (max. 10000000)
 

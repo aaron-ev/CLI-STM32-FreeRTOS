@@ -1,10 +1,9 @@
 var indexSectionsWithContent =
 {
-  0: "_abcdehmnpstuvx",
+  0: "_abcdehmnstuvx",
   1: "abcms",
-  2: "_bcdehmnpstuvx",
-  3: "_",
-  4: "cs"
+  2: "_bdehmnstuvx",
+  3: "cs"
 };
 
 var indexSectionNames =
@@ -12,8 +11,7 @@ var indexSectionNames =
   0: "all",
   1: "files",
   2: "functions",
-  3: "variables",
-  4: "groups"
+  3: "groups"
 };
 
 var indexSectionLabels =
@@ -21,7 +19,6 @@ var indexSectionLabels =
   0: "All",
   1: "Files",
   2: "Functions",
-  3: "Variables",
-  4: "Modules"
+  3: "Modules"
 };
 

@@ -1,0 +1,26 @@
+\doxysection{bsp\+Rtc.\+h}
+\hypertarget{bsp_rtc_8h_source}{}\label{bsp_rtc_8h_source}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspRtc.h@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspRtc.h}}
+\mbox{\hyperlink{bsp_rtc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ \_\_BSP\_RTC\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ \_\_BSP\_RTC\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}stdint.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}stm32f4xx\_hal.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bsp_type_def_8h}{bspTypeDef.h}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ uint8\_t\ uHours;}
+\DoxyCodeLine{00019\ \ \ \ \ uint8\_t\ uMinutes;}
+\DoxyCodeLine{00020\ \ \ \ \ uint8\_t\ uSeconds;}
+\DoxyCodeLine{00021\ \}BspRtcTime;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ BspError\_e\ \mbox{\hyperlink{bsp_rtc_8h_a06dbd937255a5ffe14e31fbf3016dae0}{bspRtcInit}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00024\ BspError\_e\ \mbox{\hyperlink{bsp_rtc_8h_a6c66d85bacb0b885b3f8eae171656f52}{bspRtcGetTime}}(BspRtcTime*\ bspRtcTime);}
+\DoxyCodeLine{00025\ BspError\_e\ \mbox{\hyperlink{bsp_rtc_8h_a2dc8b1003acfcb26a1259a15ce0d11f5}{bspRtcSetTime}}(BspRtcTime*\ bspRtcTime);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

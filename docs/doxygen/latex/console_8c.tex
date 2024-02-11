@@ -1,5 +1,5 @@
 \doxysection{C\+:/\+Users/aaron/main/projects/cli\+\_\+free\+RTOS/workspace/cli\+Free\+RTOS/\+Core/\+Src/console.c File Reference}
-\label{console_8c}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/console.c@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/console.c}}
+\hypertarget{console_8c}{}\label{console_8c}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/console.c@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/console.c}}
 
 
 Command Line Interpreter based on Free\+RTOS and STM32 HAL layer.  
@@ -8,96 +8,67 @@ Command Line Interpreter based on Free\+RTOS and STM32 HAL layer.
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\label{console_8c_aa413985a990a27ae0d2517c1f8a9bc75} 
+\Hypertarget{console_8c_aecef8fd16f8135b1d3d4c703d9ff9fdb}\label{console_8c_aecef8fd16f8135b1d3d4c703d9ff9fdb} 
+\#define {\bfseries CONSOLE\+\_\+\+VERSION\+\_\+\+MAJOR}~1
+\item 
+\Hypertarget{console_8c_a23179065f462a838d3b097791e02ca4e}\label{console_8c_a23179065f462a838d3b097791e02ca4e} 
+\#define {\bfseries CONSOLE\+\_\+\+VERSION\+\_\+\+MINOR}~0
+\item 
+\Hypertarget{console_8c_aa413985a990a27ae0d2517c1f8a9bc75}\label{console_8c_aa413985a990a27ae0d2517c1f8a9bc75} 
 \#define {\bfseries MAX\+\_\+\+IN\+\_\+\+STR\+\_\+\+LEN}~300
 \item 
-\label{console_8c_aeca2c7550cf2b475245c448975476f7a} 
+\Hypertarget{console_8c_aeca2c7550cf2b475245c448975476f7a}\label{console_8c_aeca2c7550cf2b475245c448975476f7a} 
 \#define {\bfseries MAX\+\_\+\+OUT\+\_\+\+STR\+\_\+\+LEN}~600
 \item 
-\label{console_8c_a9bb0b544aef811cd527a1405c023c04f} 
+\Hypertarget{console_8c_a9bb0b544aef811cd527a1405c023c04f}\label{console_8c_a9bb0b544aef811cd527a1405c023c04f} 
 \#define {\bfseries MAX\+\_\+\+RX\+\_\+\+QUEUE\+\_\+\+LEN}~300
 \item 
-\label{console_8c_abcd3d8c3082acbb105816e2274d1fb2f} 
-\#define {\bfseries ASCII\+\_\+\+TAB}~\textquotesingle{}\textbackslash{}t\textquotesingle{}  /$\ast$ Tabulate              $\ast$/
+\Hypertarget{console_8c_abcd3d8c3082acbb105816e2274d1fb2f}\label{console_8c_abcd3d8c3082acbb105816e2274d1fb2f} 
+\#define {\bfseries ASCII\+\_\+\+TAB}~\textquotesingle{}\textbackslash{}t\textquotesingle{}  /\texorpdfstring{$\ast$}{*} Tabulate              \texorpdfstring{$\ast$}{*}/
 \item 
-\label{console_8c_a089ed4925403ab02a05e603967c74579} 
-\#define {\bfseries ASCII\+\_\+\+CR}~\textquotesingle{}\textbackslash{}r\textquotesingle{}  /$\ast$ Carriage return       $\ast$/
+\Hypertarget{console_8c_a089ed4925403ab02a05e603967c74579}\label{console_8c_a089ed4925403ab02a05e603967c74579} 
+\#define {\bfseries ASCII\+\_\+\+CR}~\textquotesingle{}\textbackslash{}r\textquotesingle{}  /\texorpdfstring{$\ast$}{*} Carriage return       \texorpdfstring{$\ast$}{*}/
 \item 
-\label{console_8c_aca3b498f5936dbe4f3076a47c3e1810d} 
-\#define {\bfseries ASCII\+\_\+\+LF}~\textquotesingle{}\textbackslash{}n\textquotesingle{}  /$\ast$ Line feed             $\ast$/
+\Hypertarget{console_8c_aca3b498f5936dbe4f3076a47c3e1810d}\label{console_8c_aca3b498f5936dbe4f3076a47c3e1810d} 
+\#define {\bfseries ASCII\+\_\+\+LF}~\textquotesingle{}\textbackslash{}n\textquotesingle{}  /\texorpdfstring{$\ast$}{*} Line feed             \texorpdfstring{$\ast$}{*}/
 \item 
-\label{console_8c_a97f70a2430c640e184380e20e1c1d0ea} 
-\#define {\bfseries ASCII\+\_\+\+BACKSPACE}~\textquotesingle{}\textbackslash{}b\textquotesingle{}  /$\ast$ Back space            $\ast$/
+\Hypertarget{console_8c_a97f70a2430c640e184380e20e1c1d0ea}\label{console_8c_a97f70a2430c640e184380e20e1c1d0ea} 
+\#define {\bfseries ASCII\+\_\+\+BACKSPACE}~\textquotesingle{}\textbackslash{}b\textquotesingle{}  /\texorpdfstring{$\ast$}{*} Back space            \texorpdfstring{$\ast$}{*}/
 \item 
-\label{console_8c_ae896e8d7a039ffa54a1d898ab97cba2a} 
-\#define {\bfseries ASCII\+\_\+\+FORM\+\_\+\+FEED}~\textquotesingle{}\textbackslash{}f\textquotesingle{}  /$\ast$ Form feed             $\ast$/
+\Hypertarget{console_8c_ae896e8d7a039ffa54a1d898ab97cba2a}\label{console_8c_ae896e8d7a039ffa54a1d898ab97cba2a} 
+\#define {\bfseries ASCII\+\_\+\+FORM\+\_\+\+FEED}~\textquotesingle{}\textbackslash{}f\textquotesingle{}  /\texorpdfstring{$\ast$}{*} Form feed             \texorpdfstring{$\ast$}{*}/
 \item 
-\label{console_8c_a3bb28e223b7c203113dc8c0387d43b36} 
-\#define {\bfseries ASCII\+\_\+\+DEL}~127   /$\ast$ Delete                $\ast$/
+\Hypertarget{console_8c_a3bb28e223b7c203113dc8c0387d43b36}\label{console_8c_a3bb28e223b7c203113dc8c0387d43b36} 
+\#define {\bfseries ASCII\+\_\+\+DEL}~127   /\texorpdfstring{$\ast$}{*} Delete                \texorpdfstring{$\ast$}{*}/
 \item 
-\label{console_8c_a2f49febdb9a75ba9f06b89576666daf4} 
-\#define {\bfseries ASCII\+\_\+\+CTRL\+\_\+\+PLUS\+\_\+C}~3   /$\ast$ CTRL + C              $\ast$/
+\Hypertarget{console_8c_a2f49febdb9a75ba9f06b89576666daf4}\label{console_8c_a2f49febdb9a75ba9f06b89576666daf4} 
+\#define {\bfseries ASCII\+\_\+\+CTRL\+\_\+\+PLUS\+\_\+C}~3   /\texorpdfstring{$\ast$}{*} CTRL + C              \texorpdfstring{$\ast$}{*}/
 \item 
-\label{console_8c_a1f7759def2dc9013f65afebcb44d7e1f} 
-\#define {\bfseries ASCII\+\_\+\+NACK}~21   /$\ast$ Negative acknowledge  $\ast$/
+\Hypertarget{console_8c_a1f7759def2dc9013f65afebcb44d7e1f}\label{console_8c_a1f7759def2dc9013f65afebcb44d7e1f} 
+\#define {\bfseries ASCII\+\_\+\+NACK}~21   /\texorpdfstring{$\ast$}{*} Negative acknowledge  \texorpdfstring{$\ast$}{*}/
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-static Base\+Type\+\_\+t \textbf{ prv\+Command\+Pwm\+Set\+Freq} (char $\ast$pc\+Write\+Buffer, size\+\_\+t x\+Write\+Buffer\+Len, const char $\ast$pc\+Command\+String)
-\begin{DoxyCompactList}\small\item\em Command that sets a new pwm frequency. \end{DoxyCompactList}\item 
-static Base\+Type\+\_\+t \textbf{ prv\+Command\+Pwm\+Set\+Duty} (char $\ast$pc\+Write\+Buffer, size\+\_\+t x\+Write\+Buffer\+Len, const char $\ast$pc\+Command\+String)
-\begin{DoxyCompactList}\small\item\em Command that sets a new pwm duty cycle. \end{DoxyCompactList}\item 
-static Base\+Type\+\_\+t \textbf{ prv\+Command\+Gpio\+Write} (char $\ast$pc\+Write\+Buffer, size\+\_\+t x\+Write\+Buffer\+Len, const char $\ast$pc\+Command\+String)
-\begin{DoxyCompactList}\small\item\em Command that writes to a GPIOx pin. \end{DoxyCompactList}\item 
-static Base\+Type\+\_\+t \textbf{ prv\+Command\+Gpio\+Read} (char $\ast$pc\+Write\+Buffer, size\+\_\+t x\+Write\+Buffer\+Len, const char $\ast$pc\+Command\+String)
-\begin{DoxyCompactList}\small\item\em Command that reads from GPIOx Pin. \end{DoxyCompactList}\item 
-static Base\+Type\+\_\+t \textbf{ prv\+Command\+Echo} (char $\ast$pc\+Write\+Buffer, size\+\_\+t x\+Write\+Buffer\+Len, const char $\ast$pc\+Command\+String)
-\begin{DoxyCompactList}\small\item\em Echo command line in UNIX systems. \end{DoxyCompactList}\item 
-static Base\+Type\+\_\+t \textbf{ prv\+Command\+Task\+Stats} (char $\ast$pc\+Write\+Buffer, size\+\_\+t x\+Write\+Buffer\+Len, const char $\ast$pc\+Command\+String)
-\begin{DoxyCompactList}\small\item\em Command that gets task statistics. \end{DoxyCompactList}\item 
-static Base\+Type\+\_\+t \textbf{ prv\+Command\+Heap} (char $\ast$pc\+Write\+Buffer, size\+\_\+t x\+Write\+Buffer\+Len, const char $\ast$pc\+Command\+String)
-\begin{DoxyCompactList}\small\item\em Command that gets heap information. \end{DoxyCompactList}\item 
-static Base\+Type\+\_\+t \textbf{ prv\+Command\+Clk} (char $\ast$pc\+Write\+Buffer, size\+\_\+t x\+Write\+Buffer\+Len, const char $\ast$pc\+Command\+String)
-\begin{DoxyCompactList}\small\item\em Command that gets clock information from current clock settings. \end{DoxyCompactList}\item 
-static Base\+Type\+\_\+t \textbf{ prv\+Command\+Ticks} (char $\ast$pc\+Write\+Buffer, size\+\_\+t x\+Write\+Buffer\+Len, const char $\ast$pc\+Command\+String)
-\begin{DoxyCompactList}\small\item\em Command that calculate OS ticks information. \end{DoxyCompactList}\item 
-static const char $\ast$ \textbf{ prvpc\+Map\+Task\+State} (e\+Task\+State e\+State)
-\begin{DoxyCompactList}\small\item\em This function is executed in case of error occurrence. \end{DoxyCompactList}\item 
-static Base\+Type\+\_\+t \textbf{ x\+Console\+Read} (uint8\+\_\+t $\ast$c\+Read\+Char, size\+\_\+t x\+Len)
-\begin{DoxyCompactList}\small\item\em Reads from UART RX buffer. Reads one bye at the time. \end{DoxyCompactList}\item 
-static HAL\+\_\+\+Status\+Type\+Def \textbf{ v\+Console\+Write} (const char $\ast$buff)
-\begin{DoxyCompactList}\small\item\em Write to UART TX. \end{DoxyCompactList}\item 
-void \textbf{ v\+Console\+Enable\+Rx\+Interrupt} (void)
+void \mbox{\hyperlink{console_8c_af16c4f6d612b882216c45d0694cc91f7}{v\+Console\+Enable\+Rx\+Interrupt}} (void)
 \begin{DoxyCompactList}\small\item\em Enables UART RX reception. \end{DoxyCompactList}\item 
-void \textbf{ v\+Task\+Console} (void $\ast$pv\+Params)
+void \mbox{\hyperlink{console_8c_a543ad7230077405e260788b3ea15c561}{v\+Task\+Console}} (void \texorpdfstring{$\ast$}{*}pv\+Params)
 \begin{DoxyCompactList}\small\item\em Task to handle user commands via serial communication. \end{DoxyCompactList}\item 
-Base\+Type\+\_\+t \textbf{ x\+Console\+Init} (uint16\+\_\+t us\+Stack\+Size, UBase\+Type\+\_\+t ux\+Priority, UART\+\_\+\+Handle\+Type\+Def $\ast$px\+Uart\+Handle)
+Base\+Type\+\_\+t \mbox{\hyperlink{console_8c_a47c84c8572fe023f334d03e60e32f4b1}{xbsp\+Console\+Init}} (uint16\+\_\+t us\+Stack\+Size, UBase\+Type\+\_\+t ux\+Priority, UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}px\+Uart\+Handle)
 \begin{DoxyCompactList}\small\item\em Initialize the console by registering all commands and creating a task. \end{DoxyCompactList}\item 
-void \textbf{ HAL\+\_\+\+UART\+\_\+\+Rx\+Cplt\+Callback} (UART\+\_\+\+Handle\+Type\+Def $\ast$huart)
+void \mbox{\hyperlink{console_8c_ae494a9643f29b87d6d81e5264e60e57b}{HAL\+\_\+\+UART\+\_\+\+Rx\+Cplt\+Callback}} (UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}huart)
 \begin{DoxyCompactList}\small\item\em Callback for UART RX, triggered any time there is a new character. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\label{console_8c_aed46c015940870568835a6c4118922c6} 
+\Hypertarget{console_8c_aed46c015940870568835a6c4118922c6}\label{console_8c_aed46c015940870568835a6c4118922c6} 
 char {\bfseries c\+Rx\+Data}
 \item 
-\label{console_8c_a6ed034b02c8652345736e0b05665109b} 
+\Hypertarget{console_8c_a6ed034b02c8652345736e0b05665109b}\label{console_8c_a6ed034b02c8652345736e0b05665109b} 
 Queue\+Handle\+\_\+t {\bfseries x\+Queue\+Rx\+Handle}
 \item 
-\label{console_8c_ad2b92ca7267dfab7ab5e2ec8e44d2bf8} 
-UART\+\_\+\+Handle\+Type\+Def $\ast$ {\bfseries px\+Uart\+Dev\+Handle}
-\item 
-\label{console_8c_ac9959c138500d93946cae46155d0a1b2} 
-static const char $\ast$ {\bfseries pc\+Welcome\+Msg} = "{}Welcome to the console. Enter \textquotesingle{}help\textquotesingle{} to view a list of available commands.\textbackslash{}n"{}
-\item 
-static const char $\ast$ \textbf{ prvpc\+Task\+List\+Header}
-\item 
-\label{console_8c_a20556c921b76bc30e72f5722dd6e07c0} 
-static const char $\ast$ {\bfseries prvpc\+Prompt} = "{}\#cmd\+: "{}
-\item 
-\label{console_8c_a7c69fb8deadc7f68397fcab5ebaf2b07} 
-static const CLI\+\_\+\+Command\+\_\+\+Definition\+\_\+t {\bfseries x\+Commands} [$\,$]
+\Hypertarget{console_8c_ad2b92ca7267dfab7ab5e2ec8e44d2bf8}\label{console_8c_ad2b92ca7267dfab7ab5e2ec8e44d2bf8} 
+UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*} {\bfseries px\+Uart\+Dev\+Handle}
 \end{DoxyCompactItemize}
 
 
@@ -105,16 +76,16 @@ static const CLI\+\_\+\+Command\+\_\+\+Definition\+\_\+t {\bfseries x\+Commands}
 Command Line Interpreter based on Free\+RTOS and STM32 HAL layer. 
 
 \begin{DoxyAuthor}{Author}
-Aaron Escoboza, Github account\+: {\texttt{ https\+://github.\+com/aaron-\/ev}}  
+Aaron Escoboza, Github account\+: \href{https://github.com/aaron-ev}{\texttt{ https\+://github.\+com/aaron-\/ev}}  
 \end{DoxyAuthor}
 
 
 \doxysubsection{Function Documentation}
-\label{console_8c_ae494a9643f29b87d6d81e5264e60e57b} 
+\Hypertarget{console_8c_ae494a9643f29b87d6d81e5264e60e57b}\label{console_8c_ae494a9643f29b87d6d81e5264e60e57b} 
 \index{console.c@{console.c}!HAL\_UART\_RxCpltCallback@{HAL\_UART\_RxCpltCallback}}
 \index{HAL\_UART\_RxCpltCallback@{HAL\_UART\_RxCpltCallback}!console.c@{console.c}}
-\doxysubsubsection{HAL\_UART\_RxCpltCallback()}
-{\footnotesize\ttfamily void HAL\+\_\+\+UART\+\_\+\+Rx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{UART\+\_\+\+Handle\+Type\+Def $\ast$}]{huart }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{HAL\_UART\_RxCpltCallback()}{HAL\_UART\_RxCpltCallback()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+UART\+\_\+\+Rx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{huart }\end{DoxyParamCaption})}
 
 
 
@@ -122,7 +93,7 @@ Callback for UART RX, triggered any time there is a new character.
 
 
 \begin{DoxyParams}{Parameters}
-{\em $\ast$huart} & Pointer to the uart handle. \\
+{\em \texorpdfstring{$\ast$}{*}huart} & Pointer to the uart handle. \\
 \hline
 \end{DoxyParams}
 
@@ -130,241 +101,10 @@ Callback for UART RX, triggered any time there is a new character.
 {\em void} & \\
 \hline
 \end{DoxyRetVals}
-\label{console_8c_ac94bc173884830535c5fb7123e7f58f7} 
-\index{console.c@{console.c}!prvCommandClk@{prvCommandClk}}
-\index{prvCommandClk@{prvCommandClk}!console.c@{console.c}}
-\doxysubsubsection{prvCommandClk()}
-{\footnotesize\ttfamily static Base\+Type\+\_\+t prv\+Command\+Clk (\begin{DoxyParamCaption}\item[{char $\ast$}]{pc\+Write\+Buffer,  }\item[{size\+\_\+t}]{x\+Write\+Buffer\+Len,  }\item[{const char $\ast$}]{pc\+Command\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Command that gets clock information from current clock settings. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em $\ast$pc\+Write\+Buffer} & Free\+RTOS CLI write buffer. \\
-\hline
-{\em x\+Write\+Buffer\+Len} & Length of write buffer. \\
-\hline
-{\em $\ast$pc\+Command\+String} & pointer to the command name. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em HAL} & status \\
-\hline
-\end{DoxyRetVals}
-\label{console_8c_af5135696580c6d7e9c69e21431b63edf} 
-\index{console.c@{console.c}!prvCommandEcho@{prvCommandEcho}}
-\index{prvCommandEcho@{prvCommandEcho}!console.c@{console.c}}
-\doxysubsubsection{prvCommandEcho()}
-{\footnotesize\ttfamily static Base\+Type\+\_\+t prv\+Command\+Echo (\begin{DoxyParamCaption}\item[{char $\ast$}]{pc\+Write\+Buffer,  }\item[{size\+\_\+t}]{x\+Write\+Buffer\+Len,  }\item[{const char $\ast$}]{pc\+Command\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Echo command line in UNIX systems. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em $\ast$pc\+Write\+Buffer} & Free\+RTOS CLI write buffer. \\
-\hline
-{\em x\+Write\+Buffer\+Len} & Length of write buffer. \\
-\hline
-{\em $\ast$pc\+Command\+String} & pointer to the command name. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em HAL} & status \\
-\hline
-\end{DoxyRetVals}
-\label{console_8c_a73f82c58529e0808fb14308885d357d9} 
-\index{console.c@{console.c}!prvCommandGpioRead@{prvCommandGpioRead}}
-\index{prvCommandGpioRead@{prvCommandGpioRead}!console.c@{console.c}}
-\doxysubsubsection{prvCommandGpioRead()}
-{\footnotesize\ttfamily static Base\+Type\+\_\+t prv\+Command\+Gpio\+Read (\begin{DoxyParamCaption}\item[{char $\ast$}]{pc\+Write\+Buffer,  }\item[{size\+\_\+t}]{x\+Write\+Buffer\+Len,  }\item[{const char $\ast$}]{pc\+Command\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Command that reads from GPIOx Pin. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em $\ast$pc\+Write\+Buffer} & Free\+RTOS CLI write buffer. \\
-\hline
-{\em x\+Write\+Buffer\+Len} & Length of write buffer. \\
-\hline
-{\em $\ast$pc\+Command\+String} & pointer to the command name. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em HAL} & status \\
-\hline
-\end{DoxyRetVals}
-\label{console_8c_aa81c2b19d7736be31a76e71c85453be8} 
-\index{console.c@{console.c}!prvCommandGpioWrite@{prvCommandGpioWrite}}
-\index{prvCommandGpioWrite@{prvCommandGpioWrite}!console.c@{console.c}}
-\doxysubsubsection{prvCommandGpioWrite()}
-{\footnotesize\ttfamily static Base\+Type\+\_\+t prv\+Command\+Gpio\+Write (\begin{DoxyParamCaption}\item[{char $\ast$}]{pc\+Write\+Buffer,  }\item[{size\+\_\+t}]{x\+Write\+Buffer\+Len,  }\item[{const char $\ast$}]{pc\+Command\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Command that writes to a GPIOx pin. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em $\ast$pc\+Write\+Buffer} & Free\+RTOS CLI write buffer. \\
-\hline
-{\em x\+Write\+Buffer\+Len} & Length of write buffer. \\
-\hline
-{\em $\ast$pc\+Command\+String} & pointer to the command name. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em HAL} & status \\
-\hline
-\end{DoxyRetVals}
-\label{console_8c_a0bde92a1b9ac8591ad48952b5d57fdf3} 
-\index{console.c@{console.c}!prvCommandHeap@{prvCommandHeap}}
-\index{prvCommandHeap@{prvCommandHeap}!console.c@{console.c}}
-\doxysubsubsection{prvCommandHeap()}
-{\footnotesize\ttfamily static Base\+Type\+\_\+t prv\+Command\+Heap (\begin{DoxyParamCaption}\item[{char $\ast$}]{pc\+Write\+Buffer,  }\item[{size\+\_\+t}]{x\+Write\+Buffer\+Len,  }\item[{const char $\ast$}]{pc\+Command\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Command that gets heap information. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em $\ast$pc\+Write\+Buffer} & Free\+RTOS CLI write buffer. \\
-\hline
-{\em x\+Write\+Buffer\+Len} & Length of write buffer. \\
-\hline
-{\em $\ast$pc\+Command\+String} & pointer to the command name. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em HAL} & status \\
-\hline
-\end{DoxyRetVals}
-\label{console_8c_af502907f6cea4c6d399cb789e6c825d8} 
-\index{console.c@{console.c}!prvCommandPwmSetDuty@{prvCommandPwmSetDuty}}
-\index{prvCommandPwmSetDuty@{prvCommandPwmSetDuty}!console.c@{console.c}}
-\doxysubsubsection{prvCommandPwmSetDuty()}
-{\footnotesize\ttfamily static Base\+Type\+\_\+t prv\+Command\+Pwm\+Set\+Duty (\begin{DoxyParamCaption}\item[{char $\ast$}]{pc\+Write\+Buffer,  }\item[{size\+\_\+t}]{x\+Write\+Buffer\+Len,  }\item[{const char $\ast$}]{pc\+Command\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Command that sets a new pwm duty cycle. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em $\ast$pc\+Write\+Buffer} & Free\+RTOS CLI write buffer. \\
-\hline
-{\em x\+Write\+Buffer\+Len} & Length of write buffer. \\
-\hline
-{\em $\ast$pc\+Command\+String} & pointer to the command name. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em HAL} & status \\
-\hline
-\end{DoxyRetVals}
-\label{console_8c_a0c9611d73842355e41f450ed7697c705} 
-\index{console.c@{console.c}!prvCommandPwmSetFreq@{prvCommandPwmSetFreq}}
-\index{prvCommandPwmSetFreq@{prvCommandPwmSetFreq}!console.c@{console.c}}
-\doxysubsubsection{prvCommandPwmSetFreq()}
-{\footnotesize\ttfamily static Base\+Type\+\_\+t prv\+Command\+Pwm\+Set\+Freq (\begin{DoxyParamCaption}\item[{char $\ast$}]{pc\+Write\+Buffer,  }\item[{size\+\_\+t}]{x\+Write\+Buffer\+Len,  }\item[{const char $\ast$}]{pc\+Command\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Command that sets a new pwm frequency. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em $\ast$pc\+Write\+Buffer} & Free\+RTOS CLI write buffer. \\
-\hline
-{\em x\+Write\+Buffer\+Len} & Length of write buffer. \\
-\hline
-{\em $\ast$pc\+Command\+String} & pointer to the command name. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em HAL} & status \\
-\hline
-\end{DoxyRetVals}
-\label{console_8c_ad0b096e64e18ff7f9821ab686fb283d4} 
-\index{console.c@{console.c}!prvCommandTaskStats@{prvCommandTaskStats}}
-\index{prvCommandTaskStats@{prvCommandTaskStats}!console.c@{console.c}}
-\doxysubsubsection{prvCommandTaskStats()}
-{\footnotesize\ttfamily static Base\+Type\+\_\+t prv\+Command\+Task\+Stats (\begin{DoxyParamCaption}\item[{char $\ast$}]{pc\+Write\+Buffer,  }\item[{size\+\_\+t}]{x\+Write\+Buffer\+Len,  }\item[{const char $\ast$}]{pc\+Command\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Command that gets task statistics. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em $\ast$pc\+Write\+Buffer} & Free\+RTOS CLI write buffer. \\
-\hline
-{\em x\+Write\+Buffer\+Len} & Length of write buffer. \\
-\hline
-{\em $\ast$pc\+Command\+String} & pointer to the command name. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em HAL} & status \\
-\hline
-\end{DoxyRetVals}
-\label{console_8c_a2535a42d882dfda8c7ff082f4a0d6624} 
-\index{console.c@{console.c}!prvCommandTicks@{prvCommandTicks}}
-\index{prvCommandTicks@{prvCommandTicks}!console.c@{console.c}}
-\doxysubsubsection{prvCommandTicks()}
-{\footnotesize\ttfamily static Base\+Type\+\_\+t prv\+Command\+Ticks (\begin{DoxyParamCaption}\item[{char $\ast$}]{pc\+Write\+Buffer,  }\item[{size\+\_\+t}]{x\+Write\+Buffer\+Len,  }\item[{const char $\ast$}]{pc\+Command\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Command that calculate OS ticks information. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em $\ast$pc\+Write\+Buffer} & Free\+RTOS CLI write buffer. \\
-\hline
-{\em x\+Write\+Buffer\+Len} & Length of write buffer. \\
-\hline
-{\em $\ast$pc\+Command\+String} & pointer to the command name. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em HAL} & status \\
-\hline
-\end{DoxyRetVals}
-\label{console_8c_ab5fdb52f15fc4464434ada863f62537f} 
-\index{console.c@{console.c}!prvpcMapTaskState@{prvpcMapTaskState}}
-\index{prvpcMapTaskState@{prvpcMapTaskState}!console.c@{console.c}}
-\doxysubsubsection{prvpcMapTaskState()}
-{\footnotesize\ttfamily static const char $\ast$ prvpc\+Map\+Task\+State (\begin{DoxyParamCaption}\item[{e\+Task\+State}]{e\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-This function is executed in case of error occurrence. 
-
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
-\label{console_8c_af16c4f6d612b882216c45d0694cc91f7} 
+\Hypertarget{console_8c_af16c4f6d612b882216c45d0694cc91f7}\label{console_8c_af16c4f6d612b882216c45d0694cc91f7} 
 \index{console.c@{console.c}!vConsoleEnableRxInterrupt@{vConsoleEnableRxInterrupt}}
 \index{vConsoleEnableRxInterrupt@{vConsoleEnableRxInterrupt}!console.c@{console.c}}
-\doxysubsubsection{vConsoleEnableRxInterrupt()}
+\doxysubsubsection{\texorpdfstring{vConsoleEnableRxInterrupt()}{vConsoleEnableRxInterrupt()}}
 {\footnotesize\ttfamily void v\+Console\+Enable\+Rx\+Interrupt (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
@@ -381,31 +121,11 @@ Enables UART RX reception.
 {\em void} & \\
 \hline
 \end{DoxyRetVals}
-\label{console_8c_aff9f8d3463d6951baf74fbd80d2d96d6} 
-\index{console.c@{console.c}!vConsoleWrite@{vConsoleWrite}}
-\index{vConsoleWrite@{vConsoleWrite}!console.c@{console.c}}
-\doxysubsubsection{vConsoleWrite()}
-{\footnotesize\ttfamily static HAL\+\_\+\+Status\+Type\+Def v\+Console\+Write (\begin{DoxyParamCaption}\item[{const char $\ast$}]{buff }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Write to UART TX. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em $\ast$buff} & buffer to be written. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em HAL} & status \\
-\hline
-\end{DoxyRetVals}
-\label{console_8c_a543ad7230077405e260788b3ea15c561} 
+\Hypertarget{console_8c_a543ad7230077405e260788b3ea15c561}\label{console_8c_a543ad7230077405e260788b3ea15c561} 
 \index{console.c@{console.c}!vTaskConsole@{vTaskConsole}}
 \index{vTaskConsole@{vTaskConsole}!console.c@{console.c}}
-\doxysubsubsection{vTaskConsole()}
-{\footnotesize\ttfamily void v\+Task\+Console (\begin{DoxyParamCaption}\item[{void $\ast$}]{pv\+Params }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{vTaskConsole()}{vTaskConsole()}}
+{\footnotesize\ttfamily void v\+Task\+Console (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Params }\end{DoxyParamCaption})}
 
 
 
@@ -413,7 +133,7 @@ Task to handle user commands via serial communication.
 
 
 \begin{DoxyParams}{Parameters}
-{\em $\ast$pv\+Params} & Data passed at task creation. \\
+{\em \texorpdfstring{$\ast$}{*}pv\+Params} & Data passed at task creation. \\
 \hline
 \end{DoxyParams}
 
@@ -421,11 +141,11 @@ Task to handle user commands via serial communication.
 {\em void} & \\
 \hline
 \end{DoxyRetVals}
-\label{console_8c_a7d08e7d29e2188cbc8e50ca5e6cdb909} 
-\index{console.c@{console.c}!xConsoleInit@{xConsoleInit}}
-\index{xConsoleInit@{xConsoleInit}!console.c@{console.c}}
-\doxysubsubsection{xConsoleInit()}
-{\footnotesize\ttfamily Base\+Type\+\_\+t x\+Console\+Init (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{us\+Stack\+Size,  }\item[{UBase\+Type\+\_\+t}]{ux\+Priority,  }\item[{UART\+\_\+\+Handle\+Type\+Def $\ast$}]{px\+Uart\+Handle }\end{DoxyParamCaption})}
+\Hypertarget{console_8c_a47c84c8572fe023f334d03e60e32f4b1}\label{console_8c_a47c84c8572fe023f334d03e60e32f4b1} 
+\index{console.c@{console.c}!xbspConsoleInit@{xbspConsoleInit}}
+\index{xbspConsoleInit@{xbspConsoleInit}!console.c@{console.c}}
+\doxysubsubsection{\texorpdfstring{xbspConsoleInit()}{xbspConsoleInit()}}
+{\footnotesize\ttfamily Base\+Type\+\_\+t xbsp\+Console\+Init (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{us\+Stack\+Size,  }\item[{UBase\+Type\+\_\+t}]{ux\+Priority,  }\item[{UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{px\+Uart\+Handle }\end{DoxyParamCaption})}
 
 
 
@@ -437,7 +157,7 @@ Initialize the console by registering all commands and creating a task.
 \hline
 {\em ux\+Priority} & Task console priority \\
 \hline
-{\em $\ast$px\+Uart\+Handle} & Pointer for uart handle. \\
+{\em \texorpdfstring{$\ast$}{*}px\+Uart\+Handle} & Pointer for uart handle. \\
 \hline
 \end{DoxyParams}
 
@@ -445,39 +165,3 @@ Initialize the console by registering all commands and creating a task.
 {\em Free\+RTOS} & status \\
 \hline
 \end{DoxyRetVals}
-\label{console_8c_a5e62f8156a9b4421f0b218d106b5c314} 
-\index{console.c@{console.c}!xConsoleRead@{xConsoleRead}}
-\index{xConsoleRead@{xConsoleRead}!console.c@{console.c}}
-\doxysubsubsection{xConsoleRead()}
-{\footnotesize\ttfamily static Base\+Type\+\_\+t x\+Console\+Read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{c\+Read\+Char,  }\item[{size\+\_\+t}]{x\+Len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Reads from UART RX buffer. Reads one bye at the time. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em $\ast$c\+Read\+Char} & pointer to where data will be stored. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em HAL} & status \\
-\hline
-\end{DoxyRetVals}
-
-
-\doxysubsection{Variable Documentation}
-\label{console_8c_a9bad54f294a6ea63f868848fc4520132} 
-\index{console.c@{console.c}!prvpcTaskListHeader@{prvpcTaskListHeader}}
-\index{prvpcTaskListHeader@{prvpcTaskListHeader}!console.c@{console.c}}
-\doxysubsubsection{prvpcTaskListHeader}
-{\footnotesize\ttfamily const char$\ast$ prvpc\+Task\+List\+Header\hspace{0.3cm}{\ttfamily [static]}}
-
-{\bfseries Initial value\+:}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{=\ \textcolor{stringliteral}{"{}Task\ states:\ Bl\ =\ Blocked,\ Re\ =\ Ready,\ Ru\ =\ Running,\ De\ =\ Deleted,\ \ Su\ =\ Suspended\(\backslash\)n\(\backslash\)n"{}}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Task\ name\ \ \ \ \ \ \ \ \ State\ \ Priority\ \ Stack\ remaining\ \ CPU\ usage\ \ Runtime(us)\(\backslash\)n"{}}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}=================\ =====\ \ ========\ \ ===============\ \ =========\ \ ===========\(\backslash\)n"{}}}
-
-\end{DoxyCode}

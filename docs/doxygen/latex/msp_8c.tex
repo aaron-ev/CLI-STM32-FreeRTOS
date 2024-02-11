@@ -1,5 +1,5 @@
 \doxysection{C\+:/\+Users/aaron/main/projects/cli\+\_\+free\+RTOS/workspace/cli\+Free\+RTOS/\+Core/\+Src/msp.c File Reference}
-\label{msp_8c}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/msp.c@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/msp.c}}
+\hypertarget{msp_8c}{}\label{msp_8c}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/msp.c@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/msp.c}}
 
 
 Interrupt header file\+: Holds interrupt handlers.  
@@ -8,27 +8,29 @@ Interrupt header file\+: Holds interrupt handlers.
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \textbf{ HAL\+\_\+\+Msp\+Init} (void)
+void \mbox{\hyperlink{msp_8c_ae4fb8e66865c87d0ebab74a726a6891f}{HAL\+\_\+\+Msp\+Init}} (void)
 \begin{DoxyCompactList}\small\item\em Enable peripheral clocks and set NVIC priorities. \end{DoxyCompactList}\item 
-void \textbf{ HAL\+\_\+\+UART\+\_\+\+Msp\+Init} (UART\+\_\+\+Handle\+Type\+Def $\ast$uart\+Handler)
+void \mbox{\hyperlink{msp_8c_a9506eec85d20d6b52e9858514afc880f}{HAL\+\_\+\+UART\+\_\+\+Msp\+Init}} (UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}uart\+Handler)
 \begin{DoxyCompactList}\small\item\em Low level initialization for console UART. \end{DoxyCompactList}\item 
-void \textbf{ HAL\+\_\+\+TIM\+\_\+\+OC\+\_\+\+Msp\+Init} (TIM\+\_\+\+Handle\+Type\+Def $\ast$timer\+Handler)
-\begin{DoxyCompactList}\small\item\em Low level initialization for GPIO pins assigned to PWM feature. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{msp_8c_a890e812c46e2c1998061e9298058d111}{HAL\+\_\+\+TIM\+\_\+\+OC\+\_\+\+Msp\+Init}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}timer\+Handler)
+\begin{DoxyCompactList}\small\item\em Low level initialization for GPIO pins assigned to PWM feature. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{msp_8c_a37e82e2ee9eb026588c9b94a41ef7c8c}{HAL\+\_\+\+RTC\+\_\+\+Msp\+Init}} (RTC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}rtc\+Handler)
+\begin{DoxyCompactList}\small\item\em Low level initialization for RTC. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Interrupt header file\+: Holds interrupt handlers. 
 
 \begin{DoxyAuthor}{Author}
-Aaron Escoboza, Github account\+: {\texttt{ https\+://github.\+com/aaron-\/ev}}  
+Aaron Escoboza, Github account\+: \href{https://github.com/aaron-ev}{\texttt{ https\+://github.\+com/aaron-\/ev}}  
 \end{DoxyAuthor}
 
 
 \doxysubsection{Function Documentation}
-\label{msp_8c_ae4fb8e66865c87d0ebab74a726a6891f} 
+\Hypertarget{msp_8c_ae4fb8e66865c87d0ebab74a726a6891f}\label{msp_8c_ae4fb8e66865c87d0ebab74a726a6891f} 
 \index{msp.c@{msp.c}!HAL\_MspInit@{HAL\_MspInit}}
 \index{HAL\_MspInit@{HAL\_MspInit}!msp.c@{msp.c}}
-\doxysubsubsection{HAL\_MspInit()}
+\doxysubsubsection{\texorpdfstring{HAL\_MspInit()}{HAL\_MspInit()}}
 {\footnotesize\ttfamily void HAL\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
@@ -45,19 +47,19 @@ Enable peripheral clocks and set NVIC priorities.
 {\em void} & \\
 \hline
 \end{DoxyRetVals}
-\label{msp_8c_a890e812c46e2c1998061e9298058d111} 
-\index{msp.c@{msp.c}!HAL\_TIM\_OC\_MspInit@{HAL\_TIM\_OC\_MspInit}}
-\index{HAL\_TIM\_OC\_MspInit@{HAL\_TIM\_OC\_MspInit}!msp.c@{msp.c}}
-\doxysubsubsection{HAL\_TIM\_OC\_MspInit()}
-{\footnotesize\ttfamily void HAL\+\_\+\+TIM\+\_\+\+OC\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def $\ast$}]{timer\+Handler }\end{DoxyParamCaption})}
+\Hypertarget{msp_8c_a37e82e2ee9eb026588c9b94a41ef7c8c}\label{msp_8c_a37e82e2ee9eb026588c9b94a41ef7c8c} 
+\index{msp.c@{msp.c}!HAL\_RTC\_MspInit@{HAL\_RTC\_MspInit}}
+\index{HAL\_RTC\_MspInit@{HAL\_RTC\_MspInit}!msp.c@{msp.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_RTC\_MspInit()}{HAL\_RTC\_MspInit()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+RTC\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{RTC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{rtc\+Handler }\end{DoxyParamCaption})}
 
 
 
-Low level initialization for GPIO pins assigned to PWM feature. 
+Low level initialization for RTC. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em $\ast$timer\+Handler} & Timer handler assigned to PWM feature. \\
+{\em \texorpdfstring{$\ast$}{*}rtc\+Handler} & RTC handler \\
 \hline
 \end{DoxyParams}
 
@@ -65,11 +67,31 @@ Low level initialization for GPIO pins assigned to PWM feature.
 {\em void} & \\
 \hline
 \end{DoxyRetVals}
-\label{msp_8c_a9506eec85d20d6b52e9858514afc880f} 
+\Hypertarget{msp_8c_a890e812c46e2c1998061e9298058d111}\label{msp_8c_a890e812c46e2c1998061e9298058d111} 
+\index{msp.c@{msp.c}!HAL\_TIM\_OC\_MspInit@{HAL\_TIM\_OC\_MspInit}}
+\index{HAL\_TIM\_OC\_MspInit@{HAL\_TIM\_OC\_MspInit}!msp.c@{msp.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_TIM\_OC\_MspInit()}{HAL\_TIM\_OC\_MspInit()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+TIM\+\_\+\+OC\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{timer\+Handler }\end{DoxyParamCaption})}
+
+
+
+Low level initialization for GPIO pins assigned to PWM feature. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \texorpdfstring{$\ast$}{*}timer\+Handler} & Timer handler assigned to PWM feature. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{msp_8c_a9506eec85d20d6b52e9858514afc880f}\label{msp_8c_a9506eec85d20d6b52e9858514afc880f} 
 \index{msp.c@{msp.c}!HAL\_UART\_MspInit@{HAL\_UART\_MspInit}}
 \index{HAL\_UART\_MspInit@{HAL\_UART\_MspInit}!msp.c@{msp.c}}
-\doxysubsubsection{HAL\_UART\_MspInit()}
-{\footnotesize\ttfamily void HAL\+\_\+\+UART\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{UART\+\_\+\+Handle\+Type\+Def $\ast$}]{uart\+Handler }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{HAL\_UART\_MspInit()}{HAL\_UART\_MspInit()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+UART\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{uart\+Handler }\end{DoxyParamCaption})}
 
 
 
@@ -77,7 +99,7 @@ Low level initialization for console UART.
 
 
 \begin{DoxyParams}{Parameters}
-{\em $\ast$uart\+Handler} & UART handler that would be used for the console \\
+{\em \texorpdfstring{$\ast$}{*}uart\+Handler} & UART handler that would be used for the console \\
 \hline
 \end{DoxyParams}
 

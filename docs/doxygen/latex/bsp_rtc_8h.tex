@@ -1,0 +1,87 @@
+\doxysection{C\+:/\+Users/aaron/main/projects/cli\+\_\+free\+RTOS/workspace/cli\+Free\+RTOS/\+Core/bsp/inc/bsp\+Rtc.h File Reference}
+\hypertarget{bsp_rtc_8h}{}\label{bsp_rtc_8h}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspRtc.h@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspRtc.h}}
+
+
+Header file that exposes RTC APIs.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Bsp\+Error\+\_\+e \mbox{\hyperlink{bsp_rtc_8h_a06dbd937255a5ffe14e31fbf3016dae0}{bsp\+Rtc\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialize RTC peripheral. \end{DoxyCompactList}\item 
+Bsp\+Error\+\_\+e \mbox{\hyperlink{bsp_rtc_8h_a6c66d85bacb0b885b3f8eae171656f52}{bsp\+Rtc\+Get\+Time}} (Bsp\+Rtc\+Time \texorpdfstring{$\ast$}{*}bsp\+Rtc\+Time)
+\begin{DoxyCompactList}\small\item\em Get the current time stored in RTC registers. \end{DoxyCompactList}\item 
+Bsp\+Error\+\_\+e \mbox{\hyperlink{bsp_rtc_8h_a2dc8b1003acfcb26a1259a15ce0d11f5}{bsp\+Rtc\+Set\+Time}} (Bsp\+Rtc\+Time \texorpdfstring{$\ast$}{*}bsp\+Rtc\+Time)
+\begin{DoxyCompactList}\small\item\em Set a new time to RTC registers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file that exposes RTC APIs. 
+
+\begin{DoxyAuthor}{Author}
+Aaron Escoboza, Github account\+: \href{https://github.com/aaron-ev}{\texttt{ https\+://github.\+com/aaron-\/ev}}  
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{bsp_rtc_8h_a6c66d85bacb0b885b3f8eae171656f52}\label{bsp_rtc_8h_a6c66d85bacb0b885b3f8eae171656f52} 
+\index{bspRtc.h@{bspRtc.h}!bspRtcGetTime@{bspRtcGetTime}}
+\index{bspRtcGetTime@{bspRtcGetTime}!bspRtc.h@{bspRtc.h}}
+\doxysubsubsection{\texorpdfstring{bspRtcGetTime()}{bspRtcGetTime()}}
+{\footnotesize\ttfamily Bsp\+Error\+\_\+e bsp\+Rtc\+Get\+Time (\begin{DoxyParamCaption}\item[{Bsp\+Rtc\+Time \texorpdfstring{$\ast$}{*}}]{bsp\+Rtc\+Time }\end{DoxyParamCaption})}
+
+
+
+Get the current time stored in RTC registers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bsp\+Rtc\+Time} & pointer to a RTC timer structure \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em BSP} & error \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{bsp_rtc_8h_a06dbd937255a5ffe14e31fbf3016dae0}\label{bsp_rtc_8h_a06dbd937255a5ffe14e31fbf3016dae0} 
+\index{bspRtc.h@{bspRtc.h}!bspRtcInit@{bspRtcInit}}
+\index{bspRtcInit@{bspRtcInit}!bspRtc.h@{bspRtc.h}}
+\doxysubsubsection{\texorpdfstring{bspRtcInit()}{bspRtcInit()}}
+{\footnotesize\ttfamily Bsp\+Error\+\_\+e bsp\+Rtc\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialize RTC peripheral. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em BSP} & error \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{bsp_rtc_8h_a2dc8b1003acfcb26a1259a15ce0d11f5}\label{bsp_rtc_8h_a2dc8b1003acfcb26a1259a15ce0d11f5} 
+\index{bspRtc.h@{bspRtc.h}!bspRtcSetTime@{bspRtcSetTime}}
+\index{bspRtcSetTime@{bspRtcSetTime}!bspRtc.h@{bspRtc.h}}
+\doxysubsubsection{\texorpdfstring{bspRtcSetTime()}{bspRtcSetTime()}}
+{\footnotesize\ttfamily Bsp\+Error\+\_\+e bsp\+Rtc\+Set\+Time (\begin{DoxyParamCaption}\item[{Bsp\+Rtc\+Time \texorpdfstring{$\ast$}{*}}]{bsp\+Rtc\+Time }\end{DoxyParamCaption})}
+
+
+
+Set a new time to RTC registers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bsp\+Rtc\+Time} & pointer to a RTC timer structure \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em BSP} & error \\
+\hline
+\end{DoxyRetVals}

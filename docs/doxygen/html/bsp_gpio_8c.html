@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FreeRTOS CLI + STM32 -- By Aaron Escoboza: C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTOS/Core/bsp/src/bspGpio.c File Reference</title>
+<title>FreeRTOS CLI + STM32 by Aaron Escoboza: C:/Users/aaron/main/projects/cli_freeRTOS/workspace/cliFreeRTOS/Core/bsp/src/bspGpio.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">FreeRTOS CLI + STM32 -- By Aaron Escoboza
+   <div id="projectname">FreeRTOS CLI + STM32 by Aaron Escoboza<span id="projectnumber">&#160;1.0</span>
    </div>
   </td>
  </tr>
@@ -71,7 +71,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_a5be7bbed3ff2f129951759fe96bf5d5.html">workspace</a></li><li class="navelem"><a class="el" href="dir_3145d045d801423c189319e0cef9a404.html">cliFreeRTOS</a></li><li class="navelem"><a class="el" href="dir_3b8e3f9051d8d667f23be9757bbd41fc.html">Core</a></li><li class="navelem"><a class="el" href="dir_150b0414826fa9465d558601cbca8a37.html">bsp</a></li><li class="navelem"><a class="el" href="dir_1c7721ccbd798aa8e39c0eb218ae7824.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a class="el" href="dir_d04ab94777002b6946ab6a1d2c6fe397.html">aaron</a></li><li class="navelem"><a class="el" href="dir_e350ba7631406939187043805cfb40f6.html">main</a></li><li class="navelem"><a class="el" href="dir_bb58801fe20d1f98392f9df0dcba38a4.html">projects</a></li><li class="navelem"><a class="el" href="dir_c3d90d105a8af6255a8dd3b86f929fd8.html">cli_freeRTOS</a></li><li class="navelem"><a class="el" href="dir_45fecfdcb13c2c791f59b9d584961550.html">workspace</a></li><li class="navelem"><a class="el" href="dir_624b49ceaf11f1201a9ce01724d3b1ad.html">cliFreeRTOS</a></li><li class="navelem"><a class="el" href="dir_9837add19eb55431ed045cfb51636cdf.html">Core</a></li><li class="navelem"><a class="el" href="dir_471560ef66cb0a80dd293c3ecfe409aa.html">bsp</a></li><li class="navelem"><a class="el" href="dir_cc28bd27f169f74adc4c0d63ce5449e8.html">src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -86,15 +86,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae060191d0d59c7d619aec00da08b189a" id="r_ae060191d0d59c7d619aec00da08b189a"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae060191d0d59c7d619aec00da08b189a">bspMapPinNumFromBspToHal</a> (uint16_t uGpioNumber)</td></tr>
-<tr class="memdesc:ae060191d0d59c7d619aec00da08b189a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps a number from the range 0 - 15 to STM32 pin macro value.  <br /></td></tr>
-<tr class="separator:ae060191d0d59c7d619aec00da08b189a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bad07c28f9ec403f65d935531d13b32" id="r_a9bad07c28f9ec403f65d935531d13b32"><td class="memItemLeft" align="right" valign="top">BspGpioInstance_e&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bad07c28f9ec403f65d935531d13b32">bspGpioMapInstance</a> (const char pcGpioInstance)</td></tr>
 <tr class="memdesc:a9bad07c28f9ec403f65d935531d13b32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps a letter (a, b, c, d, e , h) to a BSP GPIO instance.  <br /></td></tr>
 <tr class="separator:a9bad07c28f9ec403f65d935531d13b32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dae4c978c65eca647937416dd686357" id="r_a6dae4c978c65eca647937416dd686357"><td class="memItemLeft" align="right" valign="top">static GPIO_TypeDef *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dae4c978c65eca647937416dd686357">bspMapInstanceToHal</a> (BspGpioInstance_e eGpio)</td></tr>
-<tr class="memdesc:a6dae4c978c65eca647937416dd686357"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps from a BSP instance to HAL GPIO instance pointer.  <br /></td></tr>
-<tr class="separator:a6dae4c978c65eca647937416dd686357"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80c3edc8b245f1a1e7f244455c9849d3" id="r_a80c3edc8b245f1a1e7f244455c9849d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80c3edc8b245f1a1e7f244455c9849d3">bspGpioToggle</a> (BspGpioInstance_e eGpio, BspPinNum_e pinNum)</td></tr>
 <tr class="memdesc:a80c3edc8b245f1a1e7f244455c9849d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles a GPIO pin.  <br /></td></tr>
 <tr class="separator:a80c3edc8b245f1a1e7f244455c9849d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -248,84 +242,6 @@ Functions</h2></td></tr>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">void</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a6dae4c978c65eca647937416dd686357" name="a6dae4c978c65eca647937416dd686357"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6dae4c978c65eca647937416dd686357">&#9670;&#160;</a></span>bspMapInstanceToHal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static GPIO_TypeDef * bspMapInstanceToHal </td>
-          <td>(</td>
-          <td class="paramtype">BspGpioInstance_e</td>          <td class="paramname"><span class="paramname"><em>eGpio</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Maps from a BSP instance to HAL GPIO instance pointer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">eGpio</td><td>BSP GPIO instance. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">HAL</td><td>GPIO instance pointer. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ae060191d0d59c7d619aec00da08b189a" name="ae060191d0d59c7d619aec00da08b189a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae060191d0d59c7d619aec00da08b189a">&#9670;&#160;</a></span>bspMapPinNumFromBspToHal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static uint16_t bspMapPinNumFromBspToHal </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>uGpioNumber</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Maps a number from the range 0 - 15 to STM32 pin macro value. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">uGpioNumber</td><td>Pin number. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">STM32</td><td>HAL pin number. </td></tr>
   </table>
   </dd>
 </dl>
