@@ -1,10 +1,9 @@
-/* USER CODE BEGIN Header */
 /**
   ******************************************************************************
   * @file    stm32f4xx_hal_timebase_TIM.c
   * @brief   HAL time base based on the hardware TIM.
   ******************************************************************************
-  * @attention
+* @attention
   *
   * Copyright (c) 2024 STMicroelectronics.
   * All rights reserved.
@@ -15,19 +14,10 @@
   *
   ******************************************************************************
   */
-/* USER CODE END Header */
-
-/* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
 #include "stm32f4xx_hal_tim.h"
 
-/* Private typedef -----------------------------------------------------------*/
-/* Private define ------------------------------------------------------------*/
-/* Private macro -------------------------------------------------------------*/
-/* Private variables ---------------------------------------------------------*/
 TIM_HandleTypeDef        htim9;
-/* Private function prototypes -----------------------------------------------*/
-/* Private functions ---------------------------------------------------------*/
 
 /**
   * @brief  This function configures the TIM9 as a time base source.

@@ -2,9 +2,8 @@
 /**
  ******************************************************************************
  * @file         console.c
- * @author       Aaron Escoboza
+ * @author       Aaron Escoboza, Github account: https://github.com/aaron-ev
  * @brief        Command Line Interpreter based on FreeRTOS and STM32 HAL layer
- *               Github account: https://github.com/aaron-ev
  ******************************************************************************
  */
 
@@ -23,15 +22,15 @@
 #define MAX_OUT_STR_LEN                         600
 #define MAX_RX_QUEUE_LEN                        300
 
-                                                      /* ASCII codes          */
-#define ASCII_TAB                               '\t'  /* Tabulate             */
-#define ASCII_CR                                '\r'  /* Carriage return      */
-#define ASCII_LF                                '\n'  /* Line feed            */
-#define ASCII_BACKSPACE                         '\b'  /* Back space           */
-#define ASCII_FORM_FEED                         '\f'  /* Form feed            */
-#define ASCII_DEL                               127   /* Delete               */
-#define ASCII_CTRL_PLUS_C                         3   /* CTRL + C             */
-#define ASCII_NACK                               21   /* Negative acknowledge */
+                                                      /* ASCII code definition */
+#define ASCII_TAB                               '\t'  /* Tabulate              */
+#define ASCII_CR                                '\r'  /* Carriage return       */
+#define ASCII_LF                                '\n'  /* Line feed             */
+#define ASCII_BACKSPACE                         '\b'  /* Back space            */
+#define ASCII_FORM_FEED                         '\f'  /* Form feed             */
+#define ASCII_DEL                               127   /* Delete                */
+#define ASCII_CTRL_PLUS_C                         3   /* CTRL + C              */
+#define ASCII_NACK                               21   /* Negative acknowledge  */
 
 char cRxData;
 QueueHandle_t xQueueRxHandle;
@@ -43,6 +42,7 @@ static const char *prvpcTaskListHeader = "Task states: Bl = Blocked, Re = Ready,
                                          "================= =====  ========  ===============  =========  ===========\n";
 static const char *prvpcPrompt = "#cmd: ";
 
+/* Command function prototypes */
 static BaseType_t prvCommandPwmSetFreq(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandPwmSetDuty(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
 static BaseType_t prvCommandGpioWrite(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString);
@@ -80,7 +80,7 @@ static const CLI_Command_Definition_t xCommands[] =
     },
     {
         "gpio-w",
-        "\r\ngpio-w [gpio port] [pin number] [logical value]: Write a digital value to GPIOx pin.\r\n",
+        "\r\ngpio-w [gpio port] [pin number] [logical value]: Write a digital value to GPIO pin.\r\n",
         prvCommandGpioWrite,
         3
     },
@@ -126,12 +126,7 @@ static const CLI_Command_Definition_t xCommands[] =
         prvCommandTicks,
         0
     },
-    {
-        NULL,
-        NULL,
-        NULL,
-        0
-    }
+    { NULL, NULL, NULL, 0 }
 };
 
 /**
@@ -167,8 +162,10 @@ static BaseType_t prvCommandTaskStats( char *pcWriteBuffer, size_t xWriteBufferL
     {
         memset(pcWriteBuffer, 0x00, MAX_OUT_STR_LEN);
         /* Prevent from zero division */
-        if (uTotalRunTime == 0)
+        if (!uTotalRunTime)
+        {
             uTotalRunTime = 1;
+        }
 
         pxTmpTaskStatus = &pxTaskStatus[uTaskIndex];
         if (pxTmpTaskStatus->ulRunTimeCounter / uTotalRunTime < 1)
@@ -223,12 +220,12 @@ static BaseType_t prvCommandGpioWrite(char *pcWriteBuffer, size_t xWriteBufferLe
     BaseType_t xParamLen;
     BspPinNum_e bspPinNum;
     const char * pcGpioPinNum;
-    const char * pcGpioInstance;
     const char * pcGpioPinSate;
+    const char * pcGpioInstance;
     BspGpioPinState_e bspPinState;
     BspGpioInstance_e bspGpioInstance;
 
-    /* Get GPIO instance, pin number and new pin state specified by the user */
+    /* Get GPIO instance and map it from data type char to BSP integer value */
     pcGpioInstance = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
     bspGpioInstance = bspGpioMapInstance(*pcGpioInstance);
     if (bspGpioInstance >= BSP_MAX_GPIO_INSTANCE)
@@ -255,6 +252,7 @@ static BaseType_t prvCommandGpioWrite(char *pcWriteBuffer, size_t xWriteBufferLe
         goto out_cmd_gpio_write;
     }
 
+    /* Write the new pin state to the GPIO pin and fill FreeRTOS write buffer */
     bspGpioWrite(bspGpioInstance, bspPinNum, bspPinState);
     snprintf(pcWriteBuffer, xWriteBufferLen, "GPIO: %c, Pin: %c set to %d\n",
              *pcGpioInstance, *pcGpioPinNum, bspPinState);
@@ -280,7 +278,7 @@ static BaseType_t prvCommandGpioRead(char *pcWriteBuffer, size_t xWriteBufferLen
     BspGpioPinState_e xPinState;
     BspGpioInstance_e bspGpioInstance;
 
-    /* Get GPIO instance, pin number and new pin state specified by the user */
+    /* Get GPIO instance and map it from data type char to BSP integer value */
     pcGpioInstance = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
     bspGpioInstance = bspGpioMapInstance(*pcGpioInstance);
     if (bspGpioInstance >= BSP_MAX_GPIO_INSTANCE)
@@ -298,6 +296,7 @@ static BaseType_t prvCommandGpioRead(char *pcWriteBuffer, size_t xWriteBufferLen
         goto out_cmd_gpio_read;
     }
 
+    /* Read pin state and fill FreeRTOS write buffer */
     xPinState = bspGpioRead(bspGpioInstance, bspPinNum);
     snprintf(pcWriteBuffer, xWriteBufferLen, "GPIO: %c Pin: %c state: %d\n",
             *pcGpioInstance, *pcGpioPinNum, xPinState);
@@ -318,6 +317,7 @@ static BaseType_t prvCommandEcho( char *pcWriteBuffer, size_t xWriteBufferLen, c
     const char *pcStrToOutput;
     BaseType_t xParamLen;
 
+    /* Get the user input and write it back the FreeRTOS write buffer */
     pcStrToOutput = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
     snprintf(pcWriteBuffer, xWriteBufferLen, pcStrToOutput);
 
@@ -335,10 +335,16 @@ static BaseType_t prvCommandPwmSetFreq(char *pcWriteBuffer, size_t xWriteBufferL
 {
     const char * pcFreq;
     BaseType_t xParamLen;
+    BspError_e bspStatus;
 
     pcFreq = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
-    bspPwmSetFreq(atoi(pcFreq));
-    snprintf(pcWriteBuffer, xWriteBufferLen, "Frequency set to %dHz\n", atoi(pcFreq));
+    bspStatus = bspPwmSetFreq(atoi(pcFreq));
+    if (bspStatus == BSP_ERROR_EINVAL)
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: Invalid parameter\n");
+    else if (bspStatus == BSP_ERROR_EIO)
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: I/O error\n");
+    else
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Frequency set to %dHz\n", atoi(pcFreq));
 
     return pdFALSE;
 }
@@ -352,16 +358,22 @@ static BaseType_t prvCommandPwmSetFreq(char *pcWriteBuffer, size_t xWriteBufferL
 */
 static BaseType_t prvCommandPwmSetDuty(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString)
 {
-    const char * pcDutyCycle;
-    const char * pcChannel;
+    BspError_e bspStatus;
     BaseType_t xParamLen;
+    const char * pcChannel;
+    const char * pcDutyCycle;
 
     pcDutyCycle = FreeRTOS_CLIGetParameter(pcCommandString, 1, &xParamLen);
     pcChannel = FreeRTOS_CLIGetParameter(pcCommandString, 2, &xParamLen);
 
     /* Index starts at index 0, so 1 is subtracted from channel */
-    bspPwmSetDuty(atoi(pcDutyCycle), atoi(pcChannel) - 1);
-    snprintf(pcWriteBuffer, xWriteBufferLen, "Channel %d set to %d%% duty cycle \n", atoi(pcChannel), atoi(pcDutyCycle));
+    bspStatus = bspPwmSetDuty(atoi(pcDutyCycle), atoi(pcChannel) - 1);
+    if (bspStatus == BSP_ERROR_EINVAL)
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: Invalid parameter\n");
+    else if (bspStatus == BSP_ERROR_EIO)
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Error: I/O error\n");
+    else
+        snprintf(pcWriteBuffer, xWriteBufferLen, "Channel %d set to %d%% duty cycle \n", atoi(pcChannel), atoi(pcDutyCycle));
 
     return pdFALSE;
 }
@@ -417,8 +429,8 @@ static BaseType_t prvCommandTicks(char *pcWriteBuffer, size_t xWriteBufferLen, c
     uSec = xTickCount / configTICK_RATE_HZ;
     uMs = xTickCount % configTICK_RATE_HZ;
     snprintf(pcWriteBuffer, xWriteBufferLen,
-             "\nTick rate: %u Hz\nTicks: %u\nRun time: %u.%.3u seconds\n",
-              configTICK_RATE_HZ, xTickCount, uSec, uMs);
+             "\nTick rate: %u Hz\nTicks: %lu\nRun time: %lu.%.3lu seconds\n",
+              (unsigned)configTICK_RATE_HZ, xTickCount, uSec, uMs);
 
     return pdFALSE;
 }
@@ -481,7 +493,7 @@ void vConsoleEnableRxInterrupt(void)
 
 /**
 * @brief Task to handle user commands via serial communication.
-* @param void* Data passed at task creation.
+* @param *pvParams Data passed at task creation.
 * @retval void
 */
 void vTaskConsole(void *pvParams)
@@ -511,7 +523,7 @@ void vTaskConsole(void *pvParams)
     while(1)
     {
         /* Block until there is a new character in RX buffer */
-        xConsoleRead(&cReadCh, sizeof(cReadCh));
+        xConsoleRead((uint8_t*)(&cReadCh), sizeof(cReadCh));
 
         switch (cReadCh)
         {
@@ -530,7 +542,7 @@ void vTaskConsole(void *pvParams)
                                                 MAX_OUT_STR_LEN   /* Output buffer size */
                                             );
                         vConsoleWrite(pcOutputString);
-                    } while(xMoreDataToProcess != pdFALSE);
+                    } while (xMoreDataToProcess != pdFALSE);
                     vConsoleWrite("\n");
                 }
                 else

@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * @file    bspGpio.c
- * @author  Aaron Escoboza
+ * @author  Aaron Escoboza, Github account: https://github.com/aaron-ev
  * @brief   source file to implement functions related to GPIO operations.
  ******************************************************************************
  */

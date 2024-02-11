@@ -1,12 +1,14 @@
 /**
  ******************************************************************************
  * @file    bsp.c
- * @author  Aaron Escoboza
+ * @author  Aaron Escoboza, Github account: https://github.com/aaron-ev
+
  * @brief   source file to implement low level initializations.
  ******************************************************************************
  */
 
 #include "bsp.h"
+#include "appConfig.h"
 
 UART_HandleTypeDef consoleHandle;
 TIM_HandleTypeDef xTimStatsHandler;

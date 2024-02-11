@@ -1,3 +1,11 @@
+/**
+  ******************************************************************************
+  * @file    bspGpio.h
+  * @author  Aaron Escoboza
+  * @brief   Header file that exposes GPIO data types and GPIo APIs
+  ******************************************************************************
+*/
+
 #ifndef __BSP_GPIO_H
 #define __BSP_GPIO_H
 

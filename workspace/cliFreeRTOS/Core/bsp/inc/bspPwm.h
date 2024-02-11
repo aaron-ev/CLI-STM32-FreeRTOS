@@ -1,8 +1,17 @@
+/**
+  ******************************************************************************
+  * @file    bspPwm.h
+  * @author  Aaron Escoboza
+  * @brief   Header file that exposes PWM data types and PWM APIs
+  ******************************************************************************
+*/
+
 #ifndef __BSP_PWM_H
 #define __BSP_PWM_H
 
 #include "stdint.h"
 #include "stm32f4xx_hal.h"
+#include "bspTypeDef.h"
 
 typedef enum
 {
@@ -13,11 +22,10 @@ typedef enum
     MAX_PWM_CH,
 } pwmChannels_e;
 
-HAL_StatusTypeDef bspPwmSetFreq(uint32_t uNewFreq);
+BspError_e bspPwmInit(void);
 TIM_HandleTypeDef* bspPwmGetHandler(void);
+BspError_e bspPwmSetFreq(uint32_t uNewFreq);
 void bspPwmStart(pwmChannels_e eChannelIndex);
-HAL_StatusTypeDef bspPwmSetDuty(uint8_t uNewDuty, pwmChannels_e xChannel);
-HAL_StatusTypeDef bspPwmInit(void);
-
+BspError_e bspPwmSetDuty(uint8_t uNewDuty, pwmChannels_e xChannel);
 
 #endif

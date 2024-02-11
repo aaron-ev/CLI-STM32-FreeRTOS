@@ -1,11 +1,10 @@
-
 /**
- ******************************************************************************
- * @file    bspClk.c
- * @author  Aaron Escoboza
- * @brief   source file to implement functions related to the clock tree.
- ******************************************************************************
- */
+******************************************************************************
+* @file    bspClk.c
+* @author  Aaron Escoboza, Github account: https://github.com/aaron-ev
+* @brief   source file to implement functions related to the clock tree.
+******************************************************************************
+*/
 
 #include "bspClk.h"
 
@@ -28,12 +27,10 @@ void bspGetClockIinfo(char *pcWriteBuffer, size_t xWriteBufferLen)
 
     /* Update clock system according to register values */
     SystemCoreClockUpdate();
-
     /* Read SysClock, PCLK1 and PCLK2 */
     uSysClock = HAL_RCC_GetHCLKFreq();
     uPCLK1 = HAL_RCC_GetPCLK1Freq();
     uPCLK2 = HAL_RCC_GetPCLK2Freq();
-
     /* Calculate APB1 and APB2*/
     APB1CLKDivider = (uint32_t)(RCC->CFGR & RCC_CFGR_PPRE1);
     APB2CLKDivider = (uint32_t)(RCC->CFGR & RCC_CFGR_PPRE2);

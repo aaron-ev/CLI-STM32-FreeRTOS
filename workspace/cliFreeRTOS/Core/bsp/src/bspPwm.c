@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * @file    bspPwm.
- * @author  Aaron Escoboza
+ * @author  Aaron Escoboza, Github account: https://github.com/aaron-ev
  * @brief   source file to implement functions related to PWM signal
  *          manipulation.
  ******************************************************************************
@@ -110,23 +110,28 @@ void bspPwmStart(pwmChannels_e eChannelIndex)
 /**
 * @brief Sets a new frequency
 * @param uNewFreq Frequency to be set
-* @retval HAL status
+* @retval BSP status
 * @note 1 decimal value = 1Hz
 */
-HAL_StatusTypeDef bspPwmSetFreq(uint32_t uNewFreq)
+BspError_e bspPwmSetFreq(uint32_t uNewFreq)
 {
     int i;
     float period;
-    HAL_StatusTypeDef status;
+    HAL_StatusTypeDef halStatus;
 
     if (uNewFreq < 1)
-    {
-        return HAL_ERROR;
-    }
+        return BSP_ERROR_EINVAL;
 
+    /* Period is scaled by 1000000 because count unit is 1us */
     period = (1 / (float)uNewFreq) * 1000000;
     pwmConfigStruct.xTimHandle.Init.Period = period;
 
+    /*
+    * In order to change the frequency on run time, the sequence of steps are the following:
+    * Stop PWM channels, configure pulse value, initialize TIM unit and start PWM channels again.
+    */
+
+    /* Stop all channels and configure pulse value */
     for( i = 0; i < PWM_MAX_CHANNELS; i++)
     {
        HAL_TIM_OC_Stop_IT(&pwmConfigStruct.xTimHandle, pwmConfigStruct.uChannelXConfig[i].channel);
@@ -134,20 +139,19 @@ HAL_StatusTypeDef bspPwmSetFreq(uint32_t uNewFreq)
        HAL_TIM_PWM_ConfigChannel(&pwmConfigStruct.xTimHandle, &pwmConfigStruct.uChannelXConfig[i].xOcInit, pwmConfigStruct.uChannelXConfig[i].channel);
     }
 
-    status = HAL_TIM_OC_Init(&pwmConfigStruct.xTimHandle);
-    if (status != HAL_OK)
-    {
-        return HAL_ERROR;
-    }
+    /* Initialize TIM unit with new pulse value */
+    halStatus = HAL_TIM_OC_Init(&pwmConfigStruct.xTimHandle);
+    if (halStatus != HAL_OK)
+        return BSP_ERROR_EIO;
 
+    /* Start all PWM channels, it is always called after TIM OC initialization */
     for( i = 0; i < PWM_MAX_CHANNELS; i++)
-    {
        HAL_TIM_OC_Start_IT(&pwmConfigStruct.xTimHandle, pwmConfigStruct.uChannelXConfig[i].channel);
-    }
 
    /* Clear interrupt to not jump to the interrupt handler */
     __HAL_TIM_CLEAR_IT(&pwmConfigStruct.xTimHandle, TIM_IT_UPDATE);
-    return HAL_OK;
+
+    return BSP_NO_ERROR;
 }
 
 /**
@@ -156,14 +160,15 @@ HAL_StatusTypeDef bspPwmSetFreq(uint32_t uNewFreq)
 * @param xChannel PWM channel
 * @retval HAL status
 */
-HAL_StatusTypeDef bspPwmSetDuty(uint8_t uNewDuty, pwmChannels_e xChannel)
+BspError_e bspPwmSetDuty(uint8_t uNewDuty, pwmChannels_e xChannel)
 {
     uint8_t uChannel;
     uint32_t newAutoReloadReg;
 
     if (xChannel >= PWM_MAX_CHANNELS)
-        return HAL_ERROR;
+        return BSP_ERROR_EINVAL;
 
+    /* Update current duty cycle configuration */
     switch (xChannel)
     {
         case PWM_CH_1:
@@ -185,38 +190,39 @@ HAL_StatusTypeDef bspPwmSetDuty(uint8_t uNewDuty, pwmChannels_e xChannel)
         default:  break;
     }
 
+    /* Get auto reload value/pulse value, calculate its percentage and
+    *  set new CCR value for comparision.
+    */
     newAutoReloadReg =  (__HAL_TIM_GET_AUTORELOAD(&pwmConfigStruct.xTimHandle) * uNewDuty) / 100;
     __HAL_TIM_SET_COMPARE(&pwmConfigStruct.xTimHandle, uChannel, newAutoReloadReg);
 
-    return HAL_OK;
+    return BSP_NO_ERROR;
 }
 
 /**
 * @brief Initialize the timer init and the PWM channel.
 * @param void
-* @retval HAL status
+* @retval BSP status
 */
-HAL_StatusTypeDef bspPwmInit(void)
+BspError_e bspPwmInit(void)
 {
     int i;
     HAL_StatusTypeDef halStatus;
 
+    /* Configure Timer base unit */
     halStatus = HAL_TIM_OC_Init(&pwmConfigStruct.xTimHandle);
     if (halStatus != HAL_OK)
-    {
-        return HAL_ERROR;
-    }
+        return BSP_ERROR_EIO;
 
+    /* Configure all PWM channels based on the config structure */
      for( i = 0; i < PWM_MAX_CHANNELS; i++)
      {
         halStatus = HAL_TIM_PWM_ConfigChannel(&pwmConfigStruct.xTimHandle, &pwmConfigStruct.uChannelXConfig[i].xOcInit,
                                               pwmConfigStruct.uChannelXConfig[i].channel);
         if (halStatus != HAL_OK)
-        {
-            return HAL_ERROR;
-        }
+            return BSP_ERROR_EIO;
      }
 
     __HAL_TIM_CLEAR_IT(&pwmConfigStruct.xTimHandle, TIM_IT_UPDATE);
-    return HAL_OK;
+    return BSP_NO_ERROR;
 }
