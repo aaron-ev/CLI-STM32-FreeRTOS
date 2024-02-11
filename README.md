@@ -152,4 +152,6 @@ Run time: 2.852 seconds
 
 # API documentation with Doxygen
 
-There is documentation for every function in this project, Doxygen (documentation generator) was used to generate a PDF report [sw_docs_doxygen.pdf](/docs/sw_docs_doxygen.pdf) that can be found in docs folder.
+There is documentation for every function in this project, Doxygen (documentation generator) was used to generate a PDF report [sw_docs_doxygen.pdf](/docs/doxygen/sw_docs_doxygen.pdf) that can be found in docs folder.
+
+Doxygen also generates a HTML format that can be open from a web browser [HTML](/docs/doxygen/html/index.html).

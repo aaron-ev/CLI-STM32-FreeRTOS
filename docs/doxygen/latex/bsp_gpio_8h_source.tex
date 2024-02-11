@@ -1,0 +1,56 @@
+\doxysection{bsp\+Gpio.\+h}
+\label{bsp_gpio_8h_source}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspGpio.h@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspGpio.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ \_\_BSP\_GPIO\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ \_\_BSP\_GPIO\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}stdint.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}stm32f4xx\_hal.h"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ BSP\_GPIOA,}
+\DoxyCodeLine{00018\ \ \ \ \ BSP\_GPIOB,}
+\DoxyCodeLine{00019\ \ \ \ \ BSP\_GPIOC,}
+\DoxyCodeLine{00020\ \ \ \ \ BSP\_GPIOD,}
+\DoxyCodeLine{00021\ \ \ \ \ BSP\_GPIOE,}
+\DoxyCodeLine{00022\ \ \ \ \ BSP\_GPIOH,}
+\DoxyCodeLine{00023\ \ \ \ \ BSP\_MAX\_GPIO\_INSTANCE,}
+\DoxyCodeLine{00024\ \}BspGpioInstance\_e;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ BSP\_GPIO\_PIN\_0,}
+\DoxyCodeLine{00029\ \ \ \ \ BSP\_GPIO\_PIN\_1,}
+\DoxyCodeLine{00030\ \ \ \ \ BSP\_GPIO\_PIN\_2,}
+\DoxyCodeLine{00031\ \ \ \ \ BSP\_GPIO\_PIN\_3,}
+\DoxyCodeLine{00032\ \ \ \ \ BSP\_GPIO\_PIN\_4,}
+\DoxyCodeLine{00033\ \ \ \ \ BSP\_GPIO\_PIN\_5,}
+\DoxyCodeLine{00034\ \ \ \ \ BSP\_GPIO\_PIN\_6,}
+\DoxyCodeLine{00035\ \ \ \ \ BSP\_GPIO\_PIN\_7,}
+\DoxyCodeLine{00036\ \ \ \ \ BSP\_GPIO\_PIN\_8,}
+\DoxyCodeLine{00037\ \ \ \ \ BSP\_GPIO\_PIN\_9,}
+\DoxyCodeLine{00038\ \ \ \ \ BSP\_GPIO\_PIN\_10,}
+\DoxyCodeLine{00039\ \ \ \ \ BSP\_GPIO\_PIN\_11,}
+\DoxyCodeLine{00040\ \ \ \ \ BSP\_GPIO\_PIN\_12,}
+\DoxyCodeLine{00041\ \ \ \ \ BSP\_GPIO\_PIN\_13,}
+\DoxyCodeLine{00042\ \ \ \ \ BSP\_GPIO\_PIN\_14,}
+\DoxyCodeLine{00043\ \ \ \ \ BSP\_GPIO\_PIN\_15,}
+\DoxyCodeLine{00044\ \}BspPinNum\_e;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00047\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ BSP\_GPIO\_PIN\_LOW,}
+\DoxyCodeLine{00049\ \ \ \ \ BSP\_GPIO\_PIN\_HIGH,}
+\DoxyCodeLine{00050\ \}BspGpioPinState\_e;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ bspGpioToggle(BspGpioInstance\_e\ eGpio,\ BspPinNum\_e\ pinNum);}
+\DoxyCodeLine{00053\ BspGpioInstance\_e\ bspGpioMapInstance(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ pcGpioInstance);}
+\DoxyCodeLine{00054\ BspGpioPinState\_e\ bspGpioRead(BspGpioInstance\_e\ eGpio,\ BspPinNum\_e\ pinNum);}
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ bspGpioWrite(BspGpioInstance\_e\ eGpio,\ BspPinNum\_e\ pinNum,\ BspGpioPinState\_e\ pinState);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

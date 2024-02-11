@@ -1,0 +1,267 @@
+\begin{theindex}
+
+  \item {\_\_sbrk\_heap\_end}
+    \subitem {sysmem.c}, 53
+  \item {\_sbrk}
+    \subitem {sysmem.c}, 52
+
+  \indexspace
+
+  \item {bsp.c}
+    \subitem {bspConfigureTimForRunTimeStats}, 20
+    \subitem {bspGetTimStatsCount}, 20
+    \subitem {bspInit}, 21
+    \subitem {clkInit}, 21
+    \subitem {consoleInit}, 21
+    \subitem {heartBeatInit}, 22
+  \item {bsp.h}
+    \subitem {bspInit}, 11
+  \item {bspClk.c}
+    \subitem {bspGetClockIinfo}, 23
+  \item {bspClk.h}
+    \subitem {bspGetClockIinfo}, 12
+  \item {bspConfigureTimForRunTimeStats}
+    \subitem {bsp.c}, 20
+  \item {bspGetClockIinfo}
+    \subitem {bspClk.c}, 23
+    \subitem {bspClk.h}, 12
+  \item {bspGetTimStatsCount}
+    \subitem {bsp.c}, 20
+  \item {bspGpio.c}
+    \subitem {bspGpioMapInstance}, 24
+    \subitem {bspGpioRead}, 24
+    \subitem {bspGpioToggle}, 24
+    \subitem {bspGpioWrite}, 25
+    \subitem {bspMapInstanceToHal}, 25
+    \subitem {bspMapPinNumFromBspToHal}, 25
+  \item {bspGpio.h}
+    \subitem {bspGpioMapInstance}, 14
+    \subitem {bspGpioRead}, 14
+    \subitem {bspGpioToggle}, 14
+    \subitem {bspGpioWrite}, 15
+  \item {bspGpioMapInstance}
+    \subitem {bspGpio.c}, 24
+    \subitem {bspGpio.h}, 14
+  \item {bspGpioRead}
+    \subitem {bspGpio.c}, 24
+    \subitem {bspGpio.h}, 14
+  \item {bspGpioToggle}
+    \subitem {bspGpio.c}, 24
+    \subitem {bspGpio.h}, 14
+  \item {bspGpioWrite}
+    \subitem {bspGpio.c}, 25
+    \subitem {bspGpio.h}, 15
+  \item {bspInit}
+    \subitem {bsp.c}, 21
+    \subitem {bsp.h}, 11
+  \item {bspMapInstanceToHal}
+    \subitem {bspGpio.c}, 25
+  \item {bspMapPinNumFromBspToHal}
+    \subitem {bspGpio.c}, 25
+  \item {bspPwm.h}
+    \subitem {bspPwmGetHandler}, 17
+    \subitem {bspPwmInit}, 17
+    \subitem {bspPwmSetDuty}, 17
+    \subitem {bspPwmSetFreq}, 18
+    \subitem {bspPwmStart}, 18
+  \item {bspPwmGetHandler}
+    \subitem {bspPwm.h}, 17
+  \item {bspPwmInit}
+    \subitem {bspPwm.h}, 17
+  \item {bspPwmSetDuty}
+    \subitem {bspPwm.h}, 17
+  \item {bspPwmSetFreq}
+    \subitem {bspPwm.h}, 18
+  \item {bspPwmStart}
+    \subitem {bspPwm.h}, 18
+
+  \indexspace
+
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bsp.h}, 
+		11, 12
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspClk.h}, 
+		12, 13
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspGpio.h}, 
+		13, 15
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspPwm.h}, 
+		16, 18
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspTypeDef.h}, 
+		19
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/src/bsp.c}, 
+		19
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/src/bspClk.c}, 
+		22
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/src/bspGpio.c}, 
+		23
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Inc/appConfig.h}, 
+		26, 27
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Inc/console.h}, 
+		27, 28
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Inc/FreeRTOSConfig.h}, 
+		28
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Inc/main.h}, 
+		30
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Inc/stm32f4xx\_hal\_conf.h}, 
+		31
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Inc/stm32f4xx\_it.h}, 
+		36
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/console.c}, 
+		37
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/main.c}, 
+		44
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/msp.c}, 
+		46
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/stm32f4xx\_hal\_timebase\_tim.c}, 
+		48
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/stm32f4xx\_it.c}, 
+		50
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/syscalls.c}, 
+		51
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/sysmem.c}, 
+		52
+  \item {C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/system\_stm32f4xx.c}, 
+		53
+  \item {clkInit}
+    \subitem {bsp.c}, 21
+  \item {CMSIS}, 5
+  \item {console.c}
+    \subitem {HAL\_UART\_RxCpltCallback}, 38
+    \subitem {prvCommandClk}, 39
+    \subitem {prvCommandEcho}, 39
+    \subitem {prvCommandGpioRead}, 39
+    \subitem {prvCommandGpioWrite}, 40
+    \subitem {prvCommandHeap}, 40
+    \subitem {prvCommandPwmSetDuty}, 41
+    \subitem {prvCommandPwmSetFreq}, 41
+    \subitem {prvCommandTaskStats}, 41
+    \subitem {prvCommandTicks}, 42
+    \subitem {prvpcMapTaskState}, 42
+    \subitem {prvpcTaskListHeader}, 44
+    \subitem {vConsoleEnableRxInterrupt}, 42
+    \subitem {vConsoleWrite}, 43
+    \subitem {vTaskConsole}, 43
+    \subitem {xConsoleInit}, 43
+    \subitem {xConsoleRead}, 44
+  \item {console.h}
+    \subitem {xConsoleInit}, 27
+  \item {consoleInit}
+    \subitem {bsp.c}, 21
+
+  \indexspace
+
+  \item {Error\_Handler}
+    \subitem {main.c}, 45
+    \subitem {main.h}, 30
+
+  \indexspace
+
+  \item {HAL\_InitTick}
+    \subitem {stm32f4xx\_hal\_timebase\_tim.c}, 49
+  \item {HAL\_MspInit}
+    \subitem {msp.c}, 47
+  \item {HAL\_ResumeTick}
+    \subitem {stm32f4xx\_hal\_timebase\_tim.c}, 49
+  \item {HAL\_SuspendTick}
+    \subitem {stm32f4xx\_hal\_timebase\_tim.c}, 49
+  \item {HAL\_TIM\_OC\_MspInit}
+    \subitem {msp.c}, 47
+  \item {HAL\_TIM\_PeriodElapsedCallback}
+    \subitem {main.c}, 45
+  \item {HAL\_UART\_MspInit}
+    \subitem {msp.c}, 48
+  \item {HAL\_UART\_RxCpltCallback}
+    \subitem {console.c}, 38
+  \item {heartBeatInit}
+    \subitem {bsp.c}, 22
+  \item {HSE\_VALUE}
+    \subitem {STM32F4xx\_System\_Private\_Includes}, 6
+  \item {HSI\_VALUE}
+    \subitem {STM32F4xx\_System\_Private\_Includes}, 6
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.c}, 46
+  \item {main.c}
+    \subitem {Error\_Handler}, 45
+    \subitem {HAL\_TIM\_PeriodElapsedCallback}, 45
+    \subitem {main}, 46
+    \subitem {vTaskHeartBeat}, 46
+  \item {main.h}
+    \subitem {Error\_Handler}, 30
+  \item {msp.c}
+    \subitem {HAL\_MspInit}, 47
+    \subitem {HAL\_TIM\_OC\_MspInit}, 47
+    \subitem {HAL\_UART\_MspInit}, 48
+
+  \indexspace
+
+  \item {prvCommandClk}
+    \subitem {console.c}, 39
+  \item {prvCommandEcho}
+    \subitem {console.c}, 39
+  \item {prvCommandGpioRead}
+    \subitem {console.c}, 39
+  \item {prvCommandGpioWrite}
+    \subitem {console.c}, 40
+  \item {prvCommandHeap}
+    \subitem {console.c}, 40
+  \item {prvCommandPwmSetDuty}
+    \subitem {console.c}, 41
+  \item {prvCommandPwmSetFreq}
+    \subitem {console.c}, 41
+  \item {prvCommandTaskStats}
+    \subitem {console.c}, 41
+  \item {prvCommandTicks}
+    \subitem {console.c}, 42
+  \item {prvpcMapTaskState}
+    \subitem {console.c}, 42
+  \item {prvpcTaskListHeader}
+    \subitem {console.c}, 44
+
+  \indexspace
+
+  \item {stm32f4xx\_hal\_timebase\_tim.c}
+    \subitem {HAL\_InitTick}, 49
+    \subitem {HAL\_ResumeTick}, 49
+    \subitem {HAL\_SuspendTick}, 49
+  \item {Stm32f4xx\_system}, 5
+  \item {STM32F4xx\_System\_Private\_Defines}, 6
+  \item {STM32F4xx\_System\_Private\_FunctionPrototypes}, 6
+  \item {STM32F4xx\_System\_Private\_Functions}, 6
+    \subitem {SystemCoreClockUpdate}, 7
+    \subitem {SystemInit}, 7
+  \item {STM32F4xx\_System\_Private\_Includes}, 5
+    \subitem {HSE\_VALUE}, 6
+    \subitem {HSI\_VALUE}, 6
+  \item {STM32F4xx\_System\_Private\_Macros}, 6
+  \item {STM32F4xx\_System\_Private\_TypesDefinitions}, 6
+  \item {STM32F4xx\_System\_Private\_Variables}, 6
+  \item {sysmem.c}
+    \subitem {\_\_sbrk\_heap\_end}, 53
+    \subitem {\_sbrk}, 52
+  \item {SystemCoreClockUpdate}
+    \subitem {STM32F4xx\_System\_Private\_Functions}, 7
+  \item {SystemInit}
+    \subitem {STM32F4xx\_System\_Private\_Functions}, 7
+
+  \indexspace
+
+  \item {vConsoleEnableRxInterrupt}
+    \subitem {console.c}, 42
+  \item {vConsoleWrite}
+    \subitem {console.c}, 43
+  \item {vTaskConsole}
+    \subitem {console.c}, 43
+  \item {vTaskHeartBeat}
+    \subitem {main.c}, 46
+
+  \indexspace
+
+  \item {xConsoleInit}
+    \subitem {console.c}, 43
+    \subitem {console.h}, 27
+  \item {xConsoleRead}
+    \subitem {console.c}, 44
+
+\end{theindex}

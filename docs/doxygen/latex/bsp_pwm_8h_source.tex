@@ -1,0 +1,30 @@
+\doxysection{bsp\+Pwm.\+h}
+\label{bsp_pwm_8h_source}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspPwm.h@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspPwm.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ \_\_BSP\_PWM\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ \_\_BSP\_PWM\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}stdint.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}stm32f4xx\_hal.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}bspTypeDef.h"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ PWM\_CH\_1,}
+\DoxyCodeLine{00019\ \ \ \ \ PWM\_CH\_2,}
+\DoxyCodeLine{00020\ \ \ \ \ PWM\_CH\_3,}
+\DoxyCodeLine{00021\ \ \ \ \ PWM\_CH\_4,}
+\DoxyCodeLine{00022\ \ \ \ \ MAX\_PWM\_CH,}
+\DoxyCodeLine{00023\ \}\ pwmChannels\_e;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ BspError\_e\ bspPwmInit(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00026\ TIM\_HandleTypeDef*\ bspPwmGetHandler(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00027\ BspError\_e\ bspPwmSetFreq(uint32\_t\ uNewFreq);}
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ bspPwmStart(pwmChannels\_e\ eChannelIndex);}
+\DoxyCodeLine{00029\ BspError\_e\ bspPwmSetDuty(uint8\_t\ uNewDuty,\ pwmChannels\_e\ xChannel);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

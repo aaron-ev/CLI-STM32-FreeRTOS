@@ -1,0 +1,39 @@
+\doxysection{app\+Config.\+h}
+\label{app_config_8h_source}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Inc/appConfig.h@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Inc/appConfig.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ APP\_CONFIG\_\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ APP\_CONFIG\_\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{/*\ Enable\ debug\ messages\ */}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ DEBUG\_PRINT\_EN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ }\textcolor{comment}{/*\ 1\ =\ Enable\ ,\ 0\ =\ \ Disable\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{/*\ Task\ priorities\ */}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ HEART\_BEAT\_PRIORITY\_TASK\ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{/*\ Heart\ beat\ settings\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ HEART\_BEAT\_LED\_PORT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIOC}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ HEART\_BEAT\_LED\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_13}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ HEART\_BEAT\_BLINK\_DELAY\ \ \ \ \ \ \ \ \ \ \ \ \ \ 500\ }\textcolor{comment}{/*\ In\ ms\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{/*\ CLI\ console\ settings\ */}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ CONSOLE\_INSTANCE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ USART1}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ CONSOLE\_TX\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_6}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ CONSOLE\_RX\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_7}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ CONSOLE\_GPIO\_PORT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIOB}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ CONSOLE\_BAUDRATE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 9600}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ CONSOLE\_TASK\_PRIORITY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ CONSOLE\_STACK\_SIZE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3000}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{/*\ PWM\ signal\ settings\ */}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ PWM\_GPIO\_INSTANCE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIOA}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ PWM\_GPIO\_PINX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_0\ |\ GPIO\_PIN\_1\ |\ GPIO\_PIN\_2\ |\ GPIO\_PIN\_3}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ PWM\_GPIO\_ALTERNATE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_AF1\_TIM2}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ PWM\_TIM\_INSTANCE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TIM2}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ PWM\_TIM\_CHANNEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TIM\_CHANNEL\_1}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ PWM\_DEFAULT\_PULSE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 500}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

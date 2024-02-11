@@ -1,0 +1,162 @@
+\doxysection{C\+:/\+Users/aaron/main/projects/cli\+\_\+free\+RTOS/workspace/cli\+Free\+RTOS/\+Core/bsp/src/bsp.c File Reference}
+\label{bsp_8c}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/src/bsp.c@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/src/bsp.c}}
+
+
+source file to implement low level initializations.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Bsp\+Error\+\_\+e \textbf{ clk\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize system clocks, PLL and Clock dividers. \end{DoxyCompactList}\item 
+static void \textbf{ heart\+Beat\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize GPIO pin for heart beat functionality. \end{DoxyCompactList}\item 
+void \textbf{ bsp\+Configure\+Tim\+For\+Run\+Time\+Stats} (void)
+\begin{DoxyCompactList}\small\item\em Configure timer used for Free\+RTOS task statistics. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ bsp\+Get\+Tim\+Stats\+Count} (void)
+\begin{DoxyCompactList}\small\item\em Get current timer counter for Free\+RTOS task statistics. \end{DoxyCompactList}\item 
+Bsp\+Error\+\_\+e \textbf{ console\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize UART frame. \end{DoxyCompactList}\item 
+Bsp\+Error\+\_\+e \textbf{ bsp\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Calls all BSP init functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\label{bsp_8c_a0bf36f01ef9a381ced391d8eda46105d} 
+UART\+\_\+\+Handle\+Type\+Def {\bfseries console\+Handle}
+\item 
+\label{bsp_8c_ade788526d633882fe74f46769fd7a76d} 
+TIM\+\_\+\+Handle\+Type\+Def {\bfseries x\+Tim\+Stats\+Handler}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+source file to implement low level initializations. 
+
+\begin{DoxyAuthor}{Author}
+Aaron Escoboza, Github account\+: {\texttt{ https\+://github.\+com/aaron-\/ev}}
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\label{bsp_8c_a124161194a3c593a141ded8dfc3aede6} 
+\index{bsp.c@{bsp.c}!bspConfigureTimForRunTimeStats@{bspConfigureTimForRunTimeStats}}
+\index{bspConfigureTimForRunTimeStats@{bspConfigureTimForRunTimeStats}!bsp.c@{bsp.c}}
+\doxysubsubsection{bspConfigureTimForRunTimeStats()}
+{\footnotesize\ttfamily void bsp\+Configure\+Tim\+For\+Run\+Time\+Stats (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Configure timer used for Free\+RTOS task statistics. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+\label{bsp_8c_afd5643bf815ae57dfec38b4ab4d74aae} 
+\index{bsp.c@{bsp.c}!bspGetTimStatsCount@{bspGetTimStatsCount}}
+\index{bspGetTimStatsCount@{bspGetTimStatsCount}!bsp.c@{bsp.c}}
+\doxysubsubsection{bspGetTimStatsCount()}
+{\footnotesize\ttfamily uint32\+\_\+t bsp\+Get\+Tim\+Stats\+Count (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get current timer counter for Free\+RTOS task statistics. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+\label{bsp_8c_a7ed3e84308619ce012bf26692e16cbcf} 
+\index{bsp.c@{bsp.c}!bspInit@{bspInit}}
+\index{bspInit@{bspInit}!bsp.c@{bsp.c}}
+\doxysubsubsection{bspInit()}
+{\footnotesize\ttfamily Bsp\+Error\+\_\+e bsp\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Calls all BSP init functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Bsp\+Error\+\_\+e} & \\
+\hline
+\end{DoxyRetVals}
+\label{bsp_8c_a43bd21f2cf23cc9fdc0c418d96b229f4} 
+\index{bsp.c@{bsp.c}!clkInit@{clkInit}}
+\index{clkInit@{clkInit}!bsp.c@{bsp.c}}
+\doxysubsubsection{clkInit()}
+{\footnotesize\ttfamily static Bsp\+Error\+\_\+e clk\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialize system clocks, PLL and Clock dividers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Bsp\+Error\+\_\+e} & \\
+\hline
+\end{DoxyRetVals}
+\label{bsp_8c_a44f4d83317e8564dae26372440d5d8f2} 
+\index{bsp.c@{bsp.c}!consoleInit@{consoleInit}}
+\index{consoleInit@{consoleInit}!bsp.c@{bsp.c}}
+\doxysubsubsection{consoleInit()}
+{\footnotesize\ttfamily Bsp\+Error\+\_\+e console\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialize UART frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em BSP} & error \\
+\hline
+\end{DoxyRetVals}
+\label{bsp_8c_a8dfa1f72dc082449fed5964306895fbc} 
+\index{bsp.c@{bsp.c}!heartBeatInit@{heartBeatInit}}
+\index{heartBeatInit@{heartBeatInit}!bsp.c@{bsp.c}}
+\doxysubsubsection{heartBeatInit()}
+{\footnotesize\ttfamily static void heart\+Beat\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialize GPIO pin for heart beat functionality. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}

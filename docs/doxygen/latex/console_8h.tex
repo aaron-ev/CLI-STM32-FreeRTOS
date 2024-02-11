@@ -1,0 +1,47 @@
+\doxysection{C\+:/\+Users/aaron/main/projects/cli\+\_\+free\+RTOS/workspace/cli\+Free\+RTOS/\+Core/\+Inc/console.h File Reference}
+\label{console_8h}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Inc/console.h@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Inc/console.h}}
+
+
+Console header file\+: APIs to handle the console.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Base\+Type\+\_\+t \textbf{ x\+Console\+Init} (uint16\+\_\+t us\+Stack\+Size, UBase\+Type\+\_\+t ux\+Priority, UART\+\_\+\+Handle\+Type\+Def $\ast$px\+Uart\+Handle)
+\begin{DoxyCompactList}\small\item\em Initialize the console by registering all commands and creating a task. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Console header file\+: APIs to handle the console. 
+
+\begin{DoxyAuthor}{Author}
+Aaron Escoboza, Github account\+: {\texttt{ https\+://github.\+com/aaron-\/ev}}  
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\label{console_8h_a7d08e7d29e2188cbc8e50ca5e6cdb909} 
+\index{console.h@{console.h}!xConsoleInit@{xConsoleInit}}
+\index{xConsoleInit@{xConsoleInit}!console.h@{console.h}}
+\doxysubsubsection{xConsoleInit()}
+{\footnotesize\ttfamily Base\+Type\+\_\+t x\+Console\+Init (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{us\+Stack\+Size,  }\item[{UBase\+Type\+\_\+t}]{ux\+Priority,  }\item[{UART\+\_\+\+Handle\+Type\+Def $\ast$}]{px\+Uart\+Handle }\end{DoxyParamCaption})}
+
+
+
+Initialize the console by registering all commands and creating a task. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em us\+Stack\+Size} & Task console stack size \\
+\hline
+{\em ux\+Priority} & Task console priority \\
+\hline
+{\em $\ast$px\+Uart\+Handle} & Pointer for uart handle. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Free\+RTOS} & status \\
+\hline
+\end{DoxyRetVals}

@@ -1,0 +1,87 @@
+\doxysection{C\+:/\+Users/aaron/main/projects/cli\+\_\+free\+RTOS/workspace/cli\+Free\+RTOS/\+Core/\+Src/msp.c File Reference}
+\label{msp_8c}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/msp.c@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/Src/msp.c}}
+
+
+Interrupt header file\+: Holds interrupt handlers.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ HAL\+\_\+\+Msp\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Enable peripheral clocks and set NVIC priorities. \end{DoxyCompactList}\item 
+void \textbf{ HAL\+\_\+\+UART\+\_\+\+Msp\+Init} (UART\+\_\+\+Handle\+Type\+Def $\ast$uart\+Handler)
+\begin{DoxyCompactList}\small\item\em Low level initialization for console UART. \end{DoxyCompactList}\item 
+void \textbf{ HAL\+\_\+\+TIM\+\_\+\+OC\+\_\+\+Msp\+Init} (TIM\+\_\+\+Handle\+Type\+Def $\ast$timer\+Handler)
+\begin{DoxyCompactList}\small\item\em Low level initialization for GPIO pins assigned to PWM feature. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interrupt header file\+: Holds interrupt handlers. 
+
+\begin{DoxyAuthor}{Author}
+Aaron Escoboza, Github account\+: {\texttt{ https\+://github.\+com/aaron-\/ev}}  
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\label{msp_8c_ae4fb8e66865c87d0ebab74a726a6891f} 
+\index{msp.c@{msp.c}!HAL\_MspInit@{HAL\_MspInit}}
+\index{HAL\_MspInit@{HAL\_MspInit}!msp.c@{msp.c}}
+\doxysubsubsection{HAL\_MspInit()}
+{\footnotesize\ttfamily void HAL\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Enable peripheral clocks and set NVIC priorities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+\label{msp_8c_a890e812c46e2c1998061e9298058d111} 
+\index{msp.c@{msp.c}!HAL\_TIM\_OC\_MspInit@{HAL\_TIM\_OC\_MspInit}}
+\index{HAL\_TIM\_OC\_MspInit@{HAL\_TIM\_OC\_MspInit}!msp.c@{msp.c}}
+\doxysubsubsection{HAL\_TIM\_OC\_MspInit()}
+{\footnotesize\ttfamily void HAL\+\_\+\+TIM\+\_\+\+OC\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def $\ast$}]{timer\+Handler }\end{DoxyParamCaption})}
+
+
+
+Low level initialization for GPIO pins assigned to PWM feature. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$timer\+Handler} & Timer handler assigned to PWM feature. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+\label{msp_8c_a9506eec85d20d6b52e9858514afc880f} 
+\index{msp.c@{msp.c}!HAL\_UART\_MspInit@{HAL\_UART\_MspInit}}
+\index{HAL\_UART\_MspInit@{HAL\_UART\_MspInit}!msp.c@{msp.c}}
+\doxysubsubsection{HAL\_UART\_MspInit()}
+{\footnotesize\ttfamily void HAL\+\_\+\+UART\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{UART\+\_\+\+Handle\+Type\+Def $\ast$}]{uart\+Handler }\end{DoxyParamCaption})}
+
+
+
+Low level initialization for console UART. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$uart\+Handler} & UART handler that would be used for the console \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}

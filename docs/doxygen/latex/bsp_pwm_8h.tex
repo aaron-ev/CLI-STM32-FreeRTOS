@@ -1,0 +1,149 @@
+\doxysection{C\+:/\+Users/aaron/main/projects/cli\+\_\+free\+RTOS/workspace/cli\+Free\+RTOS/\+Core/bsp/inc/bsp\+Pwm.h File Reference}
+\label{bsp_pwm_8h}\index{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspPwm.h@{C:/Users/aaron/main/projects/cli\_freeRTOS/workspace/cliFreeRTOS/Core/bsp/inc/bspPwm.h}}
+
+
+Header file that exposes PWM data types and PWM APIs.  
+
+
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\label{bsp_pwm_8h_af817f195c616c5be092b9456395e539c} 
+enum {\bfseries pwm\+Channels\+\_\+e} \{ \newline
+{\bfseries PWM\+\_\+\+CH\+\_\+1}
+, {\bfseries PWM\+\_\+\+CH\+\_\+2}
+, {\bfseries PWM\+\_\+\+CH\+\_\+3}
+, {\bfseries PWM\+\_\+\+CH\+\_\+4}
+, \newline
+{\bfseries MAX\+\_\+\+PWM\+\_\+\+CH}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Bsp\+Error\+\_\+e \textbf{ bsp\+Pwm\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the timer init and the PWM channel. \end{DoxyCompactList}\item 
+TIM\+\_\+\+Handle\+Type\+Def $\ast$ \textbf{ bsp\+Pwm\+Get\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Gets the timer handler associated to a PWM channel. \end{DoxyCompactList}\item 
+Bsp\+Error\+\_\+e \textbf{ bsp\+Pwm\+Set\+Freq} (uint32\+\_\+t u\+New\+Freq)
+\begin{DoxyCompactList}\small\item\em Sets a new frequency. \end{DoxyCompactList}\item 
+void \textbf{ bsp\+Pwm\+Start} (pwm\+Channels\+\_\+e e\+Channel\+Index)
+\begin{DoxyCompactList}\small\item\em Starts a PWM cannel. \end{DoxyCompactList}\item 
+Bsp\+Error\+\_\+e \textbf{ bsp\+Pwm\+Set\+Duty} (uint8\+\_\+t u\+New\+Duty, pwm\+Channels\+\_\+e x\+Channel)
+\begin{DoxyCompactList}\small\item\em Sets a new duty cycle to a giving channel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file that exposes PWM data types and PWM APIs. 
+
+\begin{DoxyAuthor}{Author}
+Aaron Escoboza  
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\label{bsp_pwm_8h_ad17fc96dfb49ab1f665ee9f8989e4cbc} 
+\index{bspPwm.h@{bspPwm.h}!bspPwmGetHandler@{bspPwmGetHandler}}
+\index{bspPwmGetHandler@{bspPwmGetHandler}!bspPwm.h@{bspPwm.h}}
+\doxysubsubsection{bspPwmGetHandler()}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def $\ast$ bsp\+Pwm\+Get\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Gets the timer handler associated to a PWM channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Pointer} & to the timer handler. \\
+\hline
+\end{DoxyRetVals}
+\label{bsp_pwm_8h_ae4e7e1de9c66814e2e19a4d08eb0ed2d} 
+\index{bspPwm.h@{bspPwm.h}!bspPwmInit@{bspPwmInit}}
+\index{bspPwmInit@{bspPwmInit}!bspPwm.h@{bspPwm.h}}
+\doxysubsubsection{bspPwmInit()}
+{\footnotesize\ttfamily Bsp\+Error\+\_\+e bsp\+Pwm\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialize the timer init and the PWM channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em BSP} & status \\
+\hline
+\end{DoxyRetVals}
+\label{bsp_pwm_8h_a45b605cb34b6b47a6c5ee996a9e339de} 
+\index{bspPwm.h@{bspPwm.h}!bspPwmSetDuty@{bspPwmSetDuty}}
+\index{bspPwmSetDuty@{bspPwmSetDuty}!bspPwm.h@{bspPwm.h}}
+\doxysubsubsection{bspPwmSetDuty()}
+{\footnotesize\ttfamily Bsp\+Error\+\_\+e bsp\+Pwm\+Set\+Duty (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{u\+New\+Duty,  }\item[{pwm\+Channels\+\_\+e}]{x\+Channel }\end{DoxyParamCaption})}
+
+
+
+Sets a new duty cycle to a giving channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u\+New\+Duty} & Duty cycle to be set \\
+\hline
+{\em x\+Channel} & PWM channel \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em HAL} & status \\
+\hline
+\end{DoxyRetVals}
+\label{bsp_pwm_8h_aea1bf57d691f57fe166625f08b3b9de3} 
+\index{bspPwm.h@{bspPwm.h}!bspPwmSetFreq@{bspPwmSetFreq}}
+\index{bspPwmSetFreq@{bspPwmSetFreq}!bspPwm.h@{bspPwm.h}}
+\doxysubsubsection{bspPwmSetFreq()}
+{\footnotesize\ttfamily Bsp\+Error\+\_\+e bsp\+Pwm\+Set\+Freq (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{u\+New\+Freq }\end{DoxyParamCaption})}
+
+
+
+Sets a new frequency. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u\+New\+Freq} & Frequency to be set \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em BSP} & status \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+1 decimal value = 1Hz 
+\end{DoxyNote}
+\label{bsp_pwm_8h_af818a700ebde2f98815c2a6e66df5e53} 
+\index{bspPwm.h@{bspPwm.h}!bspPwmStart@{bspPwmStart}}
+\index{bspPwmStart@{bspPwmStart}!bspPwm.h@{bspPwm.h}}
+\doxysubsubsection{bspPwmStart()}
+{\footnotesize\ttfamily void bsp\+Pwm\+Start (\begin{DoxyParamCaption}\item[{pwm\+Channels\+\_\+e}]{e\+Channel\+Index }\end{DoxyParamCaption})}
+
+
+
+Starts a PWM cannel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e\+Channel\+Idex} & BSP channel number \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
