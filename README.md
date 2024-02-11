@@ -54,6 +54,8 @@ heap: Display free heap memory.
 clk: Display clock information.
 
 ticks: Display OS tick count and run time in seconds.
+
+version: Get console version
 ```
 
 ## GPIO read
