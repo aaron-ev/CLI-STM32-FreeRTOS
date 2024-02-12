@@ -21,7 +21,8 @@ The following output is what would you see if you open a serial port with a seri
 #cmd: Welcome to the console. Enter 'help' to view a list of available commands.
 #cmd:
 ```
-Once you are here, type any of the following commands.
+> [!TIP]
+>  Take a look at the demo in my youtube channel [FreeRTOS + CLI + STM32](https://www.youtube.com/watch?v=_CQkAB-AL-A)
 
 # Commands
 ## Help
