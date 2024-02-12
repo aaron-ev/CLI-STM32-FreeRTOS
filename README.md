@@ -1,5 +1,3 @@
-IMPORTANT: This repo is under developmcommandent and first release will be posted by end of February 2024.
-
 - [Introduction: FreeRTOS CLI + STM32](#introduction-freertos-cli--stm32)
 - [Commands](#commands)
   - [Help](#help)
